@@ -26,7 +26,7 @@
     at (1.65, 2.3) {identifiers};
 \node[draw=orange!40, fill=white, rounded corners=3pt,
       font=\scriptsize, inner sep=4pt, text width=2.2cm, align=center]
-    at (1.65, .7) {\texttt{node\_id}\\\texttt{url/ip}, \texttt{port}\\\texttt{username}};
+    at (1.65, .7) {\texttt{node\_id}, \texttt{mask}, \texttt{ecc}\\\texttt{url/ip}, \texttt{port}\\\texttt{username}};
 \node[font=\tiny, text=gray!60, align=center, text width=2.4cm]
     at (1.65, -1.0) {Publicly shared\\with any entity};
 
@@ -51,7 +51,7 @@
     at (5.9, 1.2) {$P^E_{X\,SS}$ (Shared Secrets)};
 \node[draw=teal!30, fill=white, rounded corners=3pt,
       font=\scriptsize, inner sep=4pt, text width=2.6cm, align=center]
-    at (5.9, -0.6) {\texttt{node\_key} (32\,B)\\\texttt{node\_salt}\\\texttt{HKDF} $\rightarrow$ $ShS_{AB}$};
+    at (5.9, -0.6) {PUF $\rightarrow$ $V_A$ (node)\\$V_B$ (server, pinned)\\nonce-bound proofs};
 
 % ── Non-SS auth params label ────────────────────────────────
 \node[font=\scriptsize, text=teal!60!black, align=left, text width=1.4cm]
@@ -59,6 +59,6 @@
 
 % ── Containment annotations ─────────────────────────────────
 \node[font=\tiny, text=teal!80!black, align=center, text width=5.0cm]
-    at (6.0, 0.3) {Stored in NVS never\\ transmitted};
+    at (6.0, 0.3) {$V_A$: reconstructed per boot,\\never persisted; $V_B$: pinned in NVS\\as trust anchor; neither transmitted};
 
 \end{tikzpicture}
