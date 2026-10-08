@@ -14,5 +14,5 @@ manuscript, errata), not implementation source, per the overall Materials Availa
 - `smg_puf_rot_node/c4_negative_test/` — the cross-chip NVS-cloning negative test
   (FT-06 in the paper): device and server logs, and a README describing the method and result.
 
-See `../../ERRATA.md` for the full remediation history, and the companion code repository's
-`smg_puf_rot_node/README.md` for build/flash/provisioning/reproduction instructions.
+See the companion code repository's `smg_puf_rot_node/README.md` for build/flash/
+provisioning/reproduction instructions.

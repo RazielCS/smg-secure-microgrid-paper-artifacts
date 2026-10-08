@@ -12,7 +12,6 @@ Companion implementation (ESP32 secondary-node firmware + RPi4 primary-agent sof
 |---|---|
 | `Article/` | Manuscript LaTeX source (`main.tex`, `supplementary_material.tex`, `references.bib`, `figures/`), compiled PDFs, and the expert-validation instruments: questionnaire (EN/ES), the reference document distributed to evaluators (`expert_overview`), and the Google Apps Scripts that generated the forms |
 | `case study SMG/Implementation/` | Raw bench-trial data for the PUF-based Root of Trust's real-hardware validation (see its own `README.md`) |
-| `ERRATA.md` | Remediation log documenting the pre-submission review process applied to the manuscript |
 
 ## Bench-trial data
 
