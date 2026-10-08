@@ -1,0 +1,5 @@
+Security-by-design IoT methodology spans 7 stages across 4 phases.
+Entity-centric identity model enables a dynamic Root of Trust process.
+PUF-based Root of Trust validated on hardware: 30/30 trials, no device key stored.
+Case study on a DC Smart Microgrid covers 7/10 OWASP IoT risks fully.
+A 14-expert, majority-independent panel rates the methodology 3.98/5 on average.
