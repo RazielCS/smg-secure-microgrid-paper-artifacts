@@ -7,7 +7,7 @@
 
 1. Dumped SMG_NODE_01's NVS partition (`0x9000`, 0x50000 bytes) via `esptool read_flash` (read-only; no change to SMG_NODE_01). MAC confirmed: `f0:24:f9:45:13:a8`.
 2. Backed up SMG_NODE_02's own NVS the same way before touching it. MAC confirmed: `08:d1:f9:d3:02:e8` (a genuinely different physical chip from NODE_01).
-3. Flashed the `smg_puf_rot_node` firmware onto SMG_NODE_02 (it had none previously; WiFi credentials are a compile-time firmware constant, so both nodes already shared the same value from this build), then overwrote its NVS partition with SMG_NODE_01's dump verbatim — i.e. SMG_NODE_02 now held SMG_NODE_01's `mask_A`/`ecc_A` helper data, `node_uuid`, and pinned server reference (`id_b`/`V_B`), on different silicon.
+3. Flashed the `smg_puf_rot_node` firmware onto SMG_NODE_02 (it had none previously; at the time of this test, WiFi credentials were still a compile-time firmware constant -- later moved to NVS provisioning, see the paper's Limitations -- so both nodes already shared the same value from this build), then overwrote its NVS partition with SMG_NODE_01's dump verbatim — i.e. SMG_NODE_02 now held SMG_NODE_01's `mask_A`/`ecc_A` helper data, `id_a`, and pinned server reference (`id_b`/`V_B`), on different silicon.
 4. Started `rot_challenge_service.py` on the RPi4 and reset SMG_NODE_02, capturing both the device's serial boot log and the server's log.
 5. Restored SMG_NODE_02's original NVS from the step-2 backup afterward. The raw NVS dumps themselves (containing real server verifiers) were deleted after the test, consistent with this project's secret-handling policy; only the boot/server logs are kept.
 
