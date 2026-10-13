@@ -1,0 +1,168 @@
+10:50:16 [INFO] puf_server: Loaded 1 node(s) from registry
+10:50:16 [INFO] puf_server: Server ID (id_b): 4b33ee6834e9ddd46fd9e0275062f05c
+10:50:16 [INFO] puf_server: Listening on 0.0.0.0:5001
+10:51:13 [INFO] puf_server: Incoming connection from 10.42.0.89:49394
+10:51:18 [INFO] puf_server: Incoming connection from 10.42.0.89:51658
+10:51:19 [INFO] rot_challenge_service: [('10.42.0.89', 51658)] handshake OK, node=SMG_NODE_01 authenticated
+10:51:19 [INFO] rot_challenge_service: [('10.42.0.89', 51658)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:51:23 [INFO] rot_challenge_service: [('10.42.0.89', 49394)] socket error: timed out
+10:54:33 [INFO] puf_server: Incoming connection from 10.42.0.89:58329
+10:54:37 [INFO] puf_server: Incoming connection from 10.42.0.89:56423
+10:54:38 [INFO] rot_challenge_service: [('10.42.0.89', 56423)] handshake OK, node=SMG_NODE_01 authenticated
+10:54:38 [INFO] rot_challenge_service: [('10.42.0.89', 56423)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:54:43 [INFO] rot_challenge_service: [('10.42.0.89', 58329)] socket error: timed out
+10:54:50 [INFO] puf_server: Incoming connection from 10.42.0.89:61743
+10:54:54 [INFO] puf_server: Incoming connection from 10.42.0.89:60253
+10:54:55 [INFO] rot_challenge_service: [('10.42.0.89', 60253)] handshake OK, node=SMG_NODE_01 authenticated
+10:54:55 [INFO] rot_challenge_service: [('10.42.0.89', 60253)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:55:00 [INFO] rot_challenge_service: [('10.42.0.89', 61743)] socket error: timed out
+10:55:41 [INFO] puf_server: Incoming connection from 10.42.0.89:49477
+10:55:45 [INFO] puf_server: Incoming connection from 10.42.0.89:59202
+10:55:46 [INFO] rot_challenge_service: [('10.42.0.89', 59202)] handshake OK, node=SMG_NODE_01 authenticated
+10:55:47 [INFO] rot_challenge_service: [('10.42.0.89', 59202)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:55:51 [INFO] rot_challenge_service: [('10.42.0.89', 49477)] socket error: timed out
+10:55:52 [INFO] puf_server: Incoming connection from 10.42.0.89:50628
+10:55:56 [INFO] puf_server: Incoming connection from 10.42.0.89:63730
+10:55:57 [INFO] rot_challenge_service: [('10.42.0.89', 63730)] handshake OK, node=SMG_NODE_01 authenticated
+10:55:57 [INFO] rot_challenge_service: [('10.42.0.89', 63730)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:56:02 [INFO] rot_challenge_service: [('10.42.0.89', 50628)] socket error: timed out
+10:56:02 [INFO] puf_server: Incoming connection from 10.42.0.89:50393
+10:56:07 [INFO] puf_server: Incoming connection from 10.42.0.89:61600
+10:56:08 [INFO] rot_challenge_service: [('10.42.0.89', 61600)] handshake OK, node=SMG_NODE_01 authenticated
+10:56:08 [INFO] rot_challenge_service: [('10.42.0.89', 61600)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:56:12 [INFO] rot_challenge_service: [('10.42.0.89', 50393)] socket error: timed out
+10:56:13 [INFO] puf_server: Incoming connection from 10.42.0.89:59719
+10:56:18 [INFO] puf_server: Incoming connection from 10.42.0.89:55659
+10:56:18 [INFO] rot_challenge_service: [('10.42.0.89', 55659)] handshake OK, node=SMG_NODE_01 authenticated
+10:56:19 [INFO] rot_challenge_service: [('10.42.0.89', 55659)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:56:23 [INFO] rot_challenge_service: [('10.42.0.89', 59719)] socket error: timed out
+10:56:24 [INFO] puf_server: Incoming connection from 10.42.0.89:59381
+10:56:29 [INFO] puf_server: Incoming connection from 10.42.0.89:50395
+10:56:29 [INFO] rot_challenge_service: [('10.42.0.89', 50395)] handshake OK, node=SMG_NODE_01 authenticated
+10:56:29 [INFO] rot_challenge_service: [('10.42.0.89', 50395)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:56:34 [INFO] rot_challenge_service: [('10.42.0.89', 59381)] socket error: timed out
+10:56:34 [INFO] puf_server: Incoming connection from 10.42.0.89:51508
+10:56:39 [INFO] puf_server: Incoming connection from 10.42.0.89:64813
+10:56:40 [INFO] rot_challenge_service: [('10.42.0.89', 64813)] handshake OK, node=SMG_NODE_01 authenticated
+10:56:40 [INFO] rot_challenge_service: [('10.42.0.89', 64813)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:56:44 [INFO] rot_challenge_service: [('10.42.0.89', 51508)] socket error: timed out
+10:56:45 [INFO] puf_server: Incoming connection from 10.42.0.89:61875
+10:56:49 [INFO] puf_server: Incoming connection from 10.42.0.89:57161
+10:56:50 [INFO] rot_challenge_service: [('10.42.0.89', 57161)] handshake OK, node=SMG_NODE_01 authenticated
+10:56:51 [INFO] rot_challenge_service: [('10.42.0.89', 57161)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:56:55 [INFO] rot_challenge_service: [('10.42.0.89', 61875)] socket error: timed out
+10:56:56 [INFO] puf_server: Incoming connection from 10.42.0.89:52920
+10:57:00 [INFO] puf_server: Incoming connection from 10.42.0.89:49775
+10:57:01 [INFO] rot_challenge_service: [('10.42.0.89', 49775)] handshake OK, node=SMG_NODE_01 authenticated
+10:57:01 [INFO] rot_challenge_service: [('10.42.0.89', 49775)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:57:06 [INFO] rot_challenge_service: [('10.42.0.89', 52920)] socket error: timed out
+10:57:06 [INFO] puf_server: Incoming connection from 10.42.0.89:62934
+10:57:11 [INFO] puf_server: Incoming connection from 10.42.0.89:59755
+10:57:12 [INFO] rot_challenge_service: [('10.42.0.89', 59755)] handshake OK, node=SMG_NODE_01 authenticated
+10:57:12 [INFO] rot_challenge_service: [('10.42.0.89', 59755)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:57:16 [INFO] rot_challenge_service: [('10.42.0.89', 62934)] socket error: timed out
+10:57:17 [INFO] puf_server: Incoming connection from 10.42.0.89:52164
+10:57:22 [INFO] puf_server: Incoming connection from 10.42.0.89:65238
+10:57:22 [INFO] rot_challenge_service: [('10.42.0.89', 65238)] handshake OK, node=SMG_NODE_01 authenticated
+10:57:23 [INFO] rot_challenge_service: [('10.42.0.89', 65238)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:57:27 [INFO] rot_challenge_service: [('10.42.0.89', 52164)] socket error: timed out
+10:57:28 [INFO] puf_server: Incoming connection from 10.42.0.89:53236
+10:57:33 [INFO] puf_server: Incoming connection from 10.42.0.89:57962
+10:57:33 [INFO] rot_challenge_service: [('10.42.0.89', 57962)] handshake OK, node=SMG_NODE_01 authenticated
+10:57:33 [INFO] rot_challenge_service: [('10.42.0.89', 57962)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:57:38 [INFO] rot_challenge_service: [('10.42.0.89', 53236)] socket error: timed out
+10:57:38 [INFO] puf_server: Incoming connection from 10.42.0.89:61333
+10:57:43 [INFO] puf_server: Incoming connection from 10.42.0.89:53408
+10:57:44 [INFO] rot_challenge_service: [('10.42.0.89', 53408)] handshake OK, node=SMG_NODE_01 authenticated
+10:57:44 [INFO] rot_challenge_service: [('10.42.0.89', 53408)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:57:48 [INFO] rot_challenge_service: [('10.42.0.89', 61333)] socket error: timed out
+10:57:49 [INFO] puf_server: Incoming connection from 10.42.0.89:52269
+10:57:54 [INFO] puf_server: Incoming connection from 10.42.0.89:57386
+10:57:54 [INFO] rot_challenge_service: [('10.42.0.89', 57386)] handshake OK, node=SMG_NODE_01 authenticated
+10:57:55 [INFO] rot_challenge_service: [('10.42.0.89', 57386)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:57:59 [INFO] rot_challenge_service: [('10.42.0.89', 52269)] socket error: timed out
+10:58:00 [INFO] puf_server: Incoming connection from 10.42.0.89:60078
+10:58:04 [INFO] puf_server: Incoming connection from 10.42.0.89:62443
+10:58:05 [INFO] rot_challenge_service: [('10.42.0.89', 62443)] handshake OK, node=SMG_NODE_01 authenticated
+10:58:06 [INFO] rot_challenge_service: [('10.42.0.89', 62443)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:58:10 [INFO] rot_challenge_service: [('10.42.0.89', 60078)] socket error: timed out
+10:58:11 [INFO] puf_server: Incoming connection from 10.42.0.89:55820
+10:58:15 [INFO] puf_server: Incoming connection from 10.42.0.89:62743
+10:58:16 [INFO] rot_challenge_service: [('10.42.0.89', 62743)] handshake OK, node=SMG_NODE_01 authenticated
+10:58:16 [INFO] rot_challenge_service: [('10.42.0.89', 62743)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:58:21 [INFO] rot_challenge_service: [('10.42.0.89', 55820)] socket error: timed out
+10:58:21 [INFO] puf_server: Incoming connection from 10.42.0.89:55802
+10:58:26 [INFO] puf_server: Incoming connection from 10.42.0.89:50786
+10:58:26 [INFO] rot_challenge_service: [('10.42.0.89', 50786)] handshake OK, node=SMG_NODE_01 authenticated
+10:58:27 [INFO] rot_challenge_service: [('10.42.0.89', 50786)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:58:31 [INFO] rot_challenge_service: [('10.42.0.89', 55802)] socket error: timed out
+10:58:32 [INFO] puf_server: Incoming connection from 10.42.0.89:63832
+10:58:36 [INFO] puf_server: Incoming connection from 10.42.0.89:57296
+10:58:37 [INFO] rot_challenge_service: [('10.42.0.89', 57296)] handshake OK, node=SMG_NODE_01 authenticated
+10:58:37 [INFO] rot_challenge_service: [('10.42.0.89', 57296)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:58:42 [INFO] rot_challenge_service: [('10.42.0.89', 63832)] socket error: timed out
+10:58:42 [INFO] puf_server: Incoming connection from 10.42.0.89:52486
+10:58:47 [INFO] puf_server: Incoming connection from 10.42.0.89:56669
+10:58:48 [INFO] rot_challenge_service: [('10.42.0.89', 56669)] handshake OK, node=SMG_NODE_01 authenticated
+10:58:48 [INFO] rot_challenge_service: [('10.42.0.89', 56669)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:58:52 [INFO] rot_challenge_service: [('10.42.0.89', 52486)] socket error: timed out
+10:58:53 [INFO] puf_server: Incoming connection from 10.42.0.89:58646
+10:58:57 [INFO] puf_server: Incoming connection from 10.42.0.89:63608
+10:58:58 [INFO] rot_challenge_service: [('10.42.0.89', 63608)] handshake OK, node=SMG_NODE_01 authenticated
+10:58:59 [INFO] rot_challenge_service: [('10.42.0.89', 63608)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:59:03 [INFO] rot_challenge_service: [('10.42.0.89', 58646)] socket error: timed out
+10:59:04 [INFO] puf_server: Incoming connection from 10.42.0.89:50473
+10:59:09 [INFO] puf_server: Incoming connection from 10.42.0.89:59204
+10:59:09 [INFO] rot_challenge_service: [('10.42.0.89', 59204)] handshake OK, node=SMG_NODE_01 authenticated
+10:59:09 [INFO] rot_challenge_service: [('10.42.0.89', 59204)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:59:14 [INFO] rot_challenge_service: [('10.42.0.89', 50473)] socket error: timed out
+10:59:14 [INFO] puf_server: Incoming connection from 10.42.0.89:63864
+10:59:19 [INFO] puf_server: Incoming connection from 10.42.0.89:65345
+10:59:19 [INFO] rot_challenge_service: [('10.42.0.89', 65345)] handshake OK, node=SMG_NODE_01 authenticated
+10:59:20 [INFO] rot_challenge_service: [('10.42.0.89', 65345)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:59:24 [INFO] rot_challenge_service: [('10.42.0.89', 63864)] socket error: timed out
+10:59:25 [INFO] puf_server: Incoming connection from 10.42.0.89:64220
+10:59:29 [INFO] puf_server: Incoming connection from 10.42.0.89:51894
+10:59:30 [INFO] rot_challenge_service: [('10.42.0.89', 51894)] handshake OK, node=SMG_NODE_01 authenticated
+10:59:30 [INFO] rot_challenge_service: [('10.42.0.89', 51894)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:59:35 [INFO] rot_challenge_service: [('10.42.0.89', 64220)] socket error: timed out
+10:59:35 [INFO] puf_server: Incoming connection from 10.42.0.89:63882
+10:59:41 [INFO] puf_server: Incoming connection from 10.42.0.89:49600
+10:59:41 [INFO] rot_challenge_service: [('10.42.0.89', 49600)] handshake OK, node=SMG_NODE_01 authenticated
+10:59:41 [INFO] rot_challenge_service: [('10.42.0.89', 49600)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:59:45 [INFO] rot_challenge_service: [('10.42.0.89', 63882)] socket error: timed out
+10:59:46 [INFO] puf_server: Incoming connection from 10.42.0.89:60502
+10:59:51 [INFO] puf_server: Incoming connection from 10.42.0.89:59836
+10:59:52 [INFO] rot_challenge_service: [('10.42.0.89', 59836)] handshake OK, node=SMG_NODE_01 authenticated
+10:59:52 [INFO] rot_challenge_service: [('10.42.0.89', 59836)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:59:56 [INFO] rot_challenge_service: [('10.42.0.89', 60502)] socket error: timed out
+10:59:57 [INFO] puf_server: Incoming connection from 10.42.0.89:64556
+11:00:01 [INFO] puf_server: Incoming connection from 10.42.0.89:50683
+11:00:02 [INFO] rot_challenge_service: [('10.42.0.89', 50683)] handshake OK, node=SMG_NODE_01 authenticated
+11:00:03 [INFO] rot_challenge_service: [('10.42.0.89', 50683)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+11:00:07 [INFO] rot_challenge_service: [('10.42.0.89', 64556)] socket error: timed out
+11:00:07 [INFO] puf_server: Incoming connection from 10.42.0.89:49446
+11:00:12 [INFO] puf_server: Incoming connection from 10.42.0.89:59783
+11:00:13 [INFO] rot_challenge_service: [('10.42.0.89', 59783)] handshake OK, node=SMG_NODE_01 authenticated
+11:00:13 [INFO] rot_challenge_service: [('10.42.0.89', 59783)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+11:00:17 [INFO] rot_challenge_service: [('10.42.0.89', 49446)] socket error: timed out
+11:00:18 [INFO] puf_server: Incoming connection from 10.42.0.89:61149
+11:00:22 [INFO] puf_server: Incoming connection from 10.42.0.89:62612
+11:00:23 [INFO] rot_challenge_service: [('10.42.0.89', 62612)] handshake OK, node=SMG_NODE_01 authenticated
+11:00:24 [INFO] rot_challenge_service: [('10.42.0.89', 62612)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+11:00:28 [INFO] rot_challenge_service: [('10.42.0.89', 61149)] socket error: timed out
+11:00:30 [INFO] puf_server: Incoming connection from 10.42.0.89:49258
+11:00:34 [INFO] puf_server: Incoming connection from 10.42.0.89:57614
+11:00:35 [INFO] rot_challenge_service: [('10.42.0.89', 57614)] handshake OK, node=SMG_NODE_01 authenticated
+11:00:36 [INFO] rot_challenge_service: [('10.42.0.89', 57614)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+11:00:40 [INFO] rot_challenge_service: [('10.42.0.89', 49258)] socket error: timed out
+11:00:41 [INFO] puf_server: Incoming connection from 10.42.0.89:64874
+11:00:45 [INFO] puf_server: Incoming connection from 10.42.0.89:62974
+11:00:46 [INFO] rot_challenge_service: [('10.42.0.89', 62974)] handshake OK, node=SMG_NODE_01 authenticated
+11:00:46 [INFO] rot_challenge_service: [('10.42.0.89', 62974)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+11:00:51 [INFO] rot_challenge_service: [('10.42.0.89', 64874)] socket error: timed out
+11:00:51 [INFO] puf_server: Incoming connection from 10.42.0.89:51416
+11:00:56 [INFO] puf_server: Incoming connection from 10.42.0.89:62713
+11:00:57 [INFO] rot_challenge_service: [('10.42.0.89', 62713)] handshake OK, node=SMG_NODE_01 authenticated
+11:00:57 [INFO] rot_challenge_service: [('10.42.0.89', 62713)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+11:01:01 [INFO] rot_challenge_service: [('10.42.0.89', 51416)] socket error: timed out
