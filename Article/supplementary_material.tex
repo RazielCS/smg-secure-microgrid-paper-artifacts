@@ -11,6 +11,7 @@
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[expansion=false]{microtype}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage[authoryear,round]{natbib}
 
@@ -23,7 +24,7 @@
 \renewcommand{\thetable}{S\arabic{table}}
 \setcounter{table}{0}
 
-\section*{S0. Generic Methodology Specification (Technology-Agnostic)}
+\section*{S0. Generic Methodology Specification}
 \label{app:generic}
 
 The methodology's full definitional treatment (formal identity model, Root of Trust process, STRIDE-to-stage mapping) is given in the companion conceptual paper \citep{campos2026identity}. Tables~S1--S4 below give a condensed, technology-agnostic statement of what each numbered process requires or produces in general, independent of any specific ecosystem --- so that this submission is self-contained for judging whether the SMG case study (Tables~S5--S8) actually followed the methodology's own guidance, without requiring the companion paper in hand. Process IDs match those cited throughout the main text and Tables~S5--S8.
@@ -247,7 +248,7 @@ This document provides the full parameterized specification of all four phases f
         6.2.2   & Tamper verification & NVS parameter tampering confirmed as authentication failure (single targeted negative test; full penetration testing deferred to ITER~2) \\
         7.1.1   & Monitoring (Stage~7.1.1) & Authentication status and session history (evidentiary log, no cryptographic chain, see main text Limitations), from \texttt{rot\_challenge\_service.py}'s server-side logs. Per-node real-time $V_{bus}$/$I_{bus}$/$P_{bus}$/$V_{gen}$/$I_{gen}$/$P_{gen}$/$D_{pwm}$ telemetry and heap-free monitoring are specified but not yet implemented in this firmware (no sensor module, see main text Limitations) \\
         7.1.4   & Maintenance cycles & One maintenance moment (SMG\_NODE\_01): an enrollment-state-confusion bug causing an unbounded re-enrollment loop on reconstruction retry, identified and fixed via code-level revision (M2) prior to the $N=30$ bench trial. M1 and M3 not triggered at TRL~3; SMG\_NODE\_02 maintenance-cycle evidence remains pending. \\
-        7.2.1   & Anomaly detection & Per-node trust score (float 0.0--1.0) specified: initialized 0.80 on successful P2 identification; $-0.30$ on P3 authentication-tag failure; $-0.40$ on $V_{bus}$ anomaly; UNTRUSTED ($<0.30$) $\Rightarrow$ TCP dropped; recovery requires re-auth. Implemented in the original server module set (\texttt{auth\_service.py}); not yet ported to \texttt{rot\_challenge\_service.py} (see main text Limitations) \\
+        7.2.1   & Anomaly detection & Per-node trust score (float 0.0--1.0) specified: initialized 0.80 on successful mutual authentication; $-0.30$ on authentication-tag failure; $-0.40$ on $V_{bus}$ anomaly; UNTRUSTED ($<0.30$) $\Rightarrow$ TCP dropped; recovery requires re-auth. Implemented in the original server module set's own phase numbering (\texttt{auth\_service.py}, its P3 session-establishment step, distinct from the current protocol's P2/P3); not yet ported to \texttt{rot\_challenge\_service.py} (see main text Limitations) \\
         7.2.2   & Update elements & OTA update requires admin token + firmware signature (deferred to ITER~2) \\
         7.2.3   & Incident response & Auth failures logged; $>3$ consecutive failures $\Rightarrow$ quarantine specified; same not-yet-ported status as 7.2.1 (see main text Limitations) \\
         7.2.4   & Security-aware EMS & Global fuzzy EMS (27 rules) on RPi4 specified to accept the per-node trust score from 7.2.1 as a third input alongside voltage tracking error and bus current; neither this EMS nor 7.2.1's trust scoring is implemented in the current RoT server (see main text Limitations) \\
