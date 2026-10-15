@@ -1,0 +1,35 @@
+I (345) esp_image: segment 5: paddr=0010f390 vaddr=40081398 size=176ach ( 95916) load
+I (382) esp_image: segment 6: paddr=00126a44 vaddr=400c0000 size=00094h (   148) load
+I (383) esp_image: segment 7: paddr=00126ae0 vaddr=50000000 size=00010h (    16) load
+I (398) boot: Loaded app from partition at offset 0x60000
+I (398) boot: Disabling RNG early entropy source...
+I (410) cpu_start: Multicore app
+I (419) cpu_start: Pro cpu start user code
+I (419) cpu_start: cpu freq: 160000000 Hz
+I (419) app_init: Application information:
+I (419) app_init: Project name:     smg_puf_rot_node
+I (423) app_init: App version:      1
+I (427) app_init: Compile time:     Oct 15 2026 15:23:40
+I (432) app_init: ELF file SHA256:  aeb63fe81...
+I (436) app_init: ESP-IDF:          v5.4.2
+I (440) efuse_init: Min chip rev:     v0.0
+I (444) efuse_init: Max chip rev:     v3.99
+I (448) efuse_init: Chip rev:         v3.1
+I (486) spi_flash: detected chip: generic
+I (488) spi_flash: flash io: dio
+I (504) main_task: Started on CPU0
+I (514) main_task: Calling app_main()
+PUF INIT
+I (564) app_main: PUF identity ready (enrollment data present in NVS)
+I (784) wifi_station: connecting to SSID:SMG_Primary ...
+I (3284) wifi:connected with SMG_Primary, aid = 2, channel 1, BW20, bssid = dc:a6:32:61:2d:6c
+I (3284) wifi:security: WPA2-PSK, phy: bgn, rssi: -20
+I (4324) esp_netif_handlers: sta ip: 10.42.0.169, mask: 255.255.255.0, gw: 10.42.0.1
+I (4324) wifi_station: connected
+I (4334) app_main: connected to server 10.42.0.1:5001
+get_puf_response: errors=29.831% [9775 bits] above the 0.15% diagnostic figure, proceeding anyway -- server ECDSA verification is the real correctness check
+I (4414) app_main: PUF response reconstructed (422 bytes)
+I (4874) rot_session: handshake: server authenticated
+E (5174) rot_session: handshake: device authentication rejected by server
+E (5174) app_main: Root of Trust handshake FAILED
+I (5174) main_task: Returned from app_main()

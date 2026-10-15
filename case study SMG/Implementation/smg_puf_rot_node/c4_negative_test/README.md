@@ -22,3 +22,34 @@
 The (sk_A, pk_A) key pair HKDF-derived from SMG_NODE_02's physical reconstruction of "NODE_01's" PUF response does not match the public key SMG_NODE_01 itself registered, because the PUF response is a property of the specific silicon, not of the helper data alone. The server's registered public key therefore rejects the signature. **Physically cloning a device's entire NVS onto different hardware does not allow impersonation under this scheme.**
 
 This confirms the claim in OWASP I9 (Table~`tab:owasp_b`, main paper) and the Spoofing residual-risk rating (Table~`tab:stride_a`) that forging a device's identity requires the enrolled chip's own physical PUF response, not just its stored helper data.
+
+## Re-run: 2026-10-15, after the reliability-gate fix
+
+The original run above used the library's unrelaxed raw-bit-error-rate threshold (0.15%), which
+was later found to be a non-security diagnostic rather than a pass/fail gate and relaxed
+accordingly (see the main paper's Section on RoT verifiability and Limitations, and the code
+repository's `components/esp32_puflib/README.md`). This test was repeated against the corrected
+firmware to confirm the security outcome is unchanged.
+
+**Method:** same as above (steps 1-2 reused SMG_NODE_01's NVS dump and SMG_NODE_02's own-NVS
+backup already taken for the original run), except the firmware flashed onto SMG_NODE_02 before
+the clone-and-reset was the corrected build (hamming-weight-only local gate). Repeated across 4
+separate resets of the cloned device during this validation, not just one.
+
+**Result:** under the corrected firmware, the device's local gate no longer rejects the
+measurement outright: `get_puf_response` passes the hamming-weight sanity check on the first
+attempt (no retry needed) and proceeds despite a 29.8% raw error rate, exactly as the relaxed
+gate is designed to do --- `errors=29.831% [9775 bits] above the 0.15% diagnostic figure,
+proceeding anyway`. The device then completes server authentication (again expected, since
+`V_B`/`id_b` are a direct copy) but is rejected identically to the original run:
+
+- Device log: `E (5174) rot_session: handshake: device authentication rejected by server`
+- Server log (4/4 reset attempts): `device authentication FAILED (signature invalid)
+  node=SMG_NODE_01`
+
+Relaxing the local diagnostic changed *when* the device finds out it is wrong (now locally
+accepted, previously locally rejected on the first attempt and accepted after a 29.8%-error
+retry that was never actually checked) but did not change the outcome: the server's ECDSA
+verification is, and was, the only check that actually determines whether a reconstruction is
+accepted. Raw logs: `device_log_smg_node02_with_stolen_smg_node01_nvs_20261015.txt`,
+`server_log_20261015.txt`.
