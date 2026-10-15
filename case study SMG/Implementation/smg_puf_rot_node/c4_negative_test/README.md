@@ -31,9 +31,14 @@ accordingly (see the main paper's Section on RoT verifiability and Limitations, 
 repository's `components/esp32_puflib/README.md`). This test was repeated against the corrected
 firmware to confirm the security outcome is unchanged.
 
-**Method:** same as above (steps 1-2 reused SMG_NODE_01's NVS dump and SMG_NODE_02's own-NVS
-backup already taken for the original run), except the firmware flashed onto SMG_NODE_02 before
-the clone-and-reset was the corrected build (hamming-weight-only local gate). Repeated across 4
+**Method:** same procedure as above, with fresh dumps taken for this run (the original run's
+dumps were deleted per step 5 above, consistent with this project's secret-handling policy):
+SMG_NODE_01's NVS was dumped again (its enrollment is unchanged since the original run, so the
+response length is the same 422 bytes the current bench round reports -- the 421-byte figure
+in the original run above reflects an earlier enrollment, since superseded; see the main
+paper's PUF-reliability Limitations bullet for that history), and SMG_NODE_02's own NVS was
+backed up again before being overwritten. The firmware flashed onto SMG_NODE_02 before the
+clone-and-reset was the corrected build (hamming-weight-only local gate). Repeated across 4
 separate resets of the cloned device during this validation, not just one.
 
 **Result:** under the corrected firmware, the device's local gate no longer rejects the
