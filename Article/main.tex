@@ -10,7 +10,7 @@
 %%
 %% STATUS: Draft. Case study: DC Smart Microgrid, PUF-based Root of Trust (esp32_puflib),
 %%          validated end-to-end on real hardware (SMG_NODE_01, N=30 hard-reset trials).
-%%          Expert questionnaire: N=14, headline mean 3.94/5 (3.98/5 full panel), majority-independent panel (8/14).
+%%          Expert questionnaire: N=14, headline mean 3.94/5 (3.99/5 full panel), majority-independent panel (8/14).
 %%          Companion code and artifact repositories published (see Materials Availability).
 
 \documentclass[preprint,12pt,authoryear]{elsarticle}
@@ -126,7 +126,7 @@
 \begin{abstract}
 A persistent security activation gap constrains IoT adoption: security mechanisms are widely available in commercial platforms yet remain inactive after standard deployment. We present a security-by-design methodology for centralized IoT ecosystems that treats identity as an intrinsic entity property, spans seven stages across four phases, and integrates cybersecurity throughout the development lifecycle. A dynamic Root of Trust process establishes verifiable cryptographic identity for each entity, providing the trusted foundation for authentication, access control, and secure communication.
 
-We validate the methodology through a confirmatory case study applying all seven stages to a DC Smart Microgrid (SMG): two ESP32-based secondary control nodes and a Raspberry Pi~4B primary coordination agent. Four case study questions assess guidance sufficiency, identity model unambiguity, Root of Trust verifiability, and threat coverage. All seven stages produced documented, traceable artifacts with no external guidance required; a 14-parameter identity model across four entity types was produced without ambiguity; the methodology achieves unweighted OWASP IoT Top~10 coverage of 7/10 items fully addressed and 3/10 partially addressed. The Root of Trust, which reconstructs each node's cryptographic identity from a Physically Unclonable Function response rather than a stored key and derives its session key from an ephemeral ECDH exchange for forward secrecy, was validated end-to-end on real hardware for one node across $N=30$ hard-reset trials (30/30 success, median handshake latency 1120\,ms, mean $1131 \pm 50$\,ms); validating the second node remains future work. The methodology's parameterized, technology-agnostic structure is designed to generalize across diverse IoT domains; empirical validation in additional domains remains future work.
+We validate the methodology through a confirmatory case study applying all seven stages to a DC Smart Microgrid (SMG): two ESP32-based secondary control nodes and a Raspberry Pi~4B primary coordination agent. Four case study questions assess guidance sufficiency, identity model unambiguity, Root of Trust verifiability, and threat coverage. All seven stages produced documented, traceable artifacts with no external guidance required; a 14-parameter identity model across four entity types was produced without ambiguity; the methodology achieves unweighted OWASP IoT Top~10 coverage of 7/10 items fully addressed and 3/10 partially addressed. The Root of Trust, which reconstructs each node's cryptographic identity from a Physically Unclonable Function response rather than a stored key and derives its session key from an ephemeral ECDH exchange for forward secrecy, was validated end-to-end on real hardware for one node across $N=30$ hard-reset trials (30/30 success, median handshake latency 1060\,ms, mean $1068 \pm 24$\,ms); validating the second node remains future work. The methodology's parameterized, technology-agnostic structure is designed to generalize across diverse IoT domains; empirical validation in additional domains remains future work.
 \end{abstract}
 
 \begin{keyword}
@@ -380,59 +380,75 @@ We analyze how the methodology's stages address the STRIDE (Spoofing, Tampering,
 
 Tables~\ref{tab:stride_a} and~\ref{tab:stride_b} map each STRIDE threat to the methodology stage(s) providing countermeasures, the mechanism category mandated by those stages, and the instantiation in the SMG case study. The adversary $\mathcal{A}$ is assumed to have network access, commodity computational resources, and knowledge of the system architecture (Kerckhoffs's principle); goals include unauthorized data access, service disruption, entity impersonation, and credential exfiltration.
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{
+    >{\raggedright\arraybackslash}p{2.3cm}
+    >{\raggedright\arraybackslash}p{2.3cm}
+    >{\raggedright\arraybackslash}p{2.4cm}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\centering\arraybackslash}p{1.6cm}
+}
     \caption{STRIDE threat model: mapping to methodology stages and SMG instantiation --- Part 1 (Spoofing, Tampering, Repudiation).}
-    \label{tab:stride_a}
-    \small
-    \renewcommand{\arraystretch}{1.2}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\raggedright\arraybackslash}p{2.3cm}
-        >{\raggedright\arraybackslash}p{2.3cm}
-        >{\raggedright\arraybackslash}p{2.4cm}
-        >{\raggedright\arraybackslash}p{3.0cm}
-        >{\raggedright\arraybackslash}p{3.0cm}
-        >{\centering\arraybackslash}p{1.6cm}
-    }
-        \toprule
-        \textbf{Threat} & \textbf{Attack Vector} & \textbf{Methodology Stage(s)} & \textbf{Mechanism Category} & \textbf{SMG Instantiation} & \textbf{Residual Risk} \\
-        \midrule
+    \label{tab:stride_a} \\
+    \toprule
+    \textbf{Threat} & \textbf{Attack Vector} & \textbf{Methodology Stage(s)} & \textbf{Mechanism Category} & \textbf{SMG Instantiation} & \textbf{Residual Risk} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{6}{l}{\small\textit{Table~\ref{tab:stride_a} continued from previous page}} \\
+    \toprule
+    \textbf{Threat} & \textbf{Attack Vector} & \textbf{Methodology Stage(s)} & \textbf{Mechanism Category} & \textbf{SMG Instantiation} & \textbf{Residual Risk} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{6}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         \textbf{Spoofing} & Entity impersonation; forged credentials & 2.2.2 (auth mech.), 2.2.3 (RoT), 6.1.3 (RoT execution) & Cryptographic mutual authentication using entity-specific, PUF-derived identity commitments & PUF-derived identity (\texttt{esp32\_puflib}) + asymmetric device proof/symmetric server proof; device's private key never leaves RAM; handshake before any data accepted; $N=30$ legitimate handshakes all succeeded (Section~\ref{subsec:pufbench}), but FT-06's cross-chip cloning test ($n=1$), not a successful login, is the direct impersonation-resistance evidence & Low (requires physical device compromise) \\
         \midrule
         \textbf{Tampering} & Data modification in transit; sensor reading manipulation & 2.2.4 (secure comms), 5.2.1 (secure dev.) & Authenticated encryption with integrity binding per message; random nonces & AES-256-GCM per message; random 12-byte nonce; GCM tag detects single-message modification & Low per-message (GCM tag); Medium for reordering/replay (no message-sequence chain, see Limitations) \\
         \midrule
         \textbf{Repudiation} & Denial of sent data; dispute of control commands & 2.2.2 (session audit), 3.1 (data service), 7.1 (monitoring) & Session-bound data exchange with server-side session logging & Server logs each session under \texttt{node\_id} and timestamp (Stage~7.1); evidentiary, not an independently-verifiable chain (trade-off, see Limitations) & Medium (logs can be disputed without independent cryptographic chain verification) \\
-        \bottomrule
-    \end{tabular}}
-\end{table*}
+\end{longtable}
+\endgroup
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{
+    >{\raggedright\arraybackslash}p{2.3cm}
+    >{\raggedright\arraybackslash}p{2.3cm}
+    >{\raggedright\arraybackslash}p{2.4cm}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\centering\arraybackslash}p{1.6cm}
+}
     \caption{STRIDE threat model (continued from Table~\ref{tab:stride_a}) --- Part 2 (Information Disclosure, Denial of Service, Elevation of Privilege).}
-    \label{tab:stride_b}
-    \footnotesize
-    \renewcommand{\arraystretch}{1.1}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\raggedright\arraybackslash}p{2.3cm}
-        >{\raggedright\arraybackslash}p{2.3cm}
-        >{\raggedright\arraybackslash}p{2.4cm}
-        >{\raggedright\arraybackslash}p{3.0cm}
-        >{\raggedright\arraybackslash}p{3.0cm}
-        >{\centering\arraybackslash}p{1.6cm}
-    }
-        \toprule
-        \textbf{Threat} & \textbf{Attack Vector} & \textbf{Methodology Stage(s)} & \textbf{Mechanism Category} & \textbf{SMG Instantiation} & \textbf{Residual Risk} \\
-        \midrule
+    \label{tab:stride_b} \\
+    \toprule
+    \textbf{Threat} & \textbf{Attack Vector} & \textbf{Methodology Stage(s)} & \textbf{Mechanism Category} & \textbf{SMG Instantiation} & \textbf{Residual Risk} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{6}{l}{\small\textit{Table~\ref{tab:stride_b} continued from previous page}} \\
+    \toprule
+    \textbf{Threat} & \textbf{Attack Vector} & \textbf{Methodology Stage(s)} & \textbf{Mechanism Category} & \textbf{SMG Instantiation} & \textbf{Residual Risk} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{6}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         \textbf{Information Disclosure} & Key extraction; credential exfiltration; traffic interception & 1.4.2--1.4.3 (sovereignty), 2.2.1 (identity params), 5.2.1 (secure dev.) & Data sovereignty policy; no persistent device-own secret to disclose; application-layer encryption & Node identity reconstructed at boot from the PUF, never persisted; only non-secret helper data and $V_B$ in NVS; AES-256-GCM keyed from $V_B$ plus a discarded per-session ECDH secret (forward secrecy) & Node identity: Low (server stores only $pk_A$). Server impersonation from a captured unit: Medium for live impersonation ($V_B$ alone suffices to complete a real-time handshake); Low for decrypting a recorded session, since $V_B$ alone no longer determines $Key_{ab}$ (see Limitations) \\
         \midrule
         \textbf{Denial of Service} & Authentication flooding; bus load disruption; node isolation & 7.1 (monitoring), 7.2.1 (anomaly detect.), 2.1.8 (hierarchy) & Anomaly-based trust scoring; degraded-mode operation; entity isolation policy & Trust score decay on repeated failures; UNTRUSTED nodes isolated (TCP dropped); last PWM duty maintained on timeout (original server modules; not yet ported to the RoT server, see Limitations) & Medium (physical-layer DoS outside software scope) \\
         \midrule
         \textbf{Elevation of Privilege} & Node masquerading as admin; unauthorized config access & 2.1.8 (entity hierarchy), 3.2.1 (access control), 2.2.2 (auth) & Entity hierarchy with entity type determined by identification channel, not a field inside a shared message & Nodes authenticate exclusively through the P1--P3 RoT protocol; users/administrators use a separate credential-based API; P3 data-channel access is bound to the P2 session key, so a node session cannot invoke user-/admin-scoped endpoints & Low (no message format allows claiming a different entity type) \\
-        \bottomrule
-    \end{tabular}}
-\end{table*}
+\end{longtable}
+\endgroup
 
 
 % ============================================================
@@ -529,22 +545,31 @@ This case study follows a \textbf{confirmatory design} \citep{yin2014case}: the 
 
 Tables~\ref{tab:traceability_a} and~\ref{tab:traceability_b} document the application of each methodology stage to the SMG, showing the decision made at each stage and the measurable artifact produced. This traceability table constitutes the primary evidence for CSQ1.
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.0}
+\begin{longtable}{
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\raggedright\arraybackslash}p{3.2cm}
+    >{\raggedright\arraybackslash}p{4.8cm}
+    >{\raggedright\arraybackslash}p{4.0cm}
+}
     \caption{Stage-by-stage traceability: methodology process $\rightarrow$ SMG decision $\rightarrow$ artifact --- Part 1 (Stages 1--3).}
-    \label{tab:traceability_a}
-    \small
-    \renewcommand{\arraystretch}{1.0}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\centering\arraybackslash}p{1.5cm}
-        >{\raggedright\arraybackslash}p{3.2cm}
-        >{\raggedright\arraybackslash}p{4.8cm}
-        >{\raggedright\arraybackslash}p{4.0cm}
-    }
-        \toprule
-        \textbf{Stage} & \textbf{Methodology Process} & \textbf{Decision Made in SMG} & \textbf{Artifact} \\
-        \midrule
+    \label{tab:traceability_a} \\
+    \toprule
+    \textbf{Stage} & \textbf{Methodology Process} & \textbf{Decision Made in SMG} & \textbf{Artifact} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{4}{l}{\small\textit{Table~\ref{tab:traceability_a} continued from previous page}} \\
+    \toprule
+    \textbf{Stage} & \textbf{Methodology Process} & \textbf{Decision Made in SMG} & \textbf{Artifact} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{4}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         \multirow{4}{=}{\textbf{1} Technological Paradigm}
             & 1.1 Establish problem & Manage distributed renewable energy nodes securely in a 12\,V DC microgrid & Problem specification \\
             & 1.1.2 Entities involved & 5 entity types: IoT nodes, server, users, admins, DC bus & Entity list \\
@@ -562,26 +587,34 @@ Tables~\ref{tab:traceability_a} and~\ref{tab:traceability_b} document the applic
         \multirow{2}{=}{\textbf{3} IoT Services}
             & 3.1 Service definition & 4 services specified: data ingestion, EMS coordination, auth API, monitoring; only RoT-based node authentication is currently implemented (Limitations) & Service specification \\
             & 3.2.1 Access control & Entity type determined by identification channel (Section~\ref{subsec:strideprot}), not a token field; a separate token-based admin/user API is specified but not yet ported (Limitations) & Access control matrix \\
-        \bottomrule
-    \end{tabular}}
-\end{table*}
+\end{longtable}
+\endgroup
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{0.9}
+\begin{longtable}{
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\raggedright\arraybackslash}p{3.2cm}
+    >{\raggedright\arraybackslash}p{4.8cm}
+    >{\raggedright\arraybackslash}p{4.0cm}
+}
     \caption{Stage-by-stage traceability (continued from Table~\ref{tab:traceability_a}) --- Part 2 (Stages 4--7).}
-    \label{tab:traceability_b}
-    \footnotesize
-    \renewcommand{\arraystretch}{0.9}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\centering\arraybackslash}p{1.5cm}
-        >{\raggedright\arraybackslash}p{3.2cm}
-        >{\raggedright\arraybackslash}p{4.8cm}
-        >{\raggedright\arraybackslash}p{4.0cm}
-    }
-        \toprule
-        \textbf{Stage} & \textbf{Methodology Process} & \textbf{Decision Made in SMG} & \textbf{Artifact} \\
-        \midrule
+    \label{tab:traceability_b} \\
+    \toprule
+    \textbf{Stage} & \textbf{Methodology Process} & \textbf{Decision Made in SMG} & \textbf{Artifact} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{4}{l}{\small\textit{Table~\ref{tab:traceability_b} continued from previous page}} \\
+    \toprule
+    \textbf{Stage} & \textbf{Methodology Process} & \textbf{Decision Made in SMG} & \textbf{Artifact} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{4}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         \multirow{4}{=}{\textbf{4} Tech.\ Modular Integration}
             & 4.1.1 TRL planning & TRL~3 target for ITER~1; lab.\ proof of concept & TRL milestone record \\
             & 4.1.2 Platform selection & ESP32 + C/ESP-IDF: WiFi, SHA-256 HW, NVS, \texttt{esp32\_puflib} as native component & Technology selection rationale \\
@@ -601,9 +634,8 @@ Tables~\ref{tab:traceability_a} and~\ref{tab:traceability_b} document the applic
         \multirow{2}{=}{\textbf{7} Operation \& Mgt.}
             & 7.1.1 Monitoring & Authentication status and session history from server-side logs; V/I/P/PWM telemetry is specified but not yet implemented (no sensor module, Limitations) & Dashboard artifact \\
             & 7.2.2 Update elements & OTA update policy defined with authentication requirement (ITER~2 target) & Update policy \\
-        \bottomrule
-    \end{tabular}}
-\end{table*}
+\end{longtable}
+\endgroup
 
 \subsection{Identity Parameter Definition (Stage~2.2.1)}
 
@@ -791,88 +823,113 @@ The RoT process was executed and bench-validated end-to-end on real hardware for
 
 Table~\ref{tab:pufbench} reports results from $N=30$ successive hard-reset trials against a single, fixed enrollment (the stable-bit mask and ECC helper data were generated once via \texttt{enroll\_puf()} and not regenerated between trials); each trial therefore measures per-boot reconstruction-and-handshake reliability, not enrollment-to-enrollment variability, and exercises Phases P2 and P3 of the protocol (Section~\ref{subsec:strideprot}) against the real server on every reset, without repeating P1 enrollment.
 
-\begin{table}[htbp]
-    \centering
-    \caption{PUF-based RoT real-hardware bench trial: SMG\_NODE\_01, $N=30$ successive hard-reset trials against one fixed enrollment. Attempt-1 diagnostics are from \texttt{esp32\_puflib}'s own threshold check (hamming-weight must exceed 48.5\%; raw bit-error rate, over the full 4096-byte/32768-bit RTC-SRAM region before stable-bit masking, must stay below 0.15\%). This check measures read-out stability, not agreement with any specific enrollment: FT-06 (Limitations) shows it can pass on the wrong physical chip, so a low error rate alone does not establish identity --- only the server's ECDSA verification does.}
-    \label{tab:pufbench}
-    \small
-    \renewcommand{\arraystretch}{1.1}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\raggedright\arraybackslash}p{5.0cm}
-        >{\centering\arraybackslash}p{3.0cm}
-        >{\raggedright\arraybackslash}p{5.3cm}
-    }
-        \toprule
-        \textbf{Metric} & \textbf{Value ($N=30$)} & \textbf{Notes} \\
-        \midrule
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{
+    >{\raggedright\arraybackslash}p{5.0cm}
+    >{\centering\arraybackslash}p{3.0cm}
+    >{\raggedright\arraybackslash}p{5.3cm}
+}
+    \caption{PUF-based RoT real-hardware bench trial: SMG\_NODE\_01, $N=30$ successive hard-reset trials against one fixed enrollment. \texttt{esp32\_puflib}'s own instrumentation reports two per-attempt figures: hamming-weight, a hard gate on the raw measurement (must exceed 48.5\%, a randomness sanity check unrelated to any specific enrollment), and raw bit-error rate (post-ECC-correction, over the full 32768-bit region before stable-bit masking), reported here for reference only --- it does not gate acceptance (Limitations). The server's ECDSA verification, not either local figure, is what establishes identity.}
+    \label{tab:pufbench} \\
+    \toprule
+    \textbf{Metric} & \textbf{Value ($N=30$)} & \textbf{Notes} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\small\textit{Table~\ref{tab:pufbench} continued from previous page}} \\
+    \toprule
+    \textbf{Metric} & \textbf{Value ($N=30$)} & \textbf{Notes} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         End-to-end success rate & 30/30 (100\%; 95\% Clopper--Pearson lower bound 88.4\%) & Mutual identification (P2, with ephemeral ECDH) + AES-256-GCM demo message exchange (P3), confirmed on both device and server logs; repeated trials on one device/enrollment, not independent samples (see discussion below) \\
-        Reconstruction attempts per trial & 2/2 in every trial (0/30 succeeded on attempt 1) & Perfectly bimodal across all 30 trials; see discussion below \\
-        Attempt-1 hamming-weight & $49.908 \pm 0.082$\,\% & Threshold $>48.5\,\%$; passed in all 30 attempts \\
-        Attempt-1 raw bit-error rate & $0.594 \pm 0.061$\,\% (range 0.494--0.699\,\%) & Threshold $<0.15\,\%$; over the full 32768-bit region before stable-bit masking; failed in all 30 first attempts, passed on every second attempt; rises roughly monotonically from run 1 to run 30 ($0.511\,\%\to0.661\,\%$ comparing the first and last 5 runs, $r=0.89$ across the $\sim$5-minute round), consistent with thermal drift as the chip self-heats under repeated resets, not merely enrollment-to-enrollment variation; also somewhat above the 2026-10-06 round's mean of $0.397\,\%$ (a different, 421-byte enrollment; Limitations) \\
-        Handshake latency, first exchange (connect $\rightarrow$ server authenticated) & $529.3 \pm 2.5$\,ms & Server proof over $V_B$, binds the server's ephemeral public key; no ECDSA involved \\
-        Handshake latency, second exchange (server authenticated $\rightarrow$ device authenticated) & $346.7 \pm 49.0$\,ms (median 330) & Device's ECDSA sign plus the server's verify, over the full transcript including both ephemeral keys \\
-        Handshake latency, key derivation (device authenticated $\rightarrow$ session established) & $255.0 \pm 5.0$\,ms & ECDH shared-secret computation plus final SHA-256 derivation of $Key_{ab}$ \\
-        Handshake latency, total (TCP connect $\rightarrow$ session established) & median 1120\,ms (mean $1131 \pm 50$\,ms; range 1110--1340) & 27/30 trials clustered at $1115.2 \pm 5.7$\,ms; 3 trials (runs 7, 14, 22) fell in 1230--1340\,ms, consistent with occasional server-side scheduling delay; see discussion below \\
-        WiFi association latency & $3544.0 \pm 35.3$\,ms (range 3530--3730) & ESP-IDF stack retried the first association attempt in nearly every trial; a WiFi-stack characteristic, not a RoT protocol property \\
+        Reconstruction attempts per trial & 1/1 in every trial (30/30 succeeded on attempt 1) & No retry triggered; the library's two-tier retry mechanism remains available as a fallback but was not exercised in this round (see discussion below) \\
+        Attempt-1 raw bit-error rate & $0.619 \pm 0.033$\,\% (range 0.528--0.690\,\%) & Diagnostic only (see discussion below); above the library's original 0.15\% figure in every trial, same as every prior round, yet every reconstruction was accepted on the first attempt and verified by the server \\
+        Handshake latency, first exchange (connect $\rightarrow$ server authenticated) & $542.0 \pm 6.5$\,ms & Server proof over $V_B$, binds the server's ephemeral public key; no ECDSA involved \\
+        Handshake latency, second exchange (server authenticated $\rightarrow$ device authenticated) & $302.0 \pm 22.9$\,ms (median 300) & Device's ECDSA sign plus the server's verify, over the full transcript including both ephemeral keys \\
+        Handshake latency, key derivation (device authenticated $\rightarrow$ session established) & $223.7 \pm 5.5$\,ms & ECDH shared-secret computation plus final SHA-256 derivation of $Key_{ab}$ \\
+        Handshake latency, total (TCP connect $\rightarrow$ session established) & median 1060\,ms (mean $1067.7 \pm 23.6$\,ms; range 1040--1180) & Single run (12) at 1180\,ms; otherwise tightly clustered; see discussion below \\
+        WiFi association latency & median 3540\,ms (mean $3379.7 \pm 613.3$\,ms) & 28/30 trials at $3543.6 \pm 9.3$\,ms; 2/30 (runs 23, 24) at 1080--1090\,ms, succeeding on the first association attempt instead of the usual retry; a WiFi-stack characteristic, not a RoT protocol property \\
         Device key-pair ($pk_A$) reproducibility & Consistent with a single registered value in 30/30 trials & All 30 trials authenticated against the one server-registered public key; confirmed indirectly, since the raw key material is not logged \\
-        \bottomrule
-    \end{tabular}}
-\end{table}
+\end{longtable}
+\endgroup
 
-Three findings stand out. First, the end-to-end protocol---PUF reconstruction, nonce-bound mutual identification in both directions, and AES-256-GCM data exchange---succeeded in every trial, confirming a stable identity (and key pair) despite per-attempt measurement noise. Second, the bimodal reconstruction-attempt pattern has a software-level explanation, not a circuit-level one: attempt~1 (\texttt{POWERON\_RESET}) calls \texttt{get\_puf\_response()}, which measures the SRAM after only a brief software power-domain toggle (10\,ms busy-wait, not a reset); attempt~2 (\texttt{DEEPSLEEP\_RESET}) is the library's own documented recovery call, \texttt{get\_puf\_response\_reset()}, which power-cycles the chip through a full deep sleep before retrying. These are two different, library-chosen reset depths, not independent draws from one noise process, and the deeper one consistently passes threshold here --- a property of the library's retry design, not an open SRAM-physics question. One side effect: every attempt-1 failure leaves an orphaned TCP connection the server logs as a timeout. The server log shows 33 timeouts and 33 successful handshakes in total, but only 30 of each belong to the reported trial; the other 3 timeouts and 3 handshakes are manual connectivity checks performed immediately before the scripted run and are excluded here. Third, the handshake latency splits into three phases, detailed in Table~\ref{tab:pufbench}: server authentication, the device's ECDSA sign/verify, and ECDH key derivation (the cost this fix adds). 27 of 30 trials clustered tightly at $1115.2\pm5.7$\,ms total; the other 3 (runs 7, 14, 22) fell in 1230--1340\,ms, consistent with an occasional server-side scheduling delay. The 30 trials are repeated measures on one device/enrollment, not independent samples (Limitations). Raw logs and summary are in the companion artifact repository at \texttt{case\_study\_SMG/\allowbreak Implementation/\allowbreak smg\_puf\_rot\_node/\allowbreak bench\_results\_20261013/} (Materials Availability); an earlier $N=30$ round under the pre-forward-secrecy protocol (\texttt{bench\_results\_20261005/}, mean $558.0\pm181.2$\,ms) is superseded by this one and kept in the artifact repository for provenance. All reported standard deviations in this paper are population (not sample) statistics.
+Three findings stand out, the first of which was a correction made during this validation round rather than a pre-existing design property. First, an earlier version of this round (\texttt{bench\_results\_20261015/}) exposed a local reliability gate that rejected every single reconstruction attempt (0/30 end-to-end success, all 30 trials timing out): the retry path's raw bit-error rate consistently measured 0.45--0.6\%, above the library's original 0.15\% figure, so every attempt --- first try and retry alike --- was rejected before a handshake was even attempted. On inspection, this error-rate gate turned out not to be a security boundary: \texttt{correct\_data()} already runs the measurement through an 8-bit majority-vote repetition code regardless of the error count, producing its best-effort reconstruction either way, and a wrong reconstruction simply fails the server's ECDSA verification downstream, exactly like any other incorrect answer --- the same property Table~\ref{tab:pufbench}'s caption and the Limitations already identify as the actual security boundary. The error-rate gate was therefore relaxed to a diagnostic (Limitations), keeping only the hamming-weight sanity check as a hard gate, and the round reported here (\texttt{bench\_results\_20261015\_fixed/}) was then collected under the corrected logic: 30/30 success, every trial succeeding on the first attempt, with the library's two-tier retry mechanism never triggered. Second, the end-to-end protocol---PUF reconstruction, nonce-bound mutual identification in both directions, and AES-256-GCM data exchange---succeeded in every trial, confirming a stable identity (and key pair) despite per-attempt measurement noise that now only reaches the server's cryptographic check. Third, the handshake latency splits into three phases, detailed in Table~\ref{tab:pufbench}: server authentication, the device's ECDSA sign/verify, and ECDH key derivation (the cost this fix adds); total latency is tightly clustered (median 1060\,ms, mean $1067.7\pm23.6$\,ms), faster and less variable than the pre-fix (threshold-gated) 2026-10-13 round, since no trial spends time on a rejected-then-retried attempt. The 30 trials are repeated measures on one device/enrollment, not independent samples (Limitations). Raw logs and summaries for all four bench rounds are in the companion artifact repository under \texttt{case\_study\_SMG/\allowbreak Implementation/\allowbreak smg\_puf\_rot\_node/} (Materials Availability): \texttt{bench\_results\_20261015\_fixed/} is the round reported here; \texttt{bench\_results\_20261015/} (0/30, the miscalibrated-gate round above), \texttt{bench\_results\_20261013/} (30/30, forward-secrecy added but the retry path's error-rate gate not yet enforced; mean $1131\pm50$\,ms), and \texttt{bench\_results\_20261005/} (pre-forward-secrecy protocol; mean $558.0\pm181.2$\,ms) are all superseded and kept for provenance. All reported standard deviations in this paper are population (not sample) statistics.
 
-\textbf{Answer to CSQ3:} The RoT process established verifiable mutual authentication for SMG\_NODE\_01 across $N=30$ successive hard-reset trials (30/30 end-to-end success, Table~\ref{tab:pufbench}): the device authenticated the server via a nonce-bound hash-reconstruction proof over a per-node verifier, and the server authenticated the device via an ECDSA signature verified against the device's registered public key, with neither the device's private key, the server's per-node verifier, nor the ECDH shared secret ever transmitted. Median handshake latency was 1120\,ms (mean $1131 \pm 50$\,ms), splitting across server authentication (529.3\,ms), the device's ECDSA sign/verify (346.7\,ms), and ECDH key derivation (255.0\,ms, Table~\ref{tab:pufbench}) --- this last phase is the direct cost of the forward-secrecy fix (Limitations) and did not exist in the pre-fix protocol. Validating SMG\_NODE\_02 under this scheme remains future work.
+\textbf{Answer to CSQ3:} The RoT process established verifiable mutual authentication for SMG\_NODE\_01 across $N=30$ successive hard-reset trials (30/30 end-to-end success, Table~\ref{tab:pufbench}): the device authenticated the server via a nonce-bound hash-reconstruction proof over a per-node verifier, and the server authenticated the device via an ECDSA signature verified against the device's registered public key, with neither the device's private key, the server's per-node verifier, nor the ECDH shared secret ever transmitted. Median handshake latency was 1060\,ms (mean $1067.7 \pm 23.6$\,ms), splitting across server authentication (542.0\,ms), the device's ECDSA sign/verify (302.0\,ms), and ECDH key derivation (223.7\,ms, Table~\ref{tab:pufbench}) --- this last phase is the direct cost of the forward-secrecy fix (Limitations) and did not exist in the pre-fix protocol. Validating SMG\_NODE\_02 under this scheme remains future work.
 
 \subsection{CSQ4: Threat Coverage}
 \label{subsec:csq4}
 
 Tables~\ref{tab:owasp_a} and~\ref{tab:owasp_b} map each OWASP IoT Top~10 item to the methodology stage(s) mandating the countermeasure, the protocol phase(s) that provide the implementation-level evidence (cross-referenced with the phase analysis in Section~\ref{subsec:strideprot} and Table~\ref{tab:phases_a}), and the specific SMG mechanism.
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{
+    >{\centering\arraybackslash}p{0.4cm}
+    >{\raggedright\arraybackslash}p{2cm}
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\raggedright\arraybackslash}p{5.2cm}
+    >{\centering\arraybackslash}p{1.7cm}
+}
     \caption{OWASP IoT Top~10 coverage analysis --- Part 1 (I1--I5). Stage = methodology process mandating the countermeasure. Phase(s) = protocol phase(s) providing implementation evidence (see Table~\ref{tab:phases_a}); --- = addressed by policy/deployment, not protocol.}
-    \label{tab:owasp_a}
-    \footnotesize
-    \renewcommand{\arraystretch}{1.1}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\centering\arraybackslash}p{0.4cm}
-        >{\raggedright\arraybackslash}p{2cm}
-        >{\centering\arraybackslash}p{1.5cm}
-        >{\centering\arraybackslash}p{1.5cm}
-        >{\raggedright\arraybackslash}p{5.2cm}
-        >{\centering\arraybackslash}p{1.7cm}
-    }
-        \toprule
-        \textbf{\#} & \textbf{OWASP IoT Risk} & \textbf{Stage(s)} & \textbf{Phase(s)} & \textbf{Evidence in SMG} & \textbf{Coverage} \\
-        \midrule
+    \label{tab:owasp_a} \\
+    \toprule
+    \textbf{\#} & \textbf{OWASP IoT Risk} & \textbf{Stage(s)} & \textbf{Phase(s)} & \textbf{Evidence in SMG} & \textbf{Coverage} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{6}{l}{\small\textit{Table~\ref{tab:owasp_a} continued from previous page}} \\
+    \toprule
+    \textbf{\#} & \textbf{OWASP IoT Risk} & \textbf{Stage(s)} & \textbf{Phase(s)} & \textbf{Evidence in SMG} & \textbf{Coverage} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{6}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         I1 & Weak/ hardcoded passwords & 2.2.1 & P1, P2 & No password or key is used for device identity: reconstructed at boot from a PUF using only non-secret mask/ECC helper data, never a stored password; confirmed working in 30/30 real trials (Section~\ref{subsec:pufbench}). The separate WiFi credential is provisioned into NVS out-of-band (\texttt{provision\_server\_ref.py}), not compiled into firmware source or the public binary; it remains one passphrase shared by every unit on the fleet's WPA2-PSK network, which is inherent to WPA2-PSK rather than a firmware defect (see Limitations) & Full \\
         I2 & Insecure network services & 2.2.4 & P2, P3 & P2 establishes mutual identification and a session key before any data is accepted; P3 encrypts every message with per-message random 12-byte nonce (AES-256-GCM); no plaintext channel exists & Full \\
         I3 & Insecure ecosystem interfaces & 3.2.1 & P2 & P2 nonce-bound mutual identification, both parties verified before any session key is derived; node vs.\ user/admin access separated by identification channel (STRIDE EoP, Section~\ref{subsec:strideprot}); trust scoring exists but not yet ported to the RoT server (Limitations) & Full \\
         I4 & Lack of secure update & 7.2.2 & --- & OTA update policy (Stage~7.2.2): admin authentication + firmware signature required; implementation scoped to ITER~2 (policy artifact only, no signed-OTA deployment at TRL~3) & Partial \\
         I5 & Insecure/ outdated components & 4.2 & --- & ESP-IDF v5.4.2 pinned; no deprecated crypto primitives (ECDSA/SHA-256; AES-256-GCM via \texttt{mbedtls}) & Full \\
-        \bottomrule
-    \end{tabular}}
-\end{table*}
+\end{longtable}
+\endgroup
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{0.78}
+\begin{longtable}{
+    >{\centering\arraybackslash}p{0.4cm}
+    >{\raggedright\arraybackslash}p{2.3cm}
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\raggedright\arraybackslash}p{4.1cm}
+    >{\centering\arraybackslash}p{1.3cm}
+}
     \caption{OWASP IoT Top~10 coverage analysis (continued from Table~\ref{tab:owasp_a}) --- Part 2 (I6--I10).}
-    \label{tab:owasp_b}
-    \footnotesize
-    \renewcommand{\arraystretch}{0.78}
-    \begin{tabular}{
-        >{\centering\arraybackslash}p{0.4cm}
-        >{\raggedright\arraybackslash}p{2.3cm}
-        >{\centering\arraybackslash}p{1.5cm}
-        >{\centering\arraybackslash}p{1.5cm}
-        >{\raggedright\arraybackslash}p{4.1cm}
-        >{\centering\arraybackslash}p{1.3cm}
-    }
-        \toprule
-        \textbf{\#} & \textbf{OWASP IoT Risk} & \textbf{Stage(s)} & \textbf{Phase(s)} & \textbf{Evidence in SMG} & \textbf{Coverage} \\
-        \midrule
+    \label{tab:owasp_b} \\
+    \toprule
+    \textbf{\#} & \textbf{OWASP IoT Risk} & \textbf{Stage(s)} & \textbf{Phase(s)} & \textbf{Evidence in SMG} & \textbf{Coverage} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{6}{l}{\small\textit{Table~\ref{tab:owasp_b} continued from previous page}} \\
+    \toprule
+    \textbf{\#} & \textbf{OWASP IoT Risk} & \textbf{Stage(s)} & \textbf{Phase(s)} & \textbf{Evidence in SMG} & \textbf{Coverage} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{6}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         I6 & Insufficient privacy & 1.4.3 + 2.2.4 & P3 & Data sovereignty policy (Stage~1.4.3): self-hosted RPi4; no PII; sensor data only; P3 encrypts all telemetry in transit with authenticated encryption & Full \\
         I7 & Insecure data transfer/storage & 3.1.1 + 2.2.4 & P3 & P3 provides AES-256-GCM encryption in transit, now with forward secrecy (ephemeral ECDH, Table~\ref{tab:rotpsim_b}; hardware-validated, Section~\ref{subsec:pufbench}); no device-identity secret at rest. $V_B$ and the WiFi credential are both unencrypted in flash (standard ESP32 practice; flash encryption is an ITER~2 candidate) & Full \\
         I8 & Lack of device management & 7.1 & --- & Stage~7.1 server monitors heap, send rate, and session status from server-side logs (node\_id, timestamps); without a cryptographic chain, this is an operational log rather than an independently verifiable activity audit & Partial \\
@@ -880,9 +937,8 @@ Tables~\ref{tab:owasp_a} and~\ref{tab:owasp_b} map each OWASP IoT Top~10 item to
         I10 & Lack of physical hardening & --- & --- & Out of scope for software methodology; addressed at org.\ level (Stage~1.4.1); JTAG disable and secure boot specified for TRL~5+ & Partial \\
         \midrule
         & \textbf{Coverage score (unweighted)} & & & & \textbf{7/10 full + 3/10 partial} \\
-        \bottomrule
-    \end{tabular}
-\end{table*}
+\end{longtable}
+\endgroup
 
 \textbf{Answer to CSQ4:} Unweighted OWASP IoT Top~10 coverage of 7/10 items fully addressed and 3/10 partially addressed. Six of the seven fully-covered items (I1--I3, I6--I7, I9) have direct evidence from protocol phases P1--P3; the remaining one (I5: component vetting) is addressed by Stage~4 policy artifacts. The three partial items are I4 (secure update: policy defined, signed-OTA deferred to ITER~2), I8 (device management: server-side logging without a verifiable chain, a trade-off for a smaller footprint---see Limitations), and I10 (physical hardening: outside a software methodology's scope). The coverage score is an unweighted count, not a severity-weighted metric (B12, Section~\ref{subsec:expertval}).
 
@@ -922,7 +978,7 @@ A structured questionnaire (14 Likert items, B1--B14, 5-point scale from 1 = str
         B13 & Parameterized, technology-agnostic design applies beyond energy management & 3.79 & 1.15 & 4.0 \\
         B14 & More systematic security integration than existing IoT methodologies & 4.36 & 0.72 & 4.5 \\
         \midrule
-        \multicolumn{2}{r}{\textbf{Full-panel mean (14 items, 196 responses)}} & \textbf{3.98} & 0.96 & 4.0 \\
+        \multicolumn{2}{r}{\textbf{Full-panel mean (14 items, 196 responses)}} & \textbf{3.99} & 0.96 & 4.0 \\
         \multicolumn{2}{r}{\textbf{Headline mean, excl.\ $^\dagger$ (10 items, 140 responses)}} & \textbf{3.94} & 1.02 & 4.0 \\
         \bottomrule
         \multicolumn{5}{p{12.3cm}}{\scriptsize\textit{Note ($^\dagger$ B6, B7, B9, B10): these item texts, as presented to evaluators, describe a 12-parameter identity model and a six-phase P1--P6 protocol that includes a hash-chain integrity mechanism. The current implementation (Section~\ref{subsec:pufbench}) uses a 14-parameter model, phases P1--P3, and no hash chain. The panel was not re-surveyed against the current implementation, so these four items are excluded from the headline mean reported elsewhere in this paper; the full-panel mean (including them) is reported here for completeness.}}\\
@@ -930,7 +986,7 @@ A structured questionnaire (14 Likert items, B1--B14, 5-point scale from 1 = str
     \end{tabular}
 \end{table}
 
-\textbf{Quantitative results:} excluding B6, B7, B9, B10 (superseded-design items, below), the headline mean was 3.94/5 (SD 1.02, median 4.0, 140 responses); across all 14 items, 3.98/5 (SD 0.96). Item means ranged from 3.57 (B12) and 3.71 (B1) to 4.43 (B10) and 4.36 (B3, B14); none fell below the questionnaire's neutral midpoint. B8 (dynamic RoT execution is verifiable, 4.00/5) corresponds directly to CSQ3. The independent-evaluator subset (N=8) returned a 10-item mean of 3.88/5 (14-item: 3.89/5), modestly below the affiliated subset's 4.02/5 (14-item: 4.11/5); this mild affiliation skew is mitigated by the panel's majority-independent composition.
+\textbf{Quantitative results:} excluding B6, B7, B9, B10 (superseded-design items, below), the headline mean was 3.94/5 (SD 1.02, median 4.0, 140 responses); across all 14 items, 3.99/5 (SD 0.96). Item means ranged from 3.57 (B12) and 3.71 (B1) to 4.43 (B10) and 4.36 (B3, B14); none fell below the questionnaire's neutral midpoint. B8 (dynamic RoT execution is verifiable, 4.00/5) corresponds directly to CSQ3. The independent-evaluator subset (N=8) returned a 10-item mean of 3.88/5 (14-item: 3.89/5), modestly below the affiliated subset's 4.02/5 (14-item: 4.11/5); this mild affiliation skew is mitigated by the panel's majority-independent composition.
 
 \textbf{Qualitative findings that qualify the results:} B12 (OWASP coverage sufficiency) returned the lowest item mean (3.57/5): two evaluators noted the 9/10 OWASP score (as presented) is an unweighted count, not severity-weighted, and does not establish that I10 (physical hardening) is the least critical omission; subsequent reclassification of I4 and I8 to partial yields the revised 7/10 full + 3/10 partial reported in CSQ4 (Section~\ref{subsec:csq4}). B1 (structure sufficiency) returned the second-lowest mean (3.71/5): three evaluators scored it 2/5, noting the methodology specifies \emph{what} each stage must produce but not \emph{how}---per-artifact templates or acceptance criteria would close this gap, echoed by several open-question (C3) responses. One evaluator qualified B6, noting the parameter count is an artifact of the SMG's four entity types rather than a fixed model limit (14 parameters, Table~\ref{tab:identity}), with generalization to other entity types untested. Two evaluators gave B13 (cross-domain generalizability) dissenting scores (2/5, 1/5), treating it as an unvalidated hypothesis (reflected in External Validity and Limitations below). One evaluator questioned whether same-team case-study evidence is sufficient without an independently-managed development team; the SMG implementation was carried out by multiple co-authors in distinct roles (Author Contributions), which partially addresses this. Two evaluators outside cybersecurity specifically (software-engineering methodology and general IoT systems) noted several protocol/threat-model items fell outside their expertise; their ratings are retained but should be weighted accordingly. The panel's majority-independent composition and subset means are reported above; the residual affiliation skew, convenience-sampling constraint, and preliminary-data caveat are acknowledged as limitations below.
 
@@ -946,7 +1002,7 @@ This work addresses two barriers to secure IoT ecosystem development: the securi
 
 \textbf{CSQ2 --- Identity model:} The formal separation of identity into $P_{pub}$, $P_{priv}$, and $P_{auth}$ subsets yielded a technology-agnostic security specification that translated directly to ESP32 NVS storage for the PUF helper data and to an HKDF-derived ECDSA key pair for the private, non-persistent PUF response; \texttt{id\_a}'s translation remains incomplete at TRL~3 (a compile-time placeholder rather than a provisioned per-device value, see Limitations). The 14-parameter model produced zero ambiguity across 4 entity types, confirming the model's expressiveness for heterogeneous IoT ecosystems, including resource-constrained devices.
 
-\textbf{CSQ3 --- Root of Trust verifiability:} The P2+P3 mutual authentication handshake, including the ephemeral-ECDH forward-secrecy fix, completed in a median 1120\,ms (mean $1131 \pm 50$\,ms, split across server authentication, ECDSA sign/verify, and ECDH key derivation, Section~\ref{subsec:pufbench}) across $N=30$ real hard-reset trials on SMG\_NODE\_01, with 30/30 trials succeeding end-to-end (Table~\ref{tab:pufbench}). The single P3 demo message sent after each handshake was delivered and decrypted successfully in all 30 trials, and the device's derived key pair authenticated correctly against the server's registered public key in every trial, confirming a stable identity despite per-attempt PUF measurement noise.
+\textbf{CSQ3 --- Root of Trust verifiability:} The P2+P3 mutual authentication handshake, including the ephemeral-ECDH forward-secrecy fix, completed in a median 1060\,ms (mean $1068 \pm 24$\,ms, split across server authentication, ECDSA sign/verify, and ECDH key derivation, Section~\ref{subsec:pufbench}) across $N=30$ real hard-reset trials on SMG\_NODE\_01, with 30/30 trials succeeding end-to-end on the first attempt (Table~\ref{tab:pufbench}). The single P3 demo message sent after each handshake was delivered and decrypted successfully in all 30 trials, and the device's derived key pair authenticated correctly against the server's registered public key in every trial, confirming a stable identity despite per-attempt PUF measurement noise.
 
 \textbf{CSQ4 --- Threat coverage:} The unweighted OWASP IoT Top~10 coverage (7/10 full; 3/10 partial: I4 secure-update policy only, I8 device management without a verifiable chain, I10 physical hardening) indicates the methodology systematically addresses known IoT threat categories. The STRIDE analysis operates at two levels: the methodology-level mapping (Tables~\ref{tab:stride_a}/\ref{tab:stride_b}, Section~\ref{subsec:stride}) shows every threat addressed by a mechanism mandated by at least one stage; the protocol-level mapping (Tables~\ref{tab:phases_a}--\ref{tab:stridecoverage}, Section~\ref{subsec:strideprot}) traces each mechanism to its implementing phase. All six categories are addressed, four by multiple independent phases. The three partial OWASP items reflect two deliberate trade-offs (I4, I8---see Limitations) and one inherent scope boundary (I10); the coverage figure is unweighted, not severity-weighted.
 
@@ -962,17 +1018,17 @@ This work addresses two barriers to secure IoT ecosystem development: the securi
     \item \textbf{Primary-agent power dependency:} In the TRL~3 bench configuration the RPi4 primary agent is powered from the same DC bus it coordinates (via a DC/AC inverter); SSR duty transients and node resets cause primary-agent brownouts that can terminate sustained bench trials early. This coupling constrains sustained concurrent operation and is an artifact of the laboratory power arrangement rather than the methodology; ITER~2 will use an independent primary-agent supply.
     \item \textbf{Forward secrecy (ephemeral ECDH added, hardware-validated):} An earlier revision derived $Key_{ab}$ from $V_B$ and the handshake nonces alone, so recovering $V_B$ (e.g., from a flash dump, Table~\ref{tab:stride_b}) together with a recorded handshake sufficed to recompute that session's key. $Key_{ab}$ now additionally depends on $Z$, a per-session ECDH secret discarded immediately after use, closing that gap: recovering $V_B$ alone no longer yields $Key_{ab}$ for any session. The fix is implemented (\texttt{rot\_session.c}/\allowbreak\texttt{rot\_challenge\_\allowbreak service.py}), passes the host-side protocol test suite (including a dedicated test that two handshakes against the same node yield different keys), and was validated end-to-end on the physical ESP32 against the real RPi4 server with a refreshed $N=30$ bench round (30/30 success, Table~\ref{tab:pufbench}, superseding the earlier pre-fix timing retained in the artifact repository for provenance).
     \item \textbf{Device-side PUF entropy:} The server stores only $pk_A$ and $V_B$ (Section~\ref{sec:methodology}), neither of which recreates $sk_A$ if disclosed; however, $sk_A$'s security still depends on the actual (not merely designed) entropy of the PUF response it derives from. Independent enrollments on one SMG node have measured 421--422-byte ($\sim$3368--3376-bit) stable responses, somewhat above the library's $\sim$380--400-byte reference-hardware estimate (chip-to-chip and enrollment-to-enrollment variation, discussed below). Raw length is not min-entropy: repetition-code helper data is known to leak some response information \citep{dodis2004fuzzy, maes2013physically, delvaux2015helper}, so 3368 raw bits do not imply 256 bits of adversarial min-entropy \ph{min-entropy assessment pending}: a dedicated assessment (e.g., NIST SP 800-90B) remains the direct way to confirm sufficient min-entropy for the 256-bit scalar it seeds.
-    \item \textbf{PUF library build and bench status (validated on one of two nodes):} \texttt{esp32\_puflib} \citep{stanicek2022esp32puflib} is a native C/ESP-IDF component and is linked directly into the node's C/ESP-IDF firmware (\texttt{smg\_puf\_rot\_node}), without a language-runtime wrapper. The identity/Root-of-Trust/secure-communication firmware and its RPi4 counterpart (\texttt{rot\_challenge\_service.py}) build cleanly, and the firmware has been flashed to, enrolled on, and bench-validated end-to-end against one of the SMG's two physical ESP32 units: $N=30$ real hard-reset trials against the real RPi4 server reached 30/30 end-to-end success (Section~\ref{subsec:pufbench}). SMG\_NODE\_02 has not yet been enrolled under this scheme in its own right, so two-node reconstruction-reliability validation (Table~\ref{tab:pufbench}-style bench statistics for a second chip) remains open. Physical distinctness across chips, however, was directly confirmed by cloning SMG\_NODE\_01's entire NVS onto SMG\_NODE\_02's hardware: applying SMG\_NODE\_01's helper data to SMG\_NODE\_02's physical RTC-SRAM failed the library's reliability threshold on the first attempt (29.9\% raw error rate against a 0.15\% requirement) but \emph{passed it on the retry} despite running on the wrong chip -- the threshold check certifies read-out stability, not agreement with the enrolled response, so the device itself cannot detect it is misprovisioned. The resulting key pair was nonetheless rejected by the server (FT-06, \texttt{c4\_negative\_test/}): detection here rests entirely on the server's ECDSA verification, not any device-side check. The current firmware also uses a compile-time placeholder node identifier shared by all units; it identifies the node on the wire but does not enter the authentication proof, and is to be replaced by per-unit assignment before multi-node deployment.
+    \item \textbf{PUF library build and bench status (validated on one of two nodes):} \texttt{esp32\_puflib} \citep{stanicek2022esp32puflib} is a native C/ESP-IDF component and is linked directly into the node's C/ESP-IDF firmware (\texttt{smg\_puf\_rot\_node}), without a language-runtime wrapper. The identity/Root-of-Trust/secure-communication firmware and its RPi4 counterpart (\texttt{rot\_challenge\_service.py}) build cleanly, and the firmware has been flashed to, enrolled on, and bench-validated end-to-end against one of the SMG's two physical ESP32 units: $N=30$ real hard-reset trials against the real RPi4 server reached 30/30 end-to-end success (Section~\ref{subsec:pufbench}). SMG\_NODE\_02 has not yet been enrolled under this scheme in its own right, so two-node reconstruction-reliability validation (Table~\ref{tab:pufbench}-style bench statistics for a second chip) remains open. Physical distinctness across chips, however, was directly confirmed by cloning SMG\_NODE\_01's entire NVS onto SMG\_NODE\_02's hardware: applying SMG\_NODE\_01's helper data to SMG\_NODE\_02's physical RTC-SRAM failed the library's original raw-bit-error-rate threshold on the first attempt (29.9\% against a 0.15\% requirement) but passed it on the retry, since that threshold was not yet understood to be a non-security diagnostic at the time this test was run (it has since been relaxed, Section~\ref{subsec:pufbench}) -- under the current firmware, the device would locally accept this reconstruction on the first attempt instead (its hamming-weight sanity check is unrelated to matching a specific enrollment), without changing the outcome below. Either way, the resulting key pair was rejected by the server (FT-06, \texttt{c4\_negative\_test/}): detection rests entirely on the server's ECDSA verification, not any device-side check, which is exactly why relaxing the device-side diagnostic does not weaken this guarantee. This test has not been re-run under the corrected firmware. The current firmware also uses a compile-time placeholder node identifier shared by all units; it identifies the node on the wire but does not enter the authentication proof, and is to be replaced by per-unit assignment before multi-node deployment.
     \item \textbf{Sensor/EMS modules not yet implemented (C/ESP-IDF firmware scope):} The \texttt{smg\_puf\_rot\_node} C/ESP-IDF firmware currently implements only the identity (PUF), Root of Trust, and secure-communication layers; fuzzy Energy Management System and sensor-acquisition logic have not yet been implemented in this firmware. A full end-to-end SMG deployment requires this additional work, distinct from and in addition to the hardware bench validation above. The same gap applies to the server side: the primary agent's anomaly-based trust scoring and quarantine logic (Stage~7.2.1) exists in \texttt{smg\_primary\_server}'s original module set (\texttt{auth\_service.py}, \texttt{ems\_coordinator.py}) but has not yet been ported to \texttt{rot\_challenge\_service.py}, the server counterpart of the current RoT protocol; DoS/I3 coverage claims elsewhere in this paper that cite trust scoring describe the methodology-mandated mechanism and its prior instantiation, not a property of the currently-deployed RoT server.
     \item \textbf{No cryptographic session-chain audit (deliberate design simplification):} The SMG's Root of Trust does not implement a per-message hash chain to provide a retrospectively-verifiable, third-party-auditable record of session integrity. Message-level integrity is provided by the AES-256-GCM authentication tag (P3), but there is no cryptographic chain binding messages within a session, and Repudiation/I8 (device management) coverage is therefore evidentiary (server-side session logs) rather than independently verifiable (Table~\ref{tab:stride_a}, Table~\ref{tab:owasp_b}). Introducing a lightweight, chain-free sequencing mechanism (e.g., a monotonic per-session counter bound into the GCM associated data) without the overhead of a full chain audit is a candidate ITER~2 refinement if reviewers or subsequent evaluation identify this trade-off as unacceptable.
-    \item \textbf{PUF reliability on the deployed hardware (reconstruction reliability measured on one node; thermal/second-node characterization pending):} \texttt{esp32\_puflib}'s enrollment procedure targets a design bit-flip probability of 0.001--0.005 via a stable-bit mask and 8$\times$-repetition-code error correction, yielding an estimated $\sim$380--400-byte stable response in the library's own design notes for its reference hardware. Independent enrollment runs on SMG\_NODE\_01 have produced stable responses of 421--422\,bytes --- consistently reproducible, but somewhat above that figure, a plausible chip-to-chip variation rather than a conformance failure, since the library documents its figure as an estimate, not a hard specification. Reconstruction reliability was measured over two $N=30$ hard-reset bench rounds (Table~\ref{tab:pufbench}, Section~\ref{subsec:pufbench}); the resulting bimodal attempt pattern is explained at the reset-condition level, not the circuit level, in that section's discussion, and the 2026-10-13 round's attempt-1 error rate rises measurably across its own $\sim$5-minute duration (see Section~\ref{subsec:pufbench}), suggesting within-run thermal drift contributes alongside enrollment-to-enrollment differences. What remains unmeasured is (a) sensitivity to temperature and supply-voltage variation in a controlled way, and (b) whether the same pattern and response length hold on SMG\_NODE\_02 and across further enrollments \ph{temperature/voltage and cross-node data pending}: this remains pending before the reliability claim extends beyond SMG\_NODE\_01 under laboratory-ambient conditions.
+    \item \textbf{PUF reliability on the deployed hardware (reconstruction reliability measured on one node; thermal/second-node characterization pending):} \texttt{esp32\_puflib}'s enrollment procedure targets a design bit-flip probability of 0.001--0.005 via a stable-bit mask and 8$\times$-repetition-code error correction, yielding an estimated $\sim$380--400-byte stable response in the library's own design notes for its reference hardware. Independent enrollment runs on SMG\_NODE\_01 have produced stable responses of 421--422\,bytes --- consistently reproducible, but somewhat above that figure, a plausible chip-to-chip variation rather than a conformance failure, since the library documents its figure as an estimate, not a hard specification. Reconstruction reliability was measured over three $N=30$ hard-reset bench rounds (Table~\ref{tab:pufbench}, Section~\ref{subsec:pufbench}). The library's own reliability gate originally combined a hamming-weight sanity check with a raw bit-error-rate threshold (0.15\%); the latter turned out not to be a security boundary --- the ECC's majority-vote decode runs regardless of the error count, and a wrong reconstruction fails the server's ECDSA verification downstream exactly like any other incorrect answer --- so it was relaxed to a diagnostic during this work (Section~\ref{subsec:pufbench}), after an intermediate round run under the original, unrelaxed gate rejected every single trial (attempt and retry alike consistently measured 0.45--0.6\% error, above the 0.15\% figure). The round reported here, collected after that fix, shows no bimodal attempt pattern: every trial succeeds on the first attempt, and the earlier two-attempt pattern seen in the 2026-10-13 round is now understood as an artifact of that gate, not a genuine circuit-level difference between the library's two reset depths. The 2026-10-13 round's attempt-1 error rate also rose measurably across its own $\sim$5-minute duration (see Section~\ref{subsec:pufbench}), suggesting within-run thermal drift contributes alongside enrollment-to-enrollment differences; the round reported here was collected over a shorter span and does not show the same trend as clearly. What remains unmeasured is (a) sensitivity to temperature and supply-voltage variation in a controlled way, and (b) whether the same response length and reliability hold on SMG\_NODE\_02 and across further enrollments \ph{temperature/voltage and cross-node data pending}: this remains pending before the reliability claim extends beyond SMG\_NODE\_01 under laboratory-ambient conditions.
     \item \textbf{Single application domain:} Energy management is the only domain tested. The expert questionnaire (N=14, Section~\ref{subsec:expertval}) supports the technology-agnostic design intent (B13 mean 3.79/5) but also recorded two dissenting scores on this same item (2/5 and 1/5), with the dissenting evaluators characterizing cross-domain generalizability as an unvalidated hypothesis; empirical validation in additional domains remains future work.
     \item \textbf{Physical hardening:} I10 (physical hardening) and hardware-based Root of Trust (e.g., ATECC608 secure element) are not addressed at TRL~3 but are specified as ITER~2 requirements.
     \item \textbf{Identity lifecycle (methodology gap):} The methodology as presented does not specify a complete identity lifecycle process (parameter rotation, revocation, recovery after compromise without full re-provisioning, ownership transfer, and decommissioning). This is a gap in the methodology itself---not solely a TRL~3 scope limitation---since recovery from a compromised node currently requires re-running the full Root of Trust. An expert evaluator (Section~\ref{subsec:expertval}) identified this as the single addition with the greatest potential impact on practical applicability; it is the highest-priority extension for the next methodology revision and is deferred to ITER~2.
     \item \textbf{User/administrator password hashing:} Users and administrators authenticate via a plain SHA-256 hash of their password (Table~\ref{tab:identity}), not a salted, slow key-derivation function (bcrypt, scrypt, Argon2) --- weaker than current practice, and a candidate ITER~2 hardening item; it does not affect the PUF-based IoT node scheme, which uses no password.
     \item \textbf{WiFi credential provisioning (fixed; fleet-sharing residual):} An earlier firmware revision compiled the WiFi SSID/password into source as a fixed constant, identical for every build and visible in the published firmware source. The credential is now provisioned into NVS out-of-band by \texttt{tools/provision\_server\_ref.py} (the same mechanism already used for $V_B$), so no WiFi credential value appears in firmware source or the compiled binary. One property is unchanged by this fix and is not a firmware defect: every node on the fleet's WPA2-PSK access point necessarily shares the same passphrase, so recovering one node's NVS still discloses the credential needed to join that network, same as recovering any WPA2-PSK passphrase would. Rotating it still requires re-provisioning every node's NVS image, not merely one.
     \item \textbf{Per-device node identifier not yet provisioned:} \texttt{id\_a}, the device's wire identifier and server-registry key, is currently a compile-time placeholder shared by every unit built from the same firmware source (\texttt{rot\_identity.c}), not a value generated and written to NVS per device at enrollment. This is an unresolved gap between the identity model's specification (Table~\ref{tab:identity}) and the TRL~3 implementation: a second physical node cannot be registered under this scheme without first assigning it a distinct \texttt{id\_a}, since the server registry is keyed on it. \texttt{id\_a} is not itself part of the cryptographic authentication proof (that rests entirely on the PUF-derived key pair), so this gap does not weaken device authentication, but it does mean the single-node bench validation reported here (Section~\ref{subsec:pufbench}) cannot be read as demonstrating multi-node identity distinctness through \texttt{id\_a}; FT-06's cross-chip test (Section~\ref{subsec:pufbench}) demonstrates that distinctness through the PUF response instead. Provisioning a real per-device \texttt{id\_a} is a prerequisite for validating SMG\_NODE\_02 under this scheme and is deferred to ITER~2.
-    \item \textbf{Expert validation:} Fourteen evaluators completed the questionnaire (14 Likert items, 3 open questions), exceeding the planned 6--10 target, yielding a headline agreement mean of 3.94/5 (10 items excluding 4 that describe the superseded design; 3.98/5 across all 14, Section~\ref{subsec:expertval}). Eight of the fourteen are affiliated with institutions unconnected to the author team (majority-independent), though recruitment remained convenience-sampled; the independent subset (3.88/5) rated modestly below the affiliated subset (4.02/5), a mild skew the panel composition mitigates. At least two affiliated evaluators (Acknowledgements) are MSc students in the authors' own department, a power relationship beyond simple affiliation this study does not separately quantify. The condensed reference document distributed to evaluators (June~24, 2026) predates the final bench trials and used more conservative figures. One additional respondent declined consent and was excluded.
+    \item \textbf{Expert validation:} Fourteen evaluators completed the questionnaire (14 Likert items, 3 open questions), exceeding the planned 6--10 target, yielding a headline agreement mean of 3.94/5 (10 items excluding 4 that describe the superseded design; 3.99/5 across all 14, Section~\ref{subsec:expertval}). Eight of the fourteen are affiliated with institutions unconnected to the author team (majority-independent), though recruitment remained convenience-sampled; the independent subset (3.88/5) rated modestly below the affiliated subset (4.02/5), a mild skew the panel composition mitigates. At least two affiliated evaluators (Acknowledgements) are MSc students in the authors' own department, a power relationship beyond simple affiliation this study does not separately quantify. The condensed reference document distributed to evaluators (June~24, 2026) predates the final bench trials and used more conservative figures. One additional respondent declined consent and was excluded.
 \end{itemize}
 \end{sloppypar}
 
@@ -1009,7 +1065,7 @@ This work addresses two barriers to secure IoT ecosystem development: the securi
 
 This work has presented a security-by-design methodology for centralized IoT ecosystems that addresses the security activation gap by integrating cybersecurity systematically from the earliest organizational stage. The methodology's four phases and seven stages produce documented, traceable artifacts; the entity-centric identity model provides technology-agnostic security specifications applicable to heterogeneous devices; and the dynamic Root of Trust process establishes verifiable cryptographic identity before any operational communication begins.
 
-Empirical validation through a confirmatory case study \citep{yin2014case} applying the methodology to a DC Smart Microgrid IoT ecosystem yields four findings. First, all seven stages produced complete, traceable outputs with zero external guidance required (CSQ1). Second, the 14-parameter identity model across four entity types produced zero ambiguity (CSQ2). Third, the RoT process established verifiable mutual authentication: a PUF-based scheme (\texttt{esp32\_puflib} \citep{stanicek2022esp32puflib}) that reconstructs each node's identity from non-persistent physical characteristics rather than a stored key, combined with an asymmetric (ECDSA) device-authentication proof, a per-node symmetric server-authentication proof, and an ephemeral ECDH exchange giving the session key forward secrecy, validated end-to-end on real hardware for one of the two nodes across $N=30$ hard-reset trials (30/30 success, median handshake latency 1120\,ms, mean $1131 \pm 50$\,ms); the scheme's bimodal reconstruction-attempt pattern is attributable to the PUF library's own two-tier retry (a lighter software toggle, then a full deep-sleep power cycle), and validating SMG\_NODE\_02 remains future work (CSQ3, Section~\ref{subsec:pufbench}). Fourth, the methodology achieved unweighted OWASP IoT Top~10 coverage of 7/10 items fully addressed and 3/10 partially addressed (I4 secure-update policy only; I8 device management, a trade-off for a smaller on-device footprint; I10 physical hardening outside software scope) (CSQ4). This case study evidence is supplemented by an expert questionnaire (N=14, Section~\ref{subsec:expertval}) that returned a headline agreement mean of 3.94/5 (10 items; 3.98/5 across all 14), with the strongest agreement on methodology completeness and systematic security integration (B3, B14 means 4.36/5) and qualified agreement on cross-domain generalizability and threat-coverage weighting.
+Empirical validation through a confirmatory case study \citep{yin2014case} applying the methodology to a DC Smart Microgrid IoT ecosystem yields four findings. First, all seven stages produced complete, traceable outputs with zero external guidance required (CSQ1). Second, the 14-parameter identity model across four entity types produced zero ambiguity (CSQ2). Third, the RoT process established verifiable mutual authentication: a PUF-based scheme (\texttt{esp32\_puflib} \citep{stanicek2022esp32puflib}) that reconstructs each node's identity from non-persistent physical characteristics rather than a stored key, combined with an asymmetric (ECDSA) device-authentication proof, a per-node symmetric server-authentication proof, and an ephemeral ECDH exchange giving the session key forward secrecy, validated end-to-end on real hardware for one of the two nodes across $N=30$ hard-reset trials (30/30 success, every trial on the first attempt, median handshake latency 1060\,ms, mean $1068 \pm 24$\,ms); this round also corrected a miscalibrated local reliability gate found during this validation, whose original form had rejected every attempt outright (Limitations), and validating SMG\_NODE\_02 remains future work (CSQ3, Section~\ref{subsec:pufbench}). Fourth, the methodology achieved unweighted OWASP IoT Top~10 coverage of 7/10 items fully addressed and 3/10 partially addressed (I4 secure-update policy only; I8 device management, a trade-off for a smaller on-device footprint; I10 physical hardening outside software scope) (CSQ4). This case study evidence is supplemented by an expert questionnaire (N=14, Section~\ref{subsec:expertval}) that returned a headline agreement mean of 3.94/5 (10 items; 3.99/5 across all 14), with the strongest agreement on methodology completeness and systematic security integration (B3, B14 means 4.36/5) and qualified agreement on cross-domain generalizability and threat-coverage weighting.
 
 The methodology's parameterized, technology-agnostic structure is designed to support application across diverse IoT domains; cross-domain generalization is a design intent supported by expert opinion (B13 mean 3.79/5, with dissenting 2/5 and 1/5 ratings characterizing it as an unvalidated hypothesis) rather than a demonstrated property, and empirical validation in additional domains remains future work. Future work will extend validation to: ITER~2 (TRL~5+ with hardware security elements and signed-OTA implementation), cross-domain deployment (healthcare, industrial automation), an expanded expert evaluator pool with improved institutional independence, formal cryptographic protocol verification of the SMG's PUF-based authentication scheme, resolution of the identity-lifecycle gap (rotation, revocation, recovery), evaluation of per-node verifier wrapping or HSM-backed server storage to reduce central-server single-point-of-failure risk, and a lightweight chain-free sequencing mechanism to recover stronger Repudiation/I8 coverage without the on-device footprint of a full cryptographic session-chain audit.
 
@@ -1021,7 +1077,7 @@ The methodology's parameterized, technology-agnostic structure is designed to su
 The expert-validation questionnaire (Section~\ref{subsec:expertval}) collected professional opinions from domain-expert volunteers; it did not collect sensitive personal data, and participation required explicit informed consent (item D1) covering use of responses as validation evidence, with an option for anonymous participation and the right to decline (exercised by one respondent, excluded prior to analysis). \ph{No formal institutional ethics-committee approval or exemption was obtained for this questionnaire; the authors should confirm whether their institution requires one for this kind of professional-opinion survey and add the relevant approval/exemption reference here if so.}
 
 \subsection*{Materials Availability}
-The ESP32 firmware (\texttt{smg\_puf\_rot\_node/}) and primary agent software (\texttt{smg\_primary\_server/}) are available under Apache~2.0 license in the companion code repository \citep{camposSanchez2026codeRepo}: \url{https://github.com/RazielCS/smg-secure-microgrid}. The complete research artifacts — manuscript source, case-study documentation, raw bench-trial measurements (canonical CSVs and serial logs under \texttt{case\_study\_SMG/\allowbreak Implementation/\allowbreak smg\_puf\_rot\_node/}), and the expert-validation instruments — are available in the companion artifact repository \citep{camposSanchez2026artifactRepo}: \url{https://github.com/RazielCS/smg-secure-microgrid-paper-artifacts}. Device- and server-side secrets (the real PUF verifiers, NVS images, and WiFi credentials) are excluded from both repositories and replaced with sanitized \texttt{.example.json} templates and placeholder values; see each repository's README for the exact exclusion list.
+The ESP32 firmware (\texttt{smg\_puf\_rot\_node/}) and primary agent software (\texttt{smg\_primary\_server/}) are available under Apache~2.0 license in the companion code repository \citep{camposSanchez2026codeRepo}: \url{https://github.com/RazielCS/smg-secure-microgrid}. Within \texttt{smg\_primary\_server/}, only \texttt{puf\_server.py} and \texttt{rot\_challenge\_service.py} ran during the reported bench trials; the directory also retains an earlier, superseded module set (\texttt{auth\_service.py}, \texttt{server.py}, \texttt{pc\_client.py}, \texttt{protocol.py}, \texttt{crypto\_utils.py}, \texttt{ems\_coordinator.py}), kept because part of its functionality has not yet been ported (see Limitations) and clearly labeled as such in the repository's README. The complete research artifacts — manuscript source, case-study documentation, raw bench-trial measurements (canonical CSVs and serial logs under \texttt{case\_study\_SMG/\allowbreak Implementation/\allowbreak smg\_puf\_rot\_node/}), and the expert-validation instruments — are available in the companion artifact repository \citep{camposSanchez2026artifactRepo}: \url{https://github.com/RazielCS/smg-secure-microgrid-paper-artifacts}. Device- and server-side secrets (the real PUF verifiers, NVS images, and WiFi credentials) are excluded from both repositories and replaced with sanitized \texttt{.example.json} templates and placeholder values; see each repository's README for the exact exclusion list.
 
 \subsection*{Data Statement}
 The raw bench-trial data underlying this work's quantitative RoT findings — the $N=30$ hard-reset trial's per-run serial logs and parsed summary (Table~\ref{tab:pufbench}), the server-side log captured during that run, and the FT-06 cross-chip cloning negative test's device/server logs — have been deposited in, and are cited and linked from, the companion artifact repository \citep{camposSanchez2026artifactRepo}. The expert-validation instrument (questionnaire text) is deposited there as well; the individual evaluators' raw responses are not, since several evaluators requested anonymity (Acknowledgements) and consent was not obtained to publish raw response-level data. No packet captures, enrollment logs, or stage-artifact documents (risk register, access-control matrix, etc.) beyond what is reported in the manuscript and supplementary material were produced as separate deposit-ready files. The device/server secrets noted under Materials Availability are excluded for security rather than confidentiality reasons and are not needed to reproduce or verify any reported result.

@@ -17,8 +17,11 @@ Companion implementation (ESP32 secondary-node firmware + RPi4 primary-agent sof
 
 The $N=30$ real hard-reset bench round reported in the paper's Table "PUF-based RoT
 real-hardware bench trial" (Section "CSQ3: Root of Trust Verifiability") is at
-`case study SMG/Implementation/smg_puf_rot_node/bench_results_20261005/`: raw per-trial
-serial logs, the parsed `summary.csv`, the bench script, and the server-side log.
+`case study SMG/Implementation/smg_puf_rot_node/bench_results_20261015_fixed/`: raw per-trial
+serial logs, the parsed `summary.csv`, and the bench script. Three earlier rounds
+(`bench_results_20261015/`, `bench_results_20261013/`, `bench_results_20261005/`) are
+superseded and kept for provenance — see that directory's own `README.md` for what changed
+between rounds.
 
 The cross-chip NVS-cloning negative test (Table "Functional test results", FT-06) is at
 `case study SMG/Implementation/smg_puf_rot_node/c4_negative_test/`.
