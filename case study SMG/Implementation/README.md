@@ -7,12 +7,20 @@ that produced this data lives in the companion code repository
 files in `smg_primary_server/`), not here — this repository holds artifacts (data,
 manuscript, errata), not implementation source, per the overall Materials Availability split.
 
-- `smg_puf_rot_node/bench_results_20261015_fixed/` — the $N=30$ hard-reset bench round reported
+- `smg_puf_rot_node/bench_results_20261015_hdm/` — the $N=30$ hard-reset bench round reported
   in the paper: raw per-trial serial logs (`logs/run_0001.log`-`run_0030.log`), the parsed
-  `summary.csv`, and the bench script (`run_bench.py`). Collected after correcting a
-  miscalibrated local reliability gate in `esp32_puflib` (see the code repository's
-  `smg_puf_rot_node/components/esp32_puflib/README.md`): 30/30 success, every trial on the
-  first attempt.
+  `summary.csv`, and the bench script (`run_bench.py`). Collected on SMG_NODE_01 after
+  re-enrolling under firmware with both the `PUF_FREQUENCY` fix and the helper-data-manipulation
+  (HDM) mitigation applied (see the code repository's
+  `smg_puf_rot_node/components/esp32_puflib/README.md`) — both changes derive a new key pair,
+  so a fresh enrollment was required: 30/30 success, every trial on the first attempt. Also
+  includes `reenrollment/` (serial log of the enrollment itself, plus NVS-dump evidence
+  confirming no `PUF_FREQUENCY` entry remained in the "Written" state afterward) and `ft06/`
+  (a third cross-chip cloning re-run against this new identity, 3/3 rejected).
+- `smg_puf_rot_node/bench_results_20261015_fixed/` — the $N=30$ round immediately before the one
+  above: same relaxed reliability gate, but the pre-HDM-mitigation identity. 30/30 success,
+  every trial on the first attempt; superseded once the HDM mitigation required re-enrollment,
+  kept for provenance.
 - `smg_puf_rot_node/bench_results_20261015/` — an intermediate $N=30$ round collected under the
   original, unrelaxed gate immediately before the fix above: 0/30 success (all trials timed
   out), kept as the negative-result evidence motivating that fix.
@@ -22,7 +30,8 @@ manuscript, errata), not implementation source, per the overall Materials Availa
 - `smg_puf_rot_node/bench_results_20261005/` — an earlier $N=30$ round under the pre-forward-secrecy
   protocol, superseded by the rounds above; kept for provenance, not cited as current evidence.
 - `smg_puf_rot_node/c4_negative_test/` — the cross-chip NVS-cloning negative test
-  (FT-06 in the paper): device and server logs, and a README describing the method and result.
+  (FT-06 in the paper): device and server logs, and a README describing the method and result
+  across all three firmware generations it was run against.
 
 See the companion code repository's `smg_puf_rot_node/README.md` for build/flash/
 provisioning/reproduction instructions.
