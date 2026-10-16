@@ -1,0 +1,7 @@
+10:01:31 [INFO] puf_server: Incoming connection from 10.42.0.89:51010
+10:01:32 [WARNING] rot_challenge_service: [('10.42.0.89', 51010)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+10:01:45 [INFO] puf_server: Incoming connection from 10.42.0.89:54769
+10:01:46 [WARNING] rot_challenge_service: [('10.42.0.89', 54769)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+10:01:59 [INFO] puf_server: Incoming connection from 10.42.0.89:51563
+10:02:00 [INFO] rot_challenge_service: [('10.42.0.89', 51563)] handshake OK, node=SMG_NODE_01 authenticated
+10:02:00 [INFO] rot_challenge_service: [('10.42.0.89', 51563)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'

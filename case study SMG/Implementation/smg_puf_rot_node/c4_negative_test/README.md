@@ -58,3 +58,56 @@ retry that was never actually checked) but did not change the outcome: the serve
 verification is, and was, the only check that actually determines whether a reconstruction is
 accepted. Raw logs: `device_log_smg_node02_with_stolen_smg_node01_nvs_20261015.txt`,
 `server_log_20261015.txt`.
+
+## Re-run: 2026-10-15, after the first-generation helper-data-manipulation (HDM) mitigation
+
+A later review found that `PUF_MASK`/`ECC_DATA` (the non-secret stable-bit-mask/ECC helper
+data) were stored in NVS without integrity protection, letting an attacker with physical
+flash-write access manipulate them and use the ECC decoder's error count as a side-channel
+oracle (see the main paper's Limitations). The fix binds a SHA-256 hash of these two blobs into
+the HKDF derivation of `(sk_A, pk_A)`, which changes the derived key pair and required
+re-enrolling SMG_NODE_01 under the corrected firmware. This test was repeated against that new
+identity to confirm cross-chip cloning is still rejected.
+
+**Method:** same procedure as above, with fresh dumps of SMG_NODE_01's new (post-HDM-fix)
+enrollment, repeated across 3 separate resets of the cloned device. Raw logs are in
+`../bench_results_20261015_hdm/ft06/`.
+
+**Result:** the device-side reconstruction behaves the same as the relaxed-gate round (passes
+the hamming-weight check on the first attempt despite a ~30% raw error rate, e.g.
+`errors=29.987% [9826 bits] above the 0.15% diagnostic figure, proceeding anyway`), and the
+server rejects all 3 attempts:
+
+- Device log: `E (6054) rot_session: handshake: device authentication rejected by server`
+- Server log (3/3 reset attempts, 17:13:28/17:13:38/17:13:48): `device authentication FAILED
+  (signature invalid) node=SMG_NODE_01`
+
+Binding the helper data into key derivation does not change this outcome either, for the same
+reason the earlier fixes didn't: the server's ECDSA verification is the only check that
+determines acceptance, and SMG_NODE_02's physical PUF response still does not reconstruct to the
+key SMG_NODE_01 registered, regardless of which non-secret helper-data blobs are bound into that
+derivation.
+
+## Re-run: 2026-10-16, after extending the HDM binding to all four helper-data blobs
+
+A second, independent review found the first-generation binding above was still incomplete: it
+covered only the first-attempt/RTC pair (`PUF_MASK`/`ECC_DATA`), leaving the deep-sleep-retry
+pair (`PUF_SLEEP_MASK`/`ECC_SLEEP_DATA`) unbound and the same oracle re-exploitable via that
+path. The hash was extended to cover all four blobs, requiring a further re-enrollment of
+SMG_NODE_01. This test was repeated a fourth time against that twice-corrected identity.
+
+**Method:** same procedure as above, with fresh dumps of SMG_NODE_01's newest enrollment,
+repeated across 3 separate resets of the cloned device. Raw logs are in
+`../bench_results_20261016_hdm2/ft06/`.
+
+**Result:** again rejected in all 3 attempts, with raw error rates of 29.79%, 29.78%, and
+29.77% on SMG_NODE_02's silicon:
+
+- Device log: `device authentication rejected by server` (all 3 attempts)
+- Server log (3/3 reset attempts, 10:03:47/10:03:57/10:04:08): `device authentication FAILED
+  (signature invalid) node=SMG_NODE_01`
+
+Across all four firmware generations tested (original unrelaxed gate, relaxed gate,
+first-generation HDM binding, extended four-blob HDM binding), SMG_NODE_02 has never
+successfully impersonated SMG_NODE_01 by cloning its NVS: 11/11 cross-chip cloning attempts
+rejected by the server's ECDSA verification.
