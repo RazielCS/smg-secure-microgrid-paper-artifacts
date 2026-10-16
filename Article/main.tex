@@ -300,11 +300,11 @@ Building on the four-phase Root of Trust process of \citet{campos2026identity}, 
 \begingroup
 \small
 \begin{longtable}{
-    >{\centering\arraybackslash}p{3.8cm}
+    >{\centering\arraybackslash}p{3.7cm}
     c
-    >{\centering\arraybackslash}p{4.0cm}
+    >{\centering\arraybackslash}p{4.1cm}
     c
-    >{\centering\arraybackslash}p{3.8cm}
+    >{\centering\arraybackslash}p{3.7cm}
 }
     \caption{Root of Trust process: PUF-seeded device identity establishment --- Phase 1 (enrollment and registration, performed once, over an isolated/physical provisioning channel). $\text{PUF}_A$ denotes the device's PUF response, reconstructed from RTC~FAST~SRAM via \texttt{esp32\_puflib}; \texttt{mask}$_A$/\texttt{ecc}$_A$ are the non-secret stable-bit mask and error-correction helper data. $(sk_A, pk_A)$ is the device's P-256 key pair, derived deterministically from $\text{PUF}_A$ together with $H_{mask/ecc}$, a hash of the stable-bit-mask/ECC helper data (Table~\ref{tab:rotpsim_b}, Limitations); only $pk_A$ (public) is ever registered or stored off-device. $V_B$ is a conventionally-provisioned, per-node server verifier (Section~\ref{sec:methodology}, ``Server identity''), not PUF-derived and not shared across nodes.}
     \label{tab:rotpsim} \\
@@ -322,8 +322,8 @@ Building on the four-phase Root of Trust process of \citet{campos2026identity}, 
     \endfoot
     \bottomrule
     \endlastfoot
-        $\{ID_A\}$ enroll\_puf() $\rightarrow \{\text{mask}_A,\;\text{ecc}_A\}$ (stored, public) & & & & $\{ID_B,\;URL/IP_B,\;Port_B\}$ (fleet-wide, non-secret) \\
-        get\_puf\_response() $\rightarrow \text{PUF}_A$; $(sk_A,\;pk_A) \leftarrow \text{HKDF-derive-keypair}(\text{PUF}_A,\;\text{SHA-256}(\text{mask}_A \!\parallel\! \text{ecc}_A))$ & & & & \\
+        $\{ID_A\}$ enroll\_puf() $\rightarrow \{\text{mask}_A,\;\text{ecc}_A\}$ (stored, public) & & & & $\{ID_B,\;URL/IP_B,$ $Port_B\}$ (fleet-wide, non-secret) \\
+        get\_puf\_response() $\rightarrow \text{PUF}_A$; $(sk_A,\;pk_A) \leftarrow$ HKDF-derive-keypair $(\text{PUF}_A,\;H_{mask/ecc})$ & & & & \\
         & & $\{ID_A,\;pk_A\}$ ${\rightarrow}$ & & \\
         & & ${\leftarrow}$ $\{ID_B,\;URL/IP_B,$ $Port_B,\;V_B\}$ & & generate fresh per-node $V_B$; register $\{ID_A,\;pk_A,\;V_B\}$ \\
         pin (store): $\{ID_B,\;V_B\}$ as server reference & & & & store $\{ID_A,\;pk_A\}$ as device reference ($pk_A$ public, not a secret) \\
@@ -339,7 +339,7 @@ Building on the four-phase Root of Trust process of \citet{campos2026identity}, 
     c
     >{\centering\arraybackslash}p{3.8cm}
 }
-    \caption{Root of Trust process: PUF-seeded device identity establishment --- Phase 2 (per-boot reconstruction and mutual challenge; continues Table~\ref{tab:rotpsim}). Device authentication is asymmetric ($sk_A$ never transmitted, verified via $pk_A$ alone); server authentication is a nonce-bound hash-reconstruction proof over $V_B$. Each side also exchanges a fresh, session-only ephemeral public key ($pk_{eph_A}$/$pk_{eph_B}$), bound into both proofs and into $R_A$'s signed hash (together with $\tau$, a fixed domain-separation tag, and both identifiers) against substitution or replay. $Key_{ab}$ derives from the resulting ECDH secret $Z$ together with $V_B$, giving forward secrecy (see main text, Limitations). $H_{mask/ecc} = \text{SHA-256}(\text{mask}_A \!\parallel\! \text{ecc}_A \!\parallel\! \text{mask}_A^{sleep} \!\parallel\! \text{ecc}_A^{sleep})$ is a hash of all four stable-bit-mask/ECC helper-data blobs (both the RTC and the deep-sleep-retry pair, Limitations), bound into $sk_A$'s derivation so that tampering with any of them changes the derived key unpredictably rather than leaking information through the reconstruction's error count. $\text{PUF}_A$/$sk_A$ and $eph_A$ are all freshly (re)generated each boot; nothing here persists between Phase~1 and Phase~2.}
+    \caption{Root of Trust process: PUF-seeded device identity establishment --- Phase 2 (per-boot reconstruction and mutual challenge; continues Table~\ref{tab:rotpsim}). Device authentication is asymmetric ($sk_A$ never transmitted, verified via $pk_A$ alone); server authentication is a nonce-bound hash-reconstruction proof over $V_B$. Each side also exchanges a fresh, session-only ephemeral public key ($pk_{eph_A}$/$pk_{eph_B}$), bound into both proofs via the transcript hash $T = \text{SHA-256}(\tau \!\parallel\! ID_A \!\parallel\! ID_B \!\parallel\! N_B \!\parallel\! N_A \!\parallel\! pk_{eph_A} \!\parallel\! pk_{eph_B} \!\parallel\! R_B)$ ($\tau$ a fixed domain-separation tag) against substitution or replay. $Key_{ab}$ derives from the resulting ECDH secret $Z$ together with $V_B$, giving forward secrecy (see main text, Limitations). $H_{mask/ecc} = \text{SHA-256}(\text{mask}_A \!\parallel\! \text{ecc}_A \!\parallel\! \text{mask}_A^{sleep} \!\parallel\! \text{ecc}_A^{sleep})$ is a hash of all four stable-bit-mask/ECC helper-data blobs (both the RTC and the deep-sleep-retry pair, Limitations), bound into $sk_A$'s derivation so that tampering with any of them changes the derived key unpredictably rather than leaking information through the reconstruction's error count. $\text{PUF}_A$/$sk_A$ and $eph_A$ are all freshly (re)generated each boot; nothing here persists between Phase~1 and Phase~2.}
     \label{tab:rotpsim_b} \\
     \toprule
     \textbf{Device} & & \textbf{Message} & & \textbf{Server} \\
@@ -356,8 +356,8 @@ Building on the four-phase Root of Trust process of \citet{campos2026identity}, 
     \bottomrule
     \endlastfoot
         generate nonce $N_A$ & & $\{ID_A,\;N_A\}$ ${\rightarrow}$ & & generate nonce $N_B$ \\
-        get\_puf\_response() using $\{\text{mask}_A,\;\text{ecc}_A\}$ $\rightarrow \text{PUF}_A$; $(sk_A,\;pk_A) \leftarrow \text{HKDF-derive-keypair}(\text{PUF}_A,\;H_{mask/ecc})$; generate ephemeral $(sk_{eph_A},\;pk_{eph_A})$ & & ${\leftarrow}$ $\{ID_B,\;N_B,\;pk_{eph_B},\;R_B = \text{SHA-256}(V_B \!\parallel\! N_A \!\parallel\! pk_{eph_B})\}$ & & generate ephemeral $(sk_{eph_B},\;pk_{eph_B})$; compute $R_B$ from this node's stored $V_B$ \\
-        verify $R_B \stackrel{?}{=} \text{SHA-256}(V_B \!\parallel\! N_A \!\parallel\! pk_{eph_B})$ using pinned $V_B$ (server authentication, binds $pk_{eph_B}$); $R_A \leftarrow \text{ECDSA-sign}(sk_A,\;\text{SHA-256}(\tau \!\parallel\! ID_A \!\parallel\! ID_B \!\parallel\! N_B \!\parallel\! N_A \!\parallel\! pk_{eph_A} \!\parallel\! pk_{eph_B} \!\parallel\! R_B))$ & & $\{pk_{eph_A},\;R_A\}$ ${\rightarrow}$ & & $\text{ECDSA-verify}(pk_A,\;\text{SHA-256}(\tau \!\parallel\! ID_A \!\parallel\! ID_B \!\parallel\! N_B \!\parallel\! N_A \!\parallel\! pk_{eph_A} \!\parallel\! pk_{eph_B} \!\parallel\! R_B),\;R_A)$ using registered $pk_A$ (device identification, binds the full transcript) \\
+        get\_puf\_response() $\rightarrow \text{PUF}_A$; re-derive $(sk_A,\;pk_A)$ as in Table~\ref{tab:rotpsim}; generate ephemeral $(sk_{eph_A},\;pk_{eph_A})$ & & ${\leftarrow}$ $\{ID_B,\;N_B,\;pk_{eph_B},\;R_B\}$, $R_B = \text{SHA-256}(V_B \!\parallel\! N_A \!\parallel\! pk_{eph_B})$ & & generate ephemeral $(sk_{eph_B},\;pk_{eph_B})$; compute $R_B$ from stored $V_B$ \\
+        verify $R_B \stackrel{?}{=} \text{SHA-256}(V_B \!\parallel\! N_A \!\parallel\! pk_{eph_B})$ using pinned $V_B$ (server authentication, binds $pk_{eph_B}$); $R_A \leftarrow$ ECDSA-sign$(sk_A,\;T)$ & & $\{pk_{eph_A},\;R_A\}$ ${\rightarrow}$ & & ECDSA-verify$(pk_A,\;T,\;R_A)$ using registered $pk_A$ (device identification, binds the full transcript $T$) \\
         & & ${\leftarrow}$ $\{\text{session\_ack}\}$ (or rejection if verification failed) & & issue \texttt{session\_ack} only if $R_A$ verifies \\
         $Z \leftarrow \text{ECDH}(sk_{eph_A},\;pk_{eph_B})$; $\text{SHA-256}(Z \!\parallel\! V_B \!\parallel\! N_A \!\parallel\! N_B)$ ${\rightarrow Key_{ab}}$ & & & & $Z \leftarrow \text{ECDH}(sk_{eph_B},\;pk_{eph_A})$; $\text{SHA-256}(Z \!\parallel\! V_B \!\parallel\! N_A \!\parallel\! N_B)$ ${\rightarrow Key_{ab}}$ \\
         $Key_{ab}$ held only in RAM for session duration; $sk_A$ discarded with $\text{PUF}_A$, $sk_{eph_A}$ and $Z$ discarded, at end of boot/session & & & & $Key_{ab}$ held in RAM; $sk_{eph_B}$ and $Z$ discarded after use; $pk_A$ reference retained in server storage (public, not sensitive) \\
@@ -401,12 +401,12 @@ Tables~\ref{tab:stride_a} and~\ref{tab:stride_b} map each STRIDE threat to the m
 \small
 \renewcommand{\arraystretch}{1.2}
 \begin{longtable}{
-    >{\raggedright\arraybackslash}p{2.3cm}
-    >{\raggedright\arraybackslash}p{2.3cm}
-    >{\raggedright\arraybackslash}p{2.4cm}
-    >{\raggedright\arraybackslash}p{3.0cm}
-    >{\raggedright\arraybackslash}p{3.0cm}
-    >{\centering\arraybackslash}p{1.6cm}
+    >{\raggedright\arraybackslash}p{1.7cm}
+    >{\raggedright\arraybackslash}p{1.7cm}
+    >{\raggedright\arraybackslash}p{1.8cm}
+    >{\raggedright\arraybackslash}p{2.2cm}
+    >{\raggedright\arraybackslash}p{2.2cm}
+    >{\centering\arraybackslash}p{1.2cm}
 }
     \caption{STRIDE threat model: mapping to methodology stages and SMG instantiation --- Part 1 (Spoofing, Tampering, Repudiation).}
     \label{tab:stride_a} \\
@@ -436,12 +436,12 @@ Tables~\ref{tab:stride_a} and~\ref{tab:stride_b} map each STRIDE threat to the m
 \footnotesize
 \renewcommand{\arraystretch}{1.1}
 \begin{longtable}{
-    >{\raggedright\arraybackslash}p{2.3cm}
-    >{\raggedright\arraybackslash}p{2.3cm}
-    >{\raggedright\arraybackslash}p{2.4cm}
-    >{\raggedright\arraybackslash}p{3.0cm}
-    >{\raggedright\arraybackslash}p{3.0cm}
-    >{\centering\arraybackslash}p{1.6cm}
+    >{\raggedright\arraybackslash}p{1.7cm}
+    >{\raggedright\arraybackslash}p{1.7cm}
+    >{\raggedright\arraybackslash}p{1.8cm}
+    >{\raggedright\arraybackslash}p{2.2cm}
+    >{\raggedright\arraybackslash}p{2.2cm}
+    >{\centering\arraybackslash}p{1.2cm}
 }
     \caption{STRIDE threat model (continued from Table~\ref{tab:stride_a}) --- Part 2 (Information Disclosure, Denial of Service, Elevation of Privilege).}
     \label{tab:stride_b} \\
@@ -566,10 +566,10 @@ Tables~\ref{tab:traceability_a} and~\ref{tab:traceability_b} document the applic
 \small
 \renewcommand{\arraystretch}{1.0}
 \begin{longtable}{
-    >{\centering\arraybackslash}p{1.5cm}
-    >{\raggedright\arraybackslash}p{3.2cm}
-    >{\raggedright\arraybackslash}p{4.8cm}
-    >{\raggedright\arraybackslash}p{4.0cm}
+    >{\centering\arraybackslash}p{1.3cm}
+    >{\raggedright\arraybackslash}p{2.8cm}
+    >{\raggedright\arraybackslash}p{4.2cm}
+    >{\raggedright\arraybackslash}p{3.5cm}
 }
     \caption{Stage-by-stage traceability: methodology process $\rightarrow$ SMG decision $\rightarrow$ artifact --- Part 1 (Stages 1--3).}
     \label{tab:traceability_a} \\
@@ -592,7 +592,7 @@ Tables~\ref{tab:traceability_a} and~\ref{tab:traceability_b} document the applic
             & 1.1.2 Entities involved & 5 entity types: IoT nodes, server, users, admins, DC bus & Entity list \\
             & 1.4.1 Criticality & Classified as critical infrastructure (electrical energy) & High-security cybersecurity policy \\
             & 1.4.2 Technological sovereignty & Self-hosted; no third-party cloud; ESP32 + local RPi4 server & Architecture constraint record \\
-            & \multicolumn{3}{p{12.6cm}}{\scriptsize\textit{Of the seven conceptual-framework element types (Section~\ref{sec:conceptual}), the SMG instantiates five: storage/communication infrastructure are subsumed into the server, and IoT services into the device/server software. Of the five entity types, four (nodes, server, users, admins) carry digital identity (Table~\ref{tab:identity}); the DC bus is tracked via P3 sensor-data integrity instead.}} \\
+            & \multicolumn{3}{p{11.3cm}}{\scriptsize\textit{Of the seven conceptual-framework element types (Section~\ref{sec:conceptual}), the SMG instantiates five: storage/communication infrastructure are subsumed into the server, and IoT services into the device/server software. Of the five entity types, four (nodes, server, users, admins) carry digital identity (Table~\ref{tab:identity}); the DC bus is tracked via P3 sensor-data integrity instead.}} \\
         \midrule
         \multirow{5}{=}{\textbf{2} Digital Ecosystem}
             & 2.1.4 Communication topology & Centralized: all nodes report to primary agent & Architecture diagram \\
@@ -611,10 +611,10 @@ Tables~\ref{tab:traceability_a} and~\ref{tab:traceability_b} document the applic
 \footnotesize
 \renewcommand{\arraystretch}{0.9}
 \begin{longtable}{
-    >{\centering\arraybackslash}p{1.5cm}
-    >{\raggedright\arraybackslash}p{3.2cm}
-    >{\raggedright\arraybackslash}p{4.8cm}
-    >{\raggedright\arraybackslash}p{4.0cm}
+    >{\centering\arraybackslash}p{1.3cm}
+    >{\raggedright\arraybackslash}p{2.8cm}
+    >{\raggedright\arraybackslash}p{4.2cm}
+    >{\raggedright\arraybackslash}p{3.5cm}
 }
     \caption{Stage-by-stage traceability (continued from Table~\ref{tab:traceability_a}) --- Part 2 (Stages 4--7).}
     \label{tab:traceability_b} \\
@@ -705,32 +705,40 @@ The methodology-level STRIDE analysis (Section~\ref{subsec:stride}) identifies m
 
 Table~\ref{tab:phases_a} describes each phase's security role, mechanism, and STRIDE/OWASP coverage. Table~\ref{tab:stridecoverage} summarizes the STRIDE coverage matrix across phases.
 
-\begin{table*}[htbp]
-    \centering
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\begin{longtable}{
+    >{\centering\arraybackslash}p{0.4cm}
+    >{\raggedright\arraybackslash}p{1.8cm}
+    >{\raggedright\arraybackslash}p{1.8cm}
+    >{\raggedright\arraybackslash}p{4.2cm}
+    >{\centering\arraybackslash}p{1.5cm}
+    >{\centering\arraybackslash}p{1.4cm}
+}
     \caption{SMG authentication protocol phases: security role, mechanism, and coverage mapping (P1--P3). STRIDE: S~=~Spoofing, T~=~Tampering, R~=~Repudiation, ID~=~Information Disclosure, DoS~=~Denial of Service, EoP~=~Elevation of Privilege.}
-    \label{tab:phases_a}
-    \footnotesize
-    \renewcommand{\arraystretch}{1.0}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{
-        >{\centering\arraybackslash}p{0.5cm}
-        >{\raggedright\arraybackslash}p{2.2cm}
-        >{\raggedright\arraybackslash}p{2.2cm}
-        >{\raggedright\arraybackslash}p{5.2cm}
-        >{\centering\arraybackslash}p{1.9cm}
-        >{\centering\arraybackslash}p{1.7cm}
-    }
-        \toprule
-        \textbf{Ph.} & \textbf{Name} & \textbf{Security Role} & \textbf{Mechanism} & \textbf{STRIDE} & \textbf{OWASP} \\
+    \label{tab:phases_a} \\
+    \toprule
+    \textbf{Ph.} & \textbf{Name} & \textbf{Security Role} & \textbf{Mechanism} & \textbf{STRIDE} & \textbf{OWASP} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{6}{l}{\small\textit{Table~\ref{tab:phases_a} continued from previous page}} \\
+    \toprule
+    \textbf{Ph.} & \textbf{Name} & \textbf{Security Role} & \textbf{Mechanism} & \textbf{STRIDE} & \textbf{OWASP} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{6}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+        P1 & Enrollment & Identity establishment before any network exposure & \texttt{enroll\_puf()} (\texttt{esp32\_puflib} \citep{stanicek2022esp32puflib}): 20 RTC-FAST-SRAM measurements $\rightarrow$ stable-bit mask + 8$\times$-repetition-code ECC helper data (both non-secret), written to ESP32 NVS via USB serial on isolated workstation; WiFi SSID/password are provisioned into the same NVS image out-of-band (\texttt{tools/\allowbreak provision\_server\_ref.py}), never compiled into firmware source (\texttt{id\_a} remains a compile-time constant, see Limitations); device public key $pk_A$ registered with the server, which generates and pins a fresh per-node verifier $V_B$ in return; no raw PUF response or private key is ever written to flash (a library defect that briefly violated this was found and fixed during this work, see Limitations) & S, ID & I1, I9 \\
         \midrule
-        P1 & Enrollment & Identity establishment before any network exposure & \texttt{enroll\_puf()} (\texttt{esp32\_puflib} \citep{stanicek2022esp32puflib}): 20 RTC-FAST-SRAM measurements $\rightarrow$ stable-bit mask + 8$\times$-repetition-code ECC helper data (both non-secret), written to ESP32 NVS via USB serial on isolated workstation; WiFi SSID/password are provisioned into the same NVS image out-of-band (\texttt{tools/provision\_server\_ref.py}), never compiled into firmware source (\texttt{id\_a} remains a compile-time constant, see Limitations); device public key $pk_A$ registered with the server, which generates and pins a fresh per-node verifier $V_B$ in return; no raw PUF response or private key is ever written to flash (a library defect that briefly violated this was found and fixed during this work, see Limitations) & S, ID & I1, I9 \\
+        P2 & Root of Trust & Per-boot response reconstruction and nonce-bound mutual identification without key transmission; ephemeral ECDH session key (forward secrecy) & \texttt{get\_puf\_response()} reconstructs $\text{PUF}_A$ (see Section~\ref{subsec:pufbench} for the measured byte length, which varies slightly by enrollment); $(sk_A, pk_A)$ re-derived as in Table~\ref{tab:rotpsim}, now also bound to a hash of the stable-bit mask/ECC helper data (Limitations); device proves possession of $sk_A$ via ECDSA signature over a server-issued nonce and both ephemeral public keys; server proves possession of this node's $V_B$ via a nonce-bound hash (Table~\ref{tab:rotpsim_b}); $Key_{ab} \leftarrow \text{SHA-256}(Z \!\parallel\! V_B \!\parallel\! N_A \!\parallel\! N_B)$, $Z$ a discarded ECDH secret; none of the raw response, $sk_A$, $V_B$, or $Z$ is ever transmitted; validated end-to-end on real hardware (Section~\ref{subsec:pufbench}) & S & I1, I3 \\
         \midrule
-        P2 & Root of Trust & Per-boot response reconstruction and nonce-bound mutual identification without key transmission; ephemeral ECDH session key (forward secrecy) & \texttt{get\_puf\_response()} reconstructs $\text{PUF}_A$ (see Section~\ref{subsec:pufbench} for the measured byte length, which varies slightly by enrollment); $(sk_A, pk_A) \leftarrow$ HKDF-derive-keypair($\text{PUF}_A$, bound to a hash of the stable-bit mask/ECC helper data, Limitations); device proves possession of $sk_A$ via ECDSA signature over a server-issued nonce and both ephemeral public keys; server proves possession of this node's $V_B$ via a nonce-bound hash (Table~\ref{tab:rotpsim_b}); $Key_{ab} \leftarrow \text{SHA-256}(Z \!\parallel\! V_B \!\parallel\! N_A \!\parallel\! N_B)$, $Z$ a discarded ECDH secret; none of the raw response, $sk_A$, $V_B$, or $Z$ is ever transmitted; validated end-to-end on real hardware (Section~\ref{subsec:pufbench}) & S & I1, I3 \\
-        \midrule
-        P3 & Data Exchange & Per-message authenticated encryption & $c_i \leftarrow \text{AES-256-GCM}(Key_{ab},\;\text{nonce}_i,\;m_i)$ via ESP-IDF \texttt{mbedtls}/\texttt{esp\_aes}; a fresh random 12-byte nonce per message; the GCM authentication tag detects any single-message modification & S, T, ID & I2, I3, I6, I7 \\
-        \bottomrule
-    \end{tabular}}
-\end{table*}
+        P3 & Data Exchange & Per-message authenticated encryption & $c_i \leftarrow$ AES-256-GCM$(Key_{ab},\;\text{nonce}_i,\;m_i)$ via ESP-IDF \texttt{mbedtls}/\texttt{esp\_aes}; a fresh random 12-byte nonce per message; the GCM authentication tag detects any single-message modification & S, T, ID & I2, I3, I6, I7 \\
+\end{longtable}
+\endgroup
 
 \begin{table}[htbp]
     \centering
@@ -776,31 +784,40 @@ Table~\ref{tab:phases_a} describes each phase's security role, mechanism, and ST
 
 \textbf{Functional validation:} Table~\ref{tab:functional} reports the functional test results, drawn from the $N=30$ real hard-reset bench trial (Section~\ref{subsec:pufbench}) and the dedicated tamper-verification test.
 
-\begin{table}[htbp]
-    \centering
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{
+    >{\centering\arraybackslash}p{1.9cm}
+    >{\raggedright\arraybackslash}p{9.0cm}
+    >{\centering\arraybackslash}p{1.4cm}
+}
     \caption{Functional test results (Stage~6.2.1). FT-01--FT-04 pass rates are over the $N=30$ hard-reset bench trial (Section~\ref{subsec:pufbench}); FT-05 is a single dedicated negative test; FT-06 is a cross-chip cloning negative test repeated 8 times across three firmware generations (Limitations). Sensor/EMS functional tests are not yet applicable, since those modules are not implemented in the current firmware (see Limitations).}
-    \label{tab:functional}
-    \small
-    \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{
-        >{\centering\arraybackslash}p{2cm}
-        >{\raggedright\arraybackslash}p{9.3cm}
-        >{\centering\arraybackslash}p{1.5cm}
-    }
-        \toprule
-        \textbf{ID} & \textbf{Description} & \textbf{Result} \\
-        \midrule
+    \label{tab:functional} \\
+    \toprule
+    \textbf{ID} & \textbf{Description} & \textbf{Result} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\small\textit{Table~\ref{tab:functional} continued from previous page}} \\
+    \toprule
+    \textbf{ID} & \textbf{Description} & \textbf{Result} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\small\textit{continued on next page}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
         FT-01 & Boot: PUF identity reconstructed from NVS helper data (mask/ECC); no raw key or PUF response in NVS & Pass (30/30) \\
         FT-02 & WiFi connect: associates to the configured access point and obtains an IP address & Pass (30/30) \\
         FT-03 & P2 Root of Trust: asymmetric device proof (ECDSA) + symmetric server proof both verify, over an ephemeral ECDH exchange; mutual authentication established & Pass (30/30) \\
         FT-04 & P3 session: AES-256-GCM encrypted demo message sent and acknowledged & Pass (30/30) \\
         FT-05 & Tamper verification: deliberate NVS parameter corruption produces authentication failure (single targeted negative test, log not separately archived) & Pass (1/1) \\
-        FT-06 & Cross-chip cloning: SMG\_NODE\_01's entire NVS (PUF helper data, server reference) copied onto SMG\_NODE\_02's physical chip; server rejects the resulting device proof (signature invalid) & Pass (8/8: 1 under the original firmware, 4 under the error-rate-relaxed firmware, 3 under the fully corrected firmware/identity) \\
+        FT-06 & Cross-chip cloning: SMG\_NODE\_01's entire NVS (PUF helper data, server reference) copied onto SMG\_NODE\_02's physical chip; server rejects the resulting device proof (signature invalid). Repeated 8 times across three firmware generations (1 original, 4 error-rate-relaxed, 3 fully corrected), all rejected (Limitations) & Pass (8/8) \\
         \midrule
         & \textbf{Overall pass rate} & \textbf{6/6 tests passed = 100\%} \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+\end{longtable}
+\endgroup
 
 \textbf{Iterative development confirmation:} At least six maintenance moments were identified and resolved during real-hardware bench validation and subsequent review passes on SMG\_NODE\_01 (Section~\ref{subsec:pufbench}, Limitations): an enrollment-state-confusion bug causing an unbounded re-enrollment loop; the session-key forward-secrecy fix (ephemeral ECDH); moving the WiFi credential from a firmware constant to NVS provisioning; erasing the \texttt{PUF\_FREQUENCY} blob left in NVS after enrollment; relaxing the miscalibrated local reliability gate; and the helper-data-manipulation mitigation (including extending its scope after an initial gap was found). Each was a code-level revision triggered by testing or review, not an architectural redesign. This confirms the methodology's M2 maintenance pathway operates as specified at TRL~3 (see Discussion for the M1/M2 classification and further incidents pending SMG\_NODE\_02 validation).
 
@@ -844,9 +861,9 @@ Table~\ref{tab:pufbench} reports results from $N=30$ successive hard-reset trial
 \small
 \renewcommand{\arraystretch}{1.1}
 \begin{longtable}{
-    >{\raggedright\arraybackslash}p{5.0cm}
-    >{\centering\arraybackslash}p{3.0cm}
-    >{\raggedright\arraybackslash}p{5.3cm}
+    >{\raggedright\arraybackslash}p{4.6cm}
+    >{\centering\arraybackslash}p{2.7cm}
+    >{\raggedright\arraybackslash}p{4.9cm}
 }
     \caption{PUF-based RoT real-hardware bench trial: SMG\_NODE\_01, $N=30$ successive hard-reset trials against one fixed enrollment. \texttt{esp32\_puflib}'s own instrumentation reports two per-attempt figures: hamming-weight, a hard gate on the raw measurement (must exceed 48.5\%, a randomness sanity check unrelated to any specific enrollment), and raw bit-error rate, reported here for reference only --- it does not gate acceptance (Limitations). The latter counts only the bits the ECC decoder corrects within the stable-bit-masked region (421$\times$64 = 26{,}944 bits for this enrollment), but divides by the full 32768-bit measured region rather than the masked subset, so it understates the error rate over the stable bits actually used; the per-stable-bit figure is proportionally higher by a factor of $32768/26944 \approx 1.22$. The server's ECDSA verification, not either local figure, is what establishes identity.}
     \label{tab:pufbench} \\
@@ -890,11 +907,11 @@ Tables~\ref{tab:owasp_a} and~\ref{tab:owasp_b} map each OWASP IoT Top~10 item to
 \renewcommand{\arraystretch}{1.1}
 \begin{longtable}{
     >{\centering\arraybackslash}p{0.4cm}
-    >{\raggedright\arraybackslash}p{2cm}
+    >{\raggedright\arraybackslash}p{1.8cm}
+    >{\centering\arraybackslash}p{1.3cm}
+    >{\centering\arraybackslash}p{1.3cm}
+    >{\raggedright\arraybackslash}p{4.6cm}
     >{\centering\arraybackslash}p{1.5cm}
-    >{\centering\arraybackslash}p{1.5cm}
-    >{\raggedright\arraybackslash}p{5.2cm}
-    >{\centering\arraybackslash}p{1.7cm}
 }
     \caption{OWASP IoT Top~10 coverage analysis --- Part 1 (I1--I5). Stage = methodology process mandating the countermeasure. Phase(s) = protocol phase(s) providing implementation evidence (see Table~\ref{tab:phases_a}); --- = addressed by policy/deployment, not protocol.}
     \label{tab:owasp_a} \\
