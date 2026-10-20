@@ -1,0 +1,25 @@
+# Provisioned secrets — never commit real node/server credentials
+puf_node_registry.json
+puf_server_identity.json
+node_registry.json
+*_identity.json
+!*example*.json
+
+# Raw flash/NVS dumps and other binary artifacts that may carry secret material
+*.bin
+
+# LaTeX build byproducts (compiled PDFs are intentionally committed, sources stay tracked).
+# Scoped to Article/ only -- bare *.log would also hide legitimate bench/server logs
+# deposited elsewhere in this repo (case study SMG/.../bench_results_*/).
+Article/*.aux
+Article/*.bbl
+Article/*.blg
+Article/*.log
+Article/*.out
+Article/*.synctex.gz
+Article/*.fls
+Article/*.fdb_latexmk
+
+# Editor/OS
+.DS_Store
+Thumbs.db

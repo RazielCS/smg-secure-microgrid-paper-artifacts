@@ -1,0 +1,56 @@
+[
+    {
+        "namespace": "storage",
+        "key": "PUF_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 4000
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 96
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_SLEEP_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3840
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_SLEEP_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 256
+    },
+    {
+        "namespace": "storage",
+        "key": "ECC_SLEEP_DATA",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3376
+    },
+    {
+        "namespace": "storage",
+        "key": "ECC_DATA",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3376
+    }
+]

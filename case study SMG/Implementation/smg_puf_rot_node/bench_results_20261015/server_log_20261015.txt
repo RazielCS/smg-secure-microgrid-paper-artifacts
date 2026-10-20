@@ -1,0 +1,449 @@
+14:48:56 [INFO] puf_server: Loaded 1 node(s) from registry
+14:48:56 [INFO] puf_server: Server ID (id_b): 4b33ee6834e9ddd46fd9e0275062f05c
+14:48:56 [INFO] puf_server: Listening on 0.0.0.0:5001
+14:49:10 [INFO] puf_server: Incoming connection from 10.42.0.89:64246
+14:49:15 [INFO] puf_server: Incoming connection from 10.42.0.89:56549
+14:49:20 [INFO] rot_challenge_service: [('10.42.0.89', 64246)] socket error: timed out
+14:49:24 [INFO] puf_server: Incoming connection from 10.42.0.89:54405
+14:49:25 [INFO] rot_challenge_service: [('10.42.0.89', 56549)] socket error: timed out
+14:49:28 [INFO] puf_server: Incoming connection from 10.42.0.89:60143
+14:49:33 [INFO] puf_server: Incoming connection from 10.42.0.89:57467
+14:49:33 [INFO] rot_challenge_service: [('10.42.0.89', 57467)] session ended: connection closed during recv
+14:49:34 [INFO] rot_challenge_service: [('10.42.0.89', 54405)] socket error: timed out
+14:49:38 [INFO] rot_challenge_service: [('10.42.0.89', 60143)] socket error: timed out
+14:49:56 [INFO] puf_server: Incoming connection from 10.42.0.89:64970
+14:50:00 [INFO] puf_server: Incoming connection from 10.42.0.89:59962
+14:50:05 [INFO] puf_server: Incoming connection from 10.42.0.89:62977
+14:50:06 [INFO] rot_challenge_service: [('10.42.0.89', 64970)] socket error: timed out
+14:50:09 [INFO] puf_server: Incoming connection from 10.42.0.89:58853
+14:50:10 [INFO] rot_challenge_service: [('10.42.0.89', 59962)] socket error: timed out
+14:50:14 [INFO] puf_server: Incoming connection from 10.42.0.89:54914
+14:50:15 [INFO] rot_challenge_service: [('10.42.0.89', 62977)] socket error: timed out
+14:50:18 [INFO] puf_server: Incoming connection from 10.42.0.89:63324
+14:50:18 [INFO] rot_challenge_service: [('10.42.0.89', 63324)] session ended: connection closed during recv
+14:50:19 [INFO] rot_challenge_service: [('10.42.0.89', 58853)] socket error: timed out
+14:50:24 [INFO] rot_challenge_service: [('10.42.0.89', 54914)] socket error: timed out
+14:50:41 [INFO] puf_server: Incoming connection from 10.42.0.89:63218
+14:50:45 [INFO] puf_server: Incoming connection from 10.42.0.89:57851
+14:50:50 [INFO] puf_server: Incoming connection from 10.42.0.89:60694
+14:50:51 [INFO] rot_challenge_service: [('10.42.0.89', 63218)] socket error: timed out
+14:50:54 [INFO] puf_server: Incoming connection from 10.42.0.89:50060
+14:50:55 [INFO] rot_challenge_service: [('10.42.0.89', 57851)] socket error: timed out
+14:50:59 [INFO] puf_server: Incoming connection from 10.42.0.89:54524
+14:51:00 [INFO] rot_challenge_service: [('10.42.0.89', 60694)] socket error: timed out
+14:51:03 [INFO] puf_server: Incoming connection from 10.42.0.89:56412
+14:51:03 [INFO] rot_challenge_service: [('10.42.0.89', 56412)] session ended: connection closed during recv
+14:51:04 [INFO] rot_challenge_service: [('10.42.0.89', 50060)] socket error: timed out
+14:51:09 [INFO] rot_challenge_service: [('10.42.0.89', 54524)] socket error: timed out
+14:51:26 [INFO] puf_server: Incoming connection from 10.42.0.89:58508
+14:51:28 [INFO] puf_server: Incoming connection from 10.42.0.89:60395
+14:51:33 [INFO] puf_server: Incoming connection from 10.42.0.89:57185
+14:51:36 [INFO] rot_challenge_service: [('10.42.0.89', 58508)] socket error: timed out
+14:51:37 [INFO] puf_server: Incoming connection from 10.42.0.89:60567
+14:51:38 [INFO] rot_challenge_service: [('10.42.0.89', 60395)] socket error: timed out
+14:51:42 [INFO] puf_server: Incoming connection from 10.42.0.89:54745
+14:51:43 [INFO] rot_challenge_service: [('10.42.0.89', 57185)] socket error: timed out
+14:51:46 [INFO] puf_server: Incoming connection from 10.42.0.89:50330
+14:51:46 [INFO] rot_challenge_service: [('10.42.0.89', 50330)] session ended: connection closed during recv
+14:51:47 [INFO] rot_challenge_service: [('10.42.0.89', 60567)] socket error: timed out
+14:51:52 [INFO] rot_challenge_service: [('10.42.0.89', 54745)] socket error: timed out
+14:52:11 [INFO] puf_server: Incoming connection from 10.42.0.89:51009
+14:52:16 [INFO] puf_server: Incoming connection from 10.42.0.89:52823
+14:52:21 [INFO] rot_challenge_service: [('10.42.0.89', 51009)] socket error: timed out
+14:52:22 [INFO] puf_server: Incoming connection from 10.42.0.89:52540
+14:52:26 [INFO] rot_challenge_service: [('10.42.0.89', 52823)] socket error: timed out
+14:52:27 [INFO] puf_server: Incoming connection from 10.42.0.89:56591
+14:52:31 [INFO] puf_server: Incoming connection from 10.42.0.89:62126
+14:52:32 [INFO] rot_challenge_service: [('10.42.0.89', 62126)] session ended: connection closed during recv
+14:52:32 [INFO] rot_challenge_service: [('10.42.0.89', 52540)] socket error: timed out
+14:52:37 [INFO] rot_challenge_service: [('10.42.0.89', 56591)] socket error: timed out
+14:52:56 [INFO] puf_server: Incoming connection from 10.42.0.89:51780
+14:53:01 [INFO] puf_server: Incoming connection from 10.42.0.89:54355
+14:53:05 [INFO] puf_server: Incoming connection from 10.42.0.89:51116
+14:53:06 [INFO] rot_challenge_service: [('10.42.0.89', 51780)] socket error: timed out
+14:53:10 [INFO] puf_server: Incoming connection from 10.42.0.89:60262
+14:53:11 [INFO] rot_challenge_service: [('10.42.0.89', 54355)] socket error: timed out
+14:53:14 [INFO] puf_server: Incoming connection from 10.42.0.89:65463
+14:53:15 [INFO] rot_challenge_service: [('10.42.0.89', 51116)] socket error: timed out
+14:53:19 [INFO] puf_server: Incoming connection from 10.42.0.89:57517
+14:53:19 [INFO] rot_challenge_service: [('10.42.0.89', 57517)] session ended: connection closed during recv
+14:53:20 [INFO] rot_challenge_service: [('10.42.0.89', 60262)] socket error: timed out
+14:53:24 [INFO] rot_challenge_service: [('10.42.0.89', 65463)] socket error: timed out
+14:53:42 [INFO] puf_server: Incoming connection from 10.42.0.89:58227
+14:53:46 [INFO] puf_server: Incoming connection from 10.42.0.89:63211
+14:53:51 [INFO] puf_server: Incoming connection from 10.42.0.89:49659
+14:53:52 [INFO] rot_challenge_service: [('10.42.0.89', 58227)] socket error: timed out
+14:53:55 [INFO] puf_server: Incoming connection from 10.42.0.89:54569
+14:53:56 [INFO] rot_challenge_service: [('10.42.0.89', 63211)] socket error: timed out
+14:54:00 [INFO] puf_server: Incoming connection from 10.42.0.89:60937
+14:54:01 [INFO] rot_challenge_service: [('10.42.0.89', 49659)] socket error: timed out
+14:54:04 [INFO] puf_server: Incoming connection from 10.42.0.89:58386
+14:54:04 [INFO] rot_challenge_service: [('10.42.0.89', 58386)] session ended: connection closed during recv
+14:54:05 [INFO] rot_challenge_service: [('10.42.0.89', 54569)] socket error: timed out
+14:54:10 [INFO] rot_challenge_service: [('10.42.0.89', 60937)] socket error: timed out
+14:54:27 [INFO] puf_server: Incoming connection from 10.42.0.89:63248
+14:54:31 [INFO] puf_server: Incoming connection from 10.42.0.89:50421
+14:54:36 [INFO] puf_server: Incoming connection from 10.42.0.89:63133
+14:54:37 [INFO] rot_challenge_service: [('10.42.0.89', 63248)] socket error: timed out
+14:54:40 [INFO] puf_server: Incoming connection from 10.42.0.89:60290
+14:54:41 [INFO] rot_challenge_service: [('10.42.0.89', 50421)] socket error: timed out
+14:54:46 [INFO] rot_challenge_service: [('10.42.0.89', 63133)] socket error: timed out
+14:54:50 [INFO] puf_server: Incoming connection from 10.42.0.89:61739
+14:54:50 [INFO] rot_challenge_service: [('10.42.0.89', 61739)] session ended: connection closed during recv
+14:54:50 [INFO] rot_challenge_service: [('10.42.0.89', 60290)] socket error: timed out
+14:55:12 [INFO] puf_server: Incoming connection from 10.42.0.89:58035
+14:55:17 [INFO] puf_server: Incoming connection from 10.42.0.89:52627
+14:55:21 [INFO] puf_server: Incoming connection from 10.42.0.89:59558
+14:55:22 [INFO] rot_challenge_service: [('10.42.0.89', 58035)] socket error: timed out
+14:55:26 [INFO] puf_server: Incoming connection from 10.42.0.89:64877
+14:55:27 [INFO] rot_challenge_service: [('10.42.0.89', 52627)] socket error: timed out
+14:55:28 [INFO] puf_server: Incoming connection from 10.42.0.89:60902
+14:55:31 [INFO] rot_challenge_service: [('10.42.0.89', 59558)] socket error: timed out
+14:55:32 [INFO] puf_server: Incoming connection from 10.42.0.89:62708
+14:55:32 [INFO] rot_challenge_service: [('10.42.0.89', 62708)] session ended: connection closed during recv
+14:55:36 [INFO] rot_challenge_service: [('10.42.0.89', 64877)] socket error: timed out
+14:55:38 [INFO] rot_challenge_service: [('10.42.0.89', 60902)] socket error: timed out
+14:55:57 [INFO] puf_server: Incoming connection from 10.42.0.89:59538
+14:56:02 [INFO] puf_server: Incoming connection from 10.42.0.89:50969
+14:56:06 [INFO] puf_server: Incoming connection from 10.42.0.89:51175
+14:56:07 [INFO] rot_challenge_service: [('10.42.0.89', 59538)] socket error: timed out
+14:56:11 [INFO] puf_server: Incoming connection from 10.42.0.89:49694
+14:56:12 [INFO] rot_challenge_service: [('10.42.0.89', 50969)] socket error: timed out
+14:56:16 [INFO] puf_server: Incoming connection from 10.42.0.89:64612
+14:56:16 [INFO] rot_challenge_service: [('10.42.0.89', 51175)] socket error: timed out
+14:56:18 [INFO] puf_server: Incoming connection from 10.42.0.89:63596
+14:56:18 [INFO] rot_challenge_service: [('10.42.0.89', 63596)] session ended: connection closed during recv
+14:56:21 [INFO] rot_challenge_service: [('10.42.0.89', 49694)] socket error: timed out
+14:56:26 [INFO] rot_challenge_service: [('10.42.0.89', 64612)] socket error: timed out
+14:56:43 [INFO] puf_server: Incoming connection from 10.42.0.89:64322
+14:56:47 [INFO] puf_server: Incoming connection from 10.42.0.89:60330
+14:56:52 [INFO] puf_server: Incoming connection from 10.42.0.89:55713
+14:56:53 [INFO] rot_challenge_service: [('10.42.0.89', 64322)] socket error: timed out
+14:56:56 [INFO] puf_server: Incoming connection from 10.42.0.89:49335
+14:56:57 [INFO] rot_challenge_service: [('10.42.0.89', 60330)] socket error: timed out
+14:57:01 [INFO] puf_server: Incoming connection from 10.42.0.89:65472
+14:57:02 [INFO] rot_challenge_service: [('10.42.0.89', 55713)] socket error: timed out
+14:57:05 [INFO] puf_server: Incoming connection from 10.42.0.89:53108
+14:57:05 [INFO] rot_challenge_service: [('10.42.0.89', 53108)] session ended: connection closed during recv
+14:57:06 [INFO] rot_challenge_service: [('10.42.0.89', 49335)] socket error: timed out
+14:57:11 [INFO] rot_challenge_service: [('10.42.0.89', 65472)] socket error: timed out
+14:57:28 [INFO] puf_server: Incoming connection from 10.42.0.89:54072
+14:57:32 [INFO] puf_server: Incoming connection from 10.42.0.89:52051
+14:57:37 [INFO] puf_server: Incoming connection from 10.42.0.89:59222
+14:57:38 [INFO] rot_challenge_service: [('10.42.0.89', 54072)] socket error: timed out
+14:57:41 [INFO] puf_server: Incoming connection from 10.42.0.89:51200
+14:57:42 [INFO] rot_challenge_service: [('10.42.0.89', 52051)] socket error: timed out
+14:57:46 [INFO] puf_server: Incoming connection from 10.42.0.89:58214
+14:57:47 [INFO] rot_challenge_service: [('10.42.0.89', 59222)] socket error: timed out
+14:57:51 [INFO] puf_server: Incoming connection from 10.42.0.89:64908
+14:57:51 [INFO] rot_challenge_service: [('10.42.0.89', 64908)] session ended: connection closed during recv
+14:57:51 [INFO] rot_challenge_service: [('10.42.0.89', 51200)] socket error: timed out
+14:57:56 [INFO] rot_challenge_service: [('10.42.0.89', 58214)] socket error: timed out
+14:58:11 [INFO] puf_server: Incoming connection from 10.42.0.89:64716
+14:58:15 [INFO] puf_server: Incoming connection from 10.42.0.89:64607
+14:58:21 [INFO] rot_challenge_service: [('10.42.0.89', 64716)] socket error: timed out
+14:58:22 [INFO] puf_server: Incoming connection from 10.42.0.89:57060
+14:58:25 [INFO] rot_challenge_service: [('10.42.0.89', 64607)] socket error: timed out
+14:58:26 [INFO] puf_server: Incoming connection from 10.42.0.89:56886
+14:58:31 [INFO] puf_server: Incoming connection from 10.42.0.89:63107
+14:58:31 [INFO] rot_challenge_service: [('10.42.0.89', 63107)] session ended: connection closed during recv
+14:58:32 [INFO] rot_challenge_service: [('10.42.0.89', 57060)] socket error: timed out
+14:58:36 [INFO] rot_challenge_service: [('10.42.0.89', 56886)] socket error: timed out
+14:58:56 [INFO] puf_server: Incoming connection from 10.42.0.89:56720
+14:59:05 [INFO] puf_server: Incoming connection from 10.42.0.89:53375
+14:59:06 [INFO] rot_challenge_service: [('10.42.0.89', 56720)] socket error: timed out
+14:59:09 [INFO] puf_server: Incoming connection from 10.42.0.89:57468
+14:59:14 [INFO] puf_server: Incoming connection from 10.42.0.89:52978
+14:59:15 [INFO] rot_challenge_service: [('10.42.0.89', 53375)] socket error: timed out
+14:59:19 [INFO] puf_server: Incoming connection from 10.42.0.89:52500
+14:59:19 [INFO] rot_challenge_service: [('10.42.0.89', 52500)] session ended: connection closed during recv
+14:59:19 [INFO] rot_challenge_service: [('10.42.0.89', 57468)] socket error: timed out
+14:59:24 [INFO] rot_challenge_service: [('10.42.0.89', 52978)] socket error: timed out
+14:59:43 [INFO] puf_server: Incoming connection from 10.42.0.89:52310
+14:59:48 [INFO] puf_server: Incoming connection from 10.42.0.89:53251
+14:59:53 [INFO] puf_server: Incoming connection from 10.42.0.89:57992
+14:59:53 [INFO] rot_challenge_service: [('10.42.0.89', 52310)] socket error: timed out
+14:59:57 [INFO] puf_server: Incoming connection from 10.42.0.89:64060
+14:59:58 [INFO] rot_challenge_service: [('10.42.0.89', 53251)] socket error: timed out
+15:00:02 [INFO] puf_server: Incoming connection from 10.42.0.89:51496
+15:00:03 [INFO] rot_challenge_service: [('10.42.0.89', 57992)] socket error: timed out
+15:00:04 [INFO] puf_server: Incoming connection from 10.42.0.89:64125
+15:00:04 [INFO] rot_challenge_service: [('10.42.0.89', 64125)] session ended: connection closed during recv
+15:00:07 [INFO] rot_challenge_service: [('10.42.0.89', 64060)] socket error: timed out
+15:00:12 [INFO] rot_challenge_service: [('10.42.0.89', 51496)] socket error: timed out
+15:00:29 [INFO] puf_server: Incoming connection from 10.42.0.89:62963
+15:00:33 [INFO] puf_server: Incoming connection from 10.42.0.89:64320
+15:00:38 [INFO] puf_server: Incoming connection from 10.42.0.89:61993
+15:00:39 [INFO] rot_challenge_service: [('10.42.0.89', 62963)] socket error: timed out
+15:00:42 [INFO] puf_server: Incoming connection from 10.42.0.89:52245
+15:00:43 [INFO] rot_challenge_service: [('10.42.0.89', 64320)] socket error: timed out
+15:00:47 [INFO] puf_server: Incoming connection from 10.42.0.89:49768
+15:00:48 [INFO] rot_challenge_service: [('10.42.0.89', 61993)] socket error: timed out
+15:00:52 [INFO] puf_server: Incoming connection from 10.42.0.89:51071
+15:00:52 [INFO] rot_challenge_service: [('10.42.0.89', 51071)] session ended: connection closed during recv
+15:00:53 [INFO] rot_challenge_service: [('10.42.0.89', 52245)] socket error: timed out
+15:00:57 [INFO] rot_challenge_service: [('10.42.0.89', 49768)] socket error: timed out
+15:01:14 [INFO] puf_server: Incoming connection from 10.42.0.89:59886
+15:01:19 [INFO] puf_server: Incoming connection from 10.42.0.89:56689
+15:01:21 [INFO] puf_server: Incoming connection from 10.42.0.89:50609
+15:01:24 [INFO] rot_challenge_service: [('10.42.0.89', 59886)] socket error: timed out
+15:01:25 [INFO] puf_server: Incoming connection from 10.42.0.89:56432
+15:01:29 [INFO] rot_challenge_service: [('10.42.0.89', 56689)] socket error: timed out
+15:01:30 [INFO] puf_server: Incoming connection from 10.42.0.89:60850
+15:01:31 [INFO] rot_challenge_service: [('10.42.0.89', 50609)] socket error: timed out
+15:01:34 [INFO] puf_server: Incoming connection from 10.42.0.89:60698
+15:01:34 [INFO] rot_challenge_service: [('10.42.0.89', 60698)] session ended: connection closed during recv
+15:01:35 [INFO] rot_challenge_service: [('10.42.0.89', 56432)] socket error: timed out
+15:01:40 [INFO] rot_challenge_service: [('10.42.0.89', 60850)] socket error: timed out
+15:01:59 [INFO] puf_server: Incoming connection from 10.42.0.89:59342
+15:02:04 [INFO] puf_server: Incoming connection from 10.42.0.89:61052
+15:02:09 [INFO] rot_challenge_service: [('10.42.0.89', 59342)] socket error: timed out
+15:02:10 [INFO] puf_server: Incoming connection from 10.42.0.89:49457
+15:02:14 [INFO] rot_challenge_service: [('10.42.0.89', 61052)] socket error: timed out
+15:02:15 [INFO] puf_server: Incoming connection from 10.42.0.89:63925
+15:02:19 [INFO] puf_server: Incoming connection from 10.42.0.89:55962
+15:02:20 [INFO] rot_challenge_service: [('10.42.0.89', 55962)] session ended: connection closed during recv
+15:02:20 [INFO] rot_challenge_service: [('10.42.0.89', 49457)] socket error: timed out
+15:02:25 [INFO] rot_challenge_service: [('10.42.0.89', 63925)] socket error: timed out
+15:02:44 [INFO] puf_server: Incoming connection from 10.42.0.89:57062
+15:02:49 [INFO] puf_server: Incoming connection from 10.42.0.89:54225
+15:02:54 [INFO] puf_server: Incoming connection from 10.42.0.89:51975
+15:02:54 [INFO] rot_challenge_service: [('10.42.0.89', 57062)] socket error: timed out
+15:02:58 [INFO] puf_server: Incoming connection from 10.42.0.89:60148
+15:02:59 [INFO] rot_challenge_service: [('10.42.0.89', 54225)] socket error: timed out
+15:03:04 [INFO] rot_challenge_service: [('10.42.0.89', 51975)] socket error: timed out
+15:03:07 [INFO] puf_server: Incoming connection from 10.42.0.89:52396
+15:03:07 [INFO] rot_challenge_service: [('10.42.0.89', 52396)] session ended: connection closed during recv
+15:03:08 [INFO] rot_challenge_service: [('10.42.0.89', 60148)] socket error: timed out
+15:03:27 [INFO] puf_server: Incoming connection from 10.42.0.89:62601
+15:03:32 [INFO] puf_server: Incoming connection from 10.42.0.89:56092
+15:03:34 [INFO] puf_server: Incoming connection from 10.42.0.89:62924
+15:03:37 [INFO] rot_challenge_service: [('10.42.0.89', 62601)] socket error: timed out
+15:03:38 [INFO] puf_server: Incoming connection from 10.42.0.89:55022
+15:03:42 [INFO] rot_challenge_service: [('10.42.0.89', 56092)] socket error: timed out
+15:03:43 [INFO] puf_server: Incoming connection from 10.42.0.89:54304
+15:03:44 [INFO] rot_challenge_service: [('10.42.0.89', 62924)] socket error: timed out
+15:03:47 [INFO] puf_server: Incoming connection from 10.42.0.89:58861
+15:03:48 [INFO] rot_challenge_service: [('10.42.0.89', 58861)] session ended: connection closed during recv
+15:03:48 [INFO] rot_challenge_service: [('10.42.0.89', 55022)] socket error: timed out
+15:03:53 [INFO] rot_challenge_service: [('10.42.0.89', 54304)] socket error: timed out
+15:04:15 [INFO] puf_server: Incoming connection from 10.42.0.89:51695
+15:04:19 [INFO] puf_server: Incoming connection from 10.42.0.89:50337
+15:04:24 [INFO] puf_server: Incoming connection from 10.42.0.89:54413
+15:04:25 [INFO] rot_challenge_service: [('10.42.0.89', 51695)] socket error: timed out
+15:04:28 [INFO] puf_server: Incoming connection from 10.42.0.89:56595
+15:04:29 [INFO] rot_challenge_service: [('10.42.0.89', 50337)] socket error: timed out
+15:04:33 [INFO] puf_server: Incoming connection from 10.42.0.89:57830
+15:04:34 [INFO] rot_challenge_service: [('10.42.0.89', 54413)] socket error: timed out
+15:04:37 [INFO] puf_server: Incoming connection from 10.42.0.89:60238
+15:04:38 [INFO] rot_challenge_service: [('10.42.0.89', 60238)] session ended: connection closed during recv
+15:04:38 [INFO] rot_challenge_service: [('10.42.0.89', 56595)] socket error: timed out
+15:04:43 [INFO] rot_challenge_service: [('10.42.0.89', 57830)] socket error: timed out
+15:05:00 [INFO] puf_server: Incoming connection from 10.42.0.89:64514
+15:05:05 [INFO] puf_server: Incoming connection from 10.42.0.89:51201
+15:05:10 [INFO] rot_challenge_service: [('10.42.0.89', 64514)] socket error: timed out
+15:05:12 [INFO] puf_server: Incoming connection from 10.42.0.89:53780
+15:05:15 [INFO] rot_challenge_service: [('10.42.0.89', 51201)] socket error: timed out
+15:05:21 [INFO] puf_server: Incoming connection from 10.42.0.89:52612
+15:05:22 [INFO] rot_challenge_service: [('10.42.0.89', 53780)] socket error: timed out
+15:05:25 [INFO] puf_server: Incoming connection from 10.42.0.89:60508
+15:05:25 [INFO] rot_challenge_service: [('10.42.0.89', 60508)] session ended: connection closed during recv
+15:05:31 [INFO] rot_challenge_service: [('10.42.0.89', 52612)] socket error: timed out
+15:05:45 [INFO] puf_server: Incoming connection from 10.42.0.89:63431
+15:05:54 [INFO] puf_server: Incoming connection from 10.42.0.89:63107
+15:05:55 [INFO] rot_challenge_service: [('10.42.0.89', 63431)] socket error: timed out
+15:06:03 [INFO] puf_server: Incoming connection from 10.42.0.89:61629
+15:06:04 [INFO] rot_challenge_service: [('10.42.0.89', 63107)] socket error: timed out
+15:06:08 [INFO] puf_server: Incoming connection from 10.42.0.89:57064
+15:06:08 [INFO] rot_challenge_service: [('10.42.0.89', 57064)] session ended: connection closed during recv
+15:06:13 [INFO] rot_challenge_service: [('10.42.0.89', 61629)] socket error: timed out
+15:06:31 [INFO] puf_server: Incoming connection from 10.42.0.89:55219
+15:06:35 [INFO] puf_server: Incoming connection from 10.42.0.89:59293
+15:06:40 [INFO] puf_server: Incoming connection from 10.42.0.89:60538
+15:06:41 [INFO] rot_challenge_service: [('10.42.0.89', 55219)] socket error: timed out
+15:06:42 [INFO] puf_server: Incoming connection from 10.42.0.89:65434
+15:06:45 [INFO] rot_challenge_service: [('10.42.0.89', 59293)] socket error: timed out
+15:06:46 [INFO] puf_server: Incoming connection from 10.42.0.89:56999
+15:06:50 [INFO] rot_challenge_service: [('10.42.0.89', 60538)] socket error: timed out
+15:06:51 [INFO] puf_server: Incoming connection from 10.42.0.89:56704
+15:06:51 [INFO] rot_challenge_service: [('10.42.0.89', 56704)] session ended: connection closed during recv
+15:06:52 [INFO] rot_challenge_service: [('10.42.0.89', 65434)] socket error: timed out
+15:06:56 [INFO] rot_challenge_service: [('10.42.0.89', 56999)] socket error: timed out
+15:07:16 [INFO] puf_server: Incoming connection from 10.42.0.89:55799
+15:07:20 [INFO] puf_server: Incoming connection from 10.42.0.89:51995
+15:07:25 [INFO] puf_server: Incoming connection from 10.42.0.89:60945
+15:07:26 [INFO] rot_challenge_service: [('10.42.0.89', 55799)] socket error: timed out
+15:07:29 [INFO] puf_server: Incoming connection from 10.42.0.89:53856
+15:07:30 [INFO] rot_challenge_service: [('10.42.0.89', 51995)] socket error: timed out
+15:07:34 [INFO] puf_server: Incoming connection from 10.42.0.89:57942
+15:07:35 [INFO] rot_challenge_service: [('10.42.0.89', 60945)] socket error: timed out
+15:07:38 [INFO] puf_server: Incoming connection from 10.42.0.89:50219
+15:07:38 [INFO] rot_challenge_service: [('10.42.0.89', 50219)] session ended: connection closed during recv
+15:07:39 [INFO] rot_challenge_service: [('10.42.0.89', 53856)] socket error: timed out
+15:07:44 [INFO] rot_challenge_service: [('10.42.0.89', 57942)] socket error: timed out
+15:08:01 [INFO] puf_server: Incoming connection from 10.42.0.89:50248
+15:08:06 [INFO] puf_server: Incoming connection from 10.42.0.89:59204
+15:08:10 [INFO] puf_server: Incoming connection from 10.42.0.89:52179
+15:08:11 [INFO] rot_challenge_service: [('10.42.0.89', 50248)] socket error: timed out
+15:08:15 [INFO] puf_server: Incoming connection from 10.42.0.89:57508
+15:08:16 [INFO] rot_challenge_service: [('10.42.0.89', 59204)] socket error: timed out
+15:08:19 [INFO] puf_server: Incoming connection from 10.42.0.89:61265
+15:08:20 [INFO] rot_challenge_service: [('10.42.0.89', 52179)] socket error: timed out
+15:08:24 [INFO] puf_server: Incoming connection from 10.42.0.89:55443
+15:08:24 [INFO] rot_challenge_service: [('10.42.0.89', 55443)] session ended: connection closed during recv
+15:08:25 [INFO] rot_challenge_service: [('10.42.0.89', 57508)] socket error: timed out
+15:08:29 [INFO] rot_challenge_service: [('10.42.0.89', 61265)] socket error: timed out
+15:08:46 [INFO] puf_server: Incoming connection from 10.42.0.89:50581
+15:08:51 [INFO] puf_server: Incoming connection from 10.42.0.89:51491
+15:08:53 [INFO] puf_server: Incoming connection from 10.42.0.89:52822
+15:08:56 [INFO] rot_challenge_service: [('10.42.0.89', 50581)] socket error: timed out
+15:08:57 [INFO] puf_server: Incoming connection from 10.42.0.89:50599
+15:09:01 [INFO] rot_challenge_service: [('10.42.0.89', 51491)] socket error: timed out
+15:09:02 [INFO] puf_server: Incoming connection from 10.42.0.89:54331
+15:09:03 [INFO] rot_challenge_service: [('10.42.0.89', 52822)] socket error: timed out
+15:09:07 [INFO] puf_server: Incoming connection from 10.42.0.89:58834
+15:09:07 [INFO] rot_challenge_service: [('10.42.0.89', 58834)] session ended: connection closed during recv
+15:09:07 [INFO] rot_challenge_service: [('10.42.0.89', 50599)] socket error: timed out
+15:09:12 [INFO] rot_challenge_service: [('10.42.0.89', 54331)] socket error: timed out
+15:09:31 [INFO] puf_server: Incoming connection from 10.42.0.89:63616
+15:09:36 [INFO] puf_server: Incoming connection from 10.42.0.89:58961
+15:09:41 [INFO] puf_server: Incoming connection from 10.42.0.89:53831
+15:09:42 [INFO] rot_challenge_service: [('10.42.0.89', 63616)] socket error: timed out
+15:09:45 [INFO] puf_server: Incoming connection from 10.42.0.89:53002
+15:09:46 [INFO] rot_challenge_service: [('10.42.0.89', 58961)] socket error: timed out
+15:09:50 [INFO] puf_server: Incoming connection from 10.42.0.89:52181
+15:09:51 [INFO] rot_challenge_service: [('10.42.0.89', 53831)] socket error: timed out
+15:09:54 [INFO] puf_server: Incoming connection from 10.42.0.89:60345
+15:09:54 [INFO] rot_challenge_service: [('10.42.0.89', 60345)] session ended: connection closed during recv
+15:09:55 [INFO] rot_challenge_service: [('10.42.0.89', 53002)] socket error: timed out
+15:10:00 [INFO] rot_challenge_service: [('10.42.0.89', 52181)] socket error: timed out
+15:10:17 [INFO] puf_server: Incoming connection from 10.42.0.89:54869
+15:10:19 [INFO] puf_server: Incoming connection from 10.42.0.89:49424
+15:10:23 [INFO] puf_server: Incoming connection from 10.42.0.89:53863
+15:10:27 [INFO] rot_challenge_service: [('10.42.0.89', 54869)] socket error: timed out
+15:10:28 [INFO] puf_server: Incoming connection from 10.42.0.89:50766
+15:10:29 [INFO] rot_challenge_service: [('10.42.0.89', 49424)] socket error: timed out
+15:10:32 [INFO] puf_server: Incoming connection from 10.42.0.89:58499
+15:10:33 [INFO] rot_challenge_service: [('10.42.0.89', 53863)] socket error: timed out
+15:10:37 [INFO] puf_server: Incoming connection from 10.42.0.89:55662
+15:10:37 [INFO] rot_challenge_service: [('10.42.0.89', 55662)] session ended: connection closed during recv
+15:10:38 [INFO] rot_challenge_service: [('10.42.0.89', 50766)] socket error: timed out
+15:10:42 [INFO] rot_challenge_service: [('10.42.0.89', 58499)] socket error: timed out
+15:11:02 [INFO] puf_server: Incoming connection from 10.42.0.89:53078
+15:11:11 [INFO] puf_server: Incoming connection from 10.42.0.89:57116
+15:11:12 [INFO] rot_challenge_service: [('10.42.0.89', 53078)] socket error: timed out
+15:11:16 [INFO] puf_server: Incoming connection from 10.42.0.89:53451
+15:11:20 [INFO] puf_server: Incoming connection from 10.42.0.89:53779
+15:11:21 [INFO] rot_challenge_service: [('10.42.0.89', 57116)] socket error: timed out
+15:11:25 [INFO] puf_server: Incoming connection from 10.42.0.89:56260
+15:11:25 [INFO] rot_challenge_service: [('10.42.0.89', 56260)] session ended: connection closed during recv
+15:11:26 [INFO] rot_challenge_service: [('10.42.0.89', 53451)] socket error: timed out
+15:11:30 [INFO] rot_challenge_service: [('10.42.0.89', 53779)] socket error: timed out
+15:26:04 [INFO] puf_server: Incoming connection from 10.42.0.89:54530
+15:26:05 [INFO] rot_challenge_service: [('10.42.0.89', 54530)] handshake OK, node=SMG_NODE_01 authenticated
+15:26:05 [INFO] rot_challenge_service: [('10.42.0.89', 54530)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:26:37 [INFO] puf_server: Incoming connection from 10.42.0.89:58460
+15:26:38 [INFO] rot_challenge_service: [('10.42.0.89', 58460)] handshake OK, node=SMG_NODE_01 authenticated
+15:26:38 [INFO] rot_challenge_service: [('10.42.0.89', 58460)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:26:43 [INFO] puf_server: Incoming connection from 10.42.0.89:52054
+15:26:43 [INFO] rot_challenge_service: [('10.42.0.89', 52054)] handshake OK, node=SMG_NODE_01 authenticated
+15:26:44 [INFO] rot_challenge_service: [('10.42.0.89', 52054)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:26:49 [INFO] puf_server: Incoming connection from 10.42.0.89:51836
+15:26:50 [INFO] rot_challenge_service: [('10.42.0.89', 51836)] handshake OK, node=SMG_NODE_01 authenticated
+15:26:50 [INFO] rot_challenge_service: [('10.42.0.89', 51836)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:26:55 [INFO] puf_server: Incoming connection from 10.42.0.89:63314
+15:26:55 [INFO] rot_challenge_service: [('10.42.0.89', 63314)] handshake OK, node=SMG_NODE_01 authenticated
+15:26:56 [INFO] rot_challenge_service: [('10.42.0.89', 63314)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:01 [INFO] puf_server: Incoming connection from 10.42.0.89:51693
+15:27:02 [INFO] rot_challenge_service: [('10.42.0.89', 51693)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:02 [INFO] rot_challenge_service: [('10.42.0.89', 51693)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:17 [INFO] puf_server: Incoming connection from 10.42.0.89:55061
+15:27:18 [INFO] rot_challenge_service: [('10.42.0.89', 55061)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:18 [INFO] rot_challenge_service: [('10.42.0.89', 55061)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:23 [INFO] puf_server: Incoming connection from 10.42.0.89:57351
+15:27:24 [INFO] rot_challenge_service: [('10.42.0.89', 57351)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:24 [INFO] rot_challenge_service: [('10.42.0.89', 57351)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:29 [INFO] puf_server: Incoming connection from 10.42.0.89:57774
+15:27:30 [INFO] rot_challenge_service: [('10.42.0.89', 57774)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:30 [INFO] rot_challenge_service: [('10.42.0.89', 57774)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:35 [INFO] puf_server: Incoming connection from 10.42.0.89:57070
+15:27:36 [INFO] rot_challenge_service: [('10.42.0.89', 57070)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:36 [INFO] rot_challenge_service: [('10.42.0.89', 57070)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:41 [INFO] puf_server: Incoming connection from 10.42.0.89:60745
+15:27:42 [INFO] rot_challenge_service: [('10.42.0.89', 60745)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:42 [INFO] rot_challenge_service: [('10.42.0.89', 60745)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:47 [INFO] puf_server: Incoming connection from 10.42.0.89:59099
+15:27:48 [INFO] rot_challenge_service: [('10.42.0.89', 59099)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:48 [INFO] rot_challenge_service: [('10.42.0.89', 59099)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:53 [INFO] puf_server: Incoming connection from 10.42.0.89:49264
+15:27:54 [INFO] rot_challenge_service: [('10.42.0.89', 49264)] handshake OK, node=SMG_NODE_01 authenticated
+15:27:54 [INFO] rot_challenge_service: [('10.42.0.89', 49264)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:27:59 [INFO] puf_server: Incoming connection from 10.42.0.89:50441
+15:28:00 [INFO] rot_challenge_service: [('10.42.0.89', 50441)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:00 [INFO] rot_challenge_service: [('10.42.0.89', 50441)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:05 [INFO] puf_server: Incoming connection from 10.42.0.89:53491
+15:28:06 [INFO] rot_challenge_service: [('10.42.0.89', 53491)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:06 [INFO] rot_challenge_service: [('10.42.0.89', 53491)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:11 [INFO] puf_server: Incoming connection from 10.42.0.89:56301
+15:28:12 [INFO] rot_challenge_service: [('10.42.0.89', 56301)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:12 [INFO] rot_challenge_service: [('10.42.0.89', 56301)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:17 [INFO] puf_server: Incoming connection from 10.42.0.89:55099
+15:28:18 [INFO] rot_challenge_service: [('10.42.0.89', 55099)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:18 [INFO] rot_challenge_service: [('10.42.0.89', 55099)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:23 [INFO] puf_server: Incoming connection from 10.42.0.89:58876
+15:28:24 [INFO] rot_challenge_service: [('10.42.0.89', 58876)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:25 [INFO] rot_challenge_service: [('10.42.0.89', 58876)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:30 [INFO] puf_server: Incoming connection from 10.42.0.89:53904
+15:28:30 [INFO] rot_challenge_service: [('10.42.0.89', 53904)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:31 [INFO] rot_challenge_service: [('10.42.0.89', 53904)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:36 [INFO] puf_server: Incoming connection from 10.42.0.89:65243
+15:28:36 [INFO] rot_challenge_service: [('10.42.0.89', 65243)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:37 [INFO] rot_challenge_service: [('10.42.0.89', 65243)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:42 [INFO] puf_server: Incoming connection from 10.42.0.89:54370
+15:28:42 [INFO] rot_challenge_service: [('10.42.0.89', 54370)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:43 [INFO] rot_challenge_service: [('10.42.0.89', 54370)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:48 [INFO] puf_server: Incoming connection from 10.42.0.89:59846
+15:28:48 [INFO] rot_challenge_service: [('10.42.0.89', 59846)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:49 [INFO] rot_challenge_service: [('10.42.0.89', 59846)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:28:54 [INFO] puf_server: Incoming connection from 10.42.0.89:49649
+15:28:54 [INFO] rot_challenge_service: [('10.42.0.89', 49649)] handshake OK, node=SMG_NODE_01 authenticated
+15:28:55 [INFO] rot_challenge_service: [('10.42.0.89', 49649)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:00 [INFO] puf_server: Incoming connection from 10.42.0.89:54093
+15:29:00 [INFO] rot_challenge_service: [('10.42.0.89', 54093)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:01 [INFO] rot_challenge_service: [('10.42.0.89', 54093)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:06 [INFO] puf_server: Incoming connection from 10.42.0.89:53784
+15:29:06 [INFO] rot_challenge_service: [('10.42.0.89', 53784)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:07 [INFO] rot_challenge_service: [('10.42.0.89', 53784)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:12 [INFO] puf_server: Incoming connection from 10.42.0.89:58992
+15:29:12 [INFO] rot_challenge_service: [('10.42.0.89', 58992)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:13 [INFO] rot_challenge_service: [('10.42.0.89', 58992)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:18 [INFO] puf_server: Incoming connection from 10.42.0.89:60988
+15:29:18 [INFO] rot_challenge_service: [('10.42.0.89', 60988)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:19 [INFO] rot_challenge_service: [('10.42.0.89', 60988)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:24 [INFO] puf_server: Incoming connection from 10.42.0.89:50725
+15:29:24 [INFO] rot_challenge_service: [('10.42.0.89', 50725)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:25 [INFO] rot_challenge_service: [('10.42.0.89', 50725)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:27 [INFO] puf_server: Incoming connection from 10.42.0.89:51774
+15:29:28 [INFO] rot_challenge_service: [('10.42.0.89', 51774)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:28 [INFO] rot_challenge_service: [('10.42.0.89', 51774)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:31 [INFO] puf_server: Incoming connection from 10.42.0.89:63135
+15:29:32 [INFO] rot_challenge_service: [('10.42.0.89', 63135)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:32 [INFO] rot_challenge_service: [('10.42.0.89', 63135)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:37 [INFO] puf_server: Incoming connection from 10.42.0.89:51973
+15:29:38 [INFO] rot_challenge_service: [('10.42.0.89', 51973)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:38 [INFO] rot_challenge_service: [('10.42.0.89', 51973)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:43 [INFO] puf_server: Incoming connection from 10.42.0.89:60832
+15:29:44 [INFO] rot_challenge_service: [('10.42.0.89', 60832)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:44 [INFO] rot_challenge_service: [('10.42.0.89', 60832)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:49 [INFO] puf_server: Incoming connection from 10.42.0.89:53687
+15:29:50 [INFO] rot_challenge_service: [('10.42.0.89', 53687)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:50 [INFO] rot_challenge_service: [('10.42.0.89', 53687)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:29:55 [INFO] puf_server: Incoming connection from 10.42.0.89:58374
+15:29:56 [INFO] rot_challenge_service: [('10.42.0.89', 58374)] handshake OK, node=SMG_NODE_01 authenticated
+15:29:56 [INFO] rot_challenge_service: [('10.42.0.89', 58374)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:30:01 [INFO] puf_server: Incoming connection from 10.42.0.89:55875
+15:30:02 [INFO] rot_challenge_service: [('10.42.0.89', 55875)] handshake OK, node=SMG_NODE_01 authenticated
+15:30:02 [INFO] rot_challenge_service: [('10.42.0.89', 55875)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+15:30:07 [INFO] puf_server: Incoming connection from 10.42.0.89:65458
+15:30:08 [INFO] rot_challenge_service: [('10.42.0.89', 65458)] handshake OK, node=SMG_NODE_01 authenticated
+15:30:08 [INFO] rot_challenge_service: [('10.42.0.89', 65458)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'

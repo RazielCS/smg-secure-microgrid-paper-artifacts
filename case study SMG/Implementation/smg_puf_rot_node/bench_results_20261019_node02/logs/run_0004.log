@@ -1,0 +1,117 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6276
+load:0x40078000,len:15736
+load:0x40080400,len:4
+load:0x40080404,len:3860
+entry 0x4008063c
+I (29) boot: ESP-IDF v5.4.2 2nd stage bootloader
+I (29) boot: compile time Oct 15 2026 11:56:41
+I (30) boot: Multicore bootloader
+I (31) boot: chip revision: v3.1
+I (34) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (41) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition Table:
+I (51) boot: ## Label            Usage          Type ST Offset   Length
+I (58) boot:  0 nvs              WiFi data        01 02 00009000 00050000
+I (64) boot:  1 phy_init         RF data          01 01 00059000 00001000
+I (71) boot:  2 factory          factory app      00 00 00060000 00100000
+I (77) boot: End of partition table
+I (81) esp_image: segment 0: paddr=00060020 vaddr=3f400020 size=1aae4h (109284) map
+I (126) esp_image: segment 1: paddr=0007ab0c vaddr=3ff80094 size=0001ch (    28) load
+I (126) esp_image: segment 2: paddr=0007ab30 vaddr=3ffb0000 size=041a8h ( 16808) load
+I (136) esp_image: segment 3: paddr=0007ece0 vaddr=40080000 size=01338h (  4920) load
+I (139) esp_image: segment 4: paddr=00080020 vaddr=400d0020 size=8f4ach (586924) map
+I (345) esp_image: segment 5: paddr=0010f4d4 vaddr=40081338 size=1770ch ( 96012) load
+I (382) esp_image: segment 6: paddr=00126be8 vaddr=400c0000 size=00094h (   148) load
+I (383) esp_image: segment 7: paddr=00126c84 vaddr=50000000 size=00010h (    16) load
+I (398) boot: Loaded app from partition at offset 0x60000
+I (398) boot: Disabling RNG early entropy source...
+I (410) cpu_start: Multicore app
+I (419) cpu_start: Pro cpu start user code
+I (419) cpu_start: cpu freq: 160000000 Hz
+I (419) app_init: Application information:
+I (419) app_init: Project name:     smg_puf_rot_node
+I (424) app_init: App version:      1
+I (427) app_init: Compile time:     Oct 19 2026 10:18:12
+I (432) app_init: ELF file SHA256:  b05a8e0e6...
+I (436) app_init: ESP-IDF:          v5.4.2
+I (440) efuse_init: Min chip rev:     v0.0
+I (444) efuse_init: Max chip rev:     v3.99 
+I (448) efuse_init: Chip rev:         v3.1
+I (452) heap_init: Initializing. RAM available for dynamic allocation:
+I (458) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (463) heap_init: At 3FFB9250 len 00026DB0 (155 KiB): DRAM
+I (468) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (474) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (479) heap_init: At 40098A44 len 000075BC (29 KiB): IRAM
+I (486) spi_flash: detected chip: generic
+I (488) spi_flash: flash io: dio
+W (491) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (504) main_task: Started on CPU0
+I (514) main_task: Calling app_main()
+PUF INIT
+I (644) app_main: PUF identity ready (enrollment data present in NVS)
+I (664) wifi:wifi driver task: 3ffc2c8c, prio:23, stack:6656, core=0
+I (674) wifi:wifi firmware version: bea31f3
+I (674) wifi:wifi certification version: v7.0
+I (674) wifi:config NVS flash: enabled
+I (674) wifi:config nano formatting: disabled
+I (684) wifi:Init data frame dynamic rx buffer num: 32
+I (684) wifi:Init static rx mgmt buffer num: 5
+I (684) wifi:Init management short buffer num: 32
+I (694) wifi:Init dynamic tx buffer num: 32
+I (694) wifi:Init static rx buffer size: 1600
+I (704) wifi:Init static rx buffer num: 10
+I (704) wifi:Init dynamic rx buffer num: 32
+I (714) wifi_init: rx ba win: 6
+I (714) wifi_init: accept mbox: 6
+I (714) wifi_init: tcpip mbox: 32
+I (714) wifi_init: udp mbox: 6
+I (724) wifi_init: tcp mbox: 6
+I (724) wifi_init: tcp tx win: 5760
+I (724) wifi_init: tcp rx win: 5760
+I (734) wifi_init: tcp mss: 1440
+I (734) wifi_init: WiFi IRAM OP enabled
+I (734) wifi_init: WiFi RX IRAM OP enabled
+I (744) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07
+I (834) wifi:mode : sta (08:d1:f9:d3:02:e8)
+I (834) wifi:enable tsf
+I (834) wifi_station: connecting to SSID:SMG_Primary ...
+I (844) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0
+I (844) wifi:state: init -> auth (0xb0)
+I (854) wifi:state: auth -> assoc (0x0)
+I (854) wifi:state: assoc -> init (0x2c0)
+I (864) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0
+W (864) wifi_station: retrying WiFi connection (1/10)
+W (3284) wifi_station: retrying WiFi connection (2/10)
+I (3284) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0
+I (3284) wifi:state: init -> auth (0xb0)
+I (3294) wifi:state: auth -> assoc (0x0)
+I (3294) wifi:state: assoc -> run (0x10)
+I (3314) wifi:connected with SMG_Primary, aid = 2, channel 1, BW20, bssid = dc:a6:32:61:2d:6c
+I (3314) wifi:security: WPA2-PSK, phy: bgn, rssi: -16
+I (3314) wifi:pm start, type: 1
+
+I (3314) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (3324) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+I (3334) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+I (3344) wifi:<ba-add>idx:0 (ifx:0, dc:a6:32:61:2d:6c), tid:7, ssn:0, winSize:64
+I (4364) esp_netif_handlers: sta ip: 10.42.0.169, mask: 255.255.255.0, gw: 10.42.0.1
+I (4364) wifi_station: connected
+I (4364) wifi:<ba-add>idx:1 (ifx:0, dc:a6:32:61:2d:6c), tid:0, ssn:2, winSize:64
+I (4374) app_main: connected to server 10.42.0.1:5001
+get_puf_response: errors=0.473% [155 bits] above the 0.15% diagnostic figure, proceeding anyway -- server ECDSA verification is the real correctness check
+I (4454) app_main: PUF response reconstructed (420 bytes)
+I (4464) rot_identity: ID_A: provisioned (NVS)
+I (4934) rot_session: handshake: server authenticated
+I (5204) rot_session: handshake: device authenticated, session established
+I (5414) app_main: mutual authentication OK, session key derived
+I (5424) app_main: demo encrypted message sent
+I (5424) main_task: Returned from app_main()

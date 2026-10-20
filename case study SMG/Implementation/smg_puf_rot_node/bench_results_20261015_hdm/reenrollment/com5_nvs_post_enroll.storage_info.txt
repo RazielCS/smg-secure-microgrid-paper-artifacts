@@ -1,0 +1,652 @@
+Page Full
+  Found entries:
+    Written:     1
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       2
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Active
+  Found entries:
+    Written:     0
+    Erased:      2
+    Empty:      25
+    Invalid:     0
+    Total:      27
+
+Page Empty
+  Found entries:
+    Written:     0
+    Erased:      0
+    Empty:     126
+    Invalid:     0
+    Total:     126
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      3
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      3
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      3
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     1
+    Erased:      2
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     3
+    Erased:      0
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     3
+    Erased:      0
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     3
+    Erased:      0
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     2
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       3
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Page Full
+  Found entries:
+    Written:     0
+    Erased:      1
+    Empty:       0
+    Invalid:     0
+    Total:       1
+
+Global
+  Config:
+    Page size:    4096
+    Entry size:     32
+    Total pages:    80
+  Entries:
+    Written:    13
+    Erased:     84
+    Empty:     151
+    Invalid:     0
+    Total:     248
+

@@ -1,0 +1,9 @@
+16:19:38 [INFO] puf_server: Loaded 1 node(s) from registry
+16:19:38 [INFO] puf_server: Server ID (id_b): 4b33ee6834e9ddd46fd9e0275062f05c
+16:19:38 [INFO] puf_server: Listening on 0.0.0.0:5001
+16:21:30 [INFO] puf_server: Incoming connection from 10.42.0.169:65526
+16:21:40 [INFO] rot_challenge_service: [('10.42.0.169', 65526)] socket error: timed out
+16:21:50 [INFO] puf_server: Incoming connection from 10.42.0.169:58236
+16:21:55 [INFO] puf_server: Incoming connection from 10.42.0.169:58426
+16:21:55 [WARNING] rot_challenge_service: [('10.42.0.169', 58426)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+16:22:00 [INFO] rot_challenge_service: [('10.42.0.169', 58236)] socket error: timed out

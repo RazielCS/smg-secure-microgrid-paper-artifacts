@@ -1,0 +1,338 @@
+[
+    {
+        "namespace": "rot_identity",
+        "key": "id_b",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 16
+    },
+    {
+        "namespace": "rot_identity",
+        "key": "shs_b_ref",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 32
+    },
+    {
+        "namespace": "wifi_creds",
+        "key": "ssid",
+        "encoding": "string",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "wifi_creds",
+        "key": "pass",
+        "encoding": "string",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3584
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 512
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_SLEEP_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3424
+    },
+    {
+        "namespace": "storage",
+        "key": "PUF_SLEEP_MASK",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 672
+    },
+    {
+        "namespace": "storage",
+        "key": "ECC_DATA",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3264
+    },
+    {
+        "namespace": "storage",
+        "key": "ECC_DATA",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 112
+    },
+    {
+        "namespace": "storage",
+        "key": "ECC_SLEEP_DATA",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 3376
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "ap.sndchan",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "opmode",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.ssid",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 36
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.pswd",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 65
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "bssid.set",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.lis_intval",
+        "encoding": "uint16_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.scan_method",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.sort_method",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.minrssi",
+        "encoding": "int8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.minauth",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.apsw",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 2
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.pmf_e",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.pmf_r",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.rrm_e",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.btm_e",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.mbo_e",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.ft",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.owe",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.bss_retry",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.trans_d",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.sae_h2e",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.sae_pk_mode",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.sae_h2e_id",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 32
+    },
+    {
+        "namespace": "phy",
+        "key": "cal_data",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 1904
+    },
+    {
+        "namespace": "phy",
+        "key": "cal_mac",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 6
+    },
+    {
+        "namespace": "phy",
+        "key": "cal_version",
+        "encoding": "uint32_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.pwr_reset",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.chan",
+        "encoding": "uint8_t",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false
+    },
+    {
+        "namespace": "nvs.net80211",
+        "key": "sta.apinfo",
+        "encoding": "blob_data",
+        "data": "<REDACTED>",
+        "state": "Written",
+        "is_empty": false,
+        "size_bytes": 700
+    }
+]

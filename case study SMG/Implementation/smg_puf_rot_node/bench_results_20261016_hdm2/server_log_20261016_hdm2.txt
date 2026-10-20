@@ -1,0 +1,115 @@
+09:53:29 [INFO] puf_server: Loaded 1 node(s) from registry
+09:53:29 [INFO] puf_server: Server ID (id_b): 4b33ee6834e9ddd46fd9e0275062f05c
+09:53:29 [INFO] puf_server: Listening on 0.0.0.0:5001
+09:56:44 [INFO] puf_server: Loaded 1 node(s) from registry
+09:56:44 [INFO] puf_server: Server ID (id_b): 4b33ee6834e9ddd46fd9e0275062f05c
+09:56:44 [INFO] puf_server: Listening on 0.0.0.0:5001
+09:57:03 [INFO] puf_server: Incoming connection from 10.42.0.89:55982
+09:57:04 [INFO] rot_challenge_service: [('10.42.0.89', 55982)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:05 [INFO] rot_challenge_service: [('10.42.0.89', 55982)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:57:24 [INFO] puf_server: Incoming connection from 10.42.0.89:50245
+09:57:25 [INFO] rot_challenge_service: [('10.42.0.89', 50245)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:26 [INFO] rot_challenge_service: [('10.42.0.89', 50245)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:57:31 [INFO] puf_server: Incoming connection from 10.42.0.89:58317
+09:57:32 [INFO] rot_challenge_service: [('10.42.0.89', 58317)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:32 [INFO] rot_challenge_service: [('10.42.0.89', 58317)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:57:37 [INFO] puf_server: Incoming connection from 10.42.0.89:54974
+09:57:38 [INFO] rot_challenge_service: [('10.42.0.89', 54974)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:38 [INFO] rot_challenge_service: [('10.42.0.89', 54974)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:57:44 [INFO] puf_server: Incoming connection from 10.42.0.89:57354
+09:57:45 [INFO] rot_challenge_service: [('10.42.0.89', 57354)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:45 [INFO] rot_challenge_service: [('10.42.0.89', 57354)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:57:50 [INFO] puf_server: Incoming connection from 10.42.0.89:56968
+09:57:51 [INFO] rot_challenge_service: [('10.42.0.89', 56968)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:51 [INFO] rot_challenge_service: [('10.42.0.89', 56968)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:57:56 [INFO] puf_server: Incoming connection from 10.42.0.89:57895
+09:57:57 [INFO] rot_challenge_service: [('10.42.0.89', 57895)] handshake OK, node=SMG_NODE_01 authenticated
+09:57:57 [INFO] rot_challenge_service: [('10.42.0.89', 57895)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:03 [INFO] puf_server: Incoming connection from 10.42.0.89:64137
+09:58:04 [INFO] rot_challenge_service: [('10.42.0.89', 64137)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:04 [INFO] rot_challenge_service: [('10.42.0.89', 64137)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:09 [INFO] puf_server: Incoming connection from 10.42.0.89:51616
+09:58:10 [INFO] rot_challenge_service: [('10.42.0.89', 51616)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:10 [INFO] rot_challenge_service: [('10.42.0.89', 51616)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:15 [INFO] puf_server: Incoming connection from 10.42.0.89:56050
+09:58:16 [INFO] rot_challenge_service: [('10.42.0.89', 56050)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:17 [INFO] rot_challenge_service: [('10.42.0.89', 56050)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:22 [INFO] puf_server: Incoming connection from 10.42.0.89:51497
+09:58:23 [INFO] rot_challenge_service: [('10.42.0.89', 51497)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:23 [INFO] rot_challenge_service: [('10.42.0.89', 51497)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:28 [INFO] puf_server: Incoming connection from 10.42.0.89:59090
+09:58:29 [INFO] rot_challenge_service: [('10.42.0.89', 59090)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:29 [INFO] rot_challenge_service: [('10.42.0.89', 59090)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:34 [INFO] puf_server: Incoming connection from 10.42.0.89:51654
+09:58:35 [INFO] rot_challenge_service: [('10.42.0.89', 51654)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:35 [INFO] rot_challenge_service: [('10.42.0.89', 51654)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:40 [INFO] puf_server: Incoming connection from 10.42.0.89:62621
+09:58:41 [INFO] rot_challenge_service: [('10.42.0.89', 62621)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:42 [INFO] rot_challenge_service: [('10.42.0.89', 62621)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:46 [INFO] puf_server: Incoming connection from 10.42.0.89:55288
+09:58:48 [INFO] rot_challenge_service: [('10.42.0.89', 55288)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:48 [INFO] rot_challenge_service: [('10.42.0.89', 55288)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:53 [INFO] puf_server: Incoming connection from 10.42.0.89:62824
+09:58:54 [INFO] rot_challenge_service: [('10.42.0.89', 62824)] handshake OK, node=SMG_NODE_01 authenticated
+09:58:54 [INFO] rot_challenge_service: [('10.42.0.89', 62824)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:58:59 [INFO] puf_server: Incoming connection from 10.42.0.89:57932
+09:59:00 [INFO] rot_challenge_service: [('10.42.0.89', 57932)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:00 [INFO] rot_challenge_service: [('10.42.0.89', 57932)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:05 [INFO] puf_server: Incoming connection from 10.42.0.89:49601
+09:59:06 [INFO] rot_challenge_service: [('10.42.0.89', 49601)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:07 [INFO] rot_challenge_service: [('10.42.0.89', 49601)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:12 [INFO] puf_server: Incoming connection from 10.42.0.89:50297
+09:59:13 [INFO] rot_challenge_service: [('10.42.0.89', 50297)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:13 [INFO] rot_challenge_service: [('10.42.0.89', 50297)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:18 [INFO] puf_server: Incoming connection from 10.42.0.89:54832
+09:59:19 [INFO] rot_challenge_service: [('10.42.0.89', 54832)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:19 [INFO] rot_challenge_service: [('10.42.0.89', 54832)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:24 [INFO] puf_server: Incoming connection from 10.42.0.89:49579
+09:59:25 [INFO] rot_challenge_service: [('10.42.0.89', 49579)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:26 [INFO] rot_challenge_service: [('10.42.0.89', 49579)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:31 [INFO] puf_server: Incoming connection from 10.42.0.89:57788
+09:59:32 [INFO] rot_challenge_service: [('10.42.0.89', 57788)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:32 [INFO] rot_challenge_service: [('10.42.0.89', 57788)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:37 [INFO] puf_server: Incoming connection from 10.42.0.89:58284
+09:59:38 [INFO] rot_challenge_service: [('10.42.0.89', 58284)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:38 [INFO] rot_challenge_service: [('10.42.0.89', 58284)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:43 [INFO] puf_server: Incoming connection from 10.42.0.89:59984
+09:59:44 [INFO] rot_challenge_service: [('10.42.0.89', 59984)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:45 [INFO] rot_challenge_service: [('10.42.0.89', 59984)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:50 [INFO] puf_server: Incoming connection from 10.42.0.89:63523
+09:59:51 [INFO] rot_challenge_service: [('10.42.0.89', 63523)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:51 [INFO] rot_challenge_service: [('10.42.0.89', 63523)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+09:59:56 [INFO] puf_server: Incoming connection from 10.42.0.89:60523
+09:59:57 [INFO] rot_challenge_service: [('10.42.0.89', 60523)] handshake OK, node=SMG_NODE_01 authenticated
+09:59:58 [INFO] rot_challenge_service: [('10.42.0.89', 60523)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:00:03 [INFO] puf_server: Incoming connection from 10.42.0.89:58894
+10:00:04 [INFO] rot_challenge_service: [('10.42.0.89', 58894)] handshake OK, node=SMG_NODE_01 authenticated
+10:00:04 [INFO] rot_challenge_service: [('10.42.0.89', 58894)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:00:09 [INFO] puf_server: Incoming connection from 10.42.0.89:51566
+10:00:10 [INFO] rot_challenge_service: [('10.42.0.89', 51566)] handshake OK, node=SMG_NODE_01 authenticated
+10:00:10 [INFO] rot_challenge_service: [('10.42.0.89', 51566)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:00:15 [INFO] puf_server: Incoming connection from 10.42.0.89:55563
+10:00:16 [INFO] rot_challenge_service: [('10.42.0.89', 55563)] handshake OK, node=SMG_NODE_01 authenticated
+10:00:17 [INFO] rot_challenge_service: [('10.42.0.89', 55563)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:00:21 [INFO] puf_server: Incoming connection from 10.42.0.89:60207
+10:00:23 [INFO] rot_challenge_service: [('10.42.0.89', 60207)] handshake OK, node=SMG_NODE_01 authenticated
+10:00:23 [INFO] rot_challenge_service: [('10.42.0.89', 60207)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:00:28 [INFO] puf_server: Incoming connection from 10.42.0.89:63877
+10:00:29 [INFO] rot_challenge_service: [('10.42.0.89', 63877)] handshake OK, node=SMG_NODE_01 authenticated
+10:00:29 [INFO] rot_challenge_service: [('10.42.0.89', 63877)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:01:31 [INFO] puf_server: Incoming connection from 10.42.0.89:51010
+10:01:32 [WARNING] rot_challenge_service: [('10.42.0.89', 51010)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+10:01:45 [INFO] puf_server: Incoming connection from 10.42.0.89:54769
+10:01:46 [WARNING] rot_challenge_service: [('10.42.0.89', 54769)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+10:01:59 [INFO] puf_server: Incoming connection from 10.42.0.89:51563
+10:02:00 [INFO] rot_challenge_service: [('10.42.0.89', 51563)] handshake OK, node=SMG_NODE_01 authenticated
+10:02:00 [INFO] rot_challenge_service: [('10.42.0.89', 51563)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:03:28 [INFO] puf_server: Incoming connection from 10.42.0.89:62831
+10:03:29 [INFO] rot_challenge_service: [('10.42.0.89', 62831)] handshake OK, node=SMG_NODE_01 authenticated
+10:03:29 [INFO] rot_challenge_service: [('10.42.0.89', 62831)] node=SMG_NODE_01 P3 payload: b'{"demo":"puf_rot_node","status":"handshake_ok"}'
+10:03:46 [INFO] puf_server: Incoming connection from 10.42.0.169:64883
+10:03:47 [WARNING] rot_challenge_service: [('10.42.0.169', 64883)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+10:03:56 [INFO] puf_server: Incoming connection from 10.42.0.169:62541
+10:03:57 [WARNING] rot_challenge_service: [('10.42.0.169', 62541)] device authentication FAILED (signature invalid) node=SMG_NODE_01
+10:04:07 [INFO] puf_server: Incoming connection from 10.42.0.169:53303
+10:04:08 [WARNING] rot_challenge_service: [('10.42.0.169', 53303)] device authentication FAILED (signature invalid) node=SMG_NODE_01
