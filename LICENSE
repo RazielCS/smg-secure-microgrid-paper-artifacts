@@ -394,17 +394,3 @@ licenses.
 
 Creative Commons may be contacted at creativecommons.org.
 
-
-=======================================================================
-
-This license applies to the contents of this repository: manuscript
-source, case-study documentation, raw bench-trial measurement data, and
-expert-validation instruments for "Closing the Security Activation Gap:
-A Security-by-Design Methodology for IoT Ecosystems and Its Empirical
-Validation in a DC Smart Microgrid" (R. Campos-Sanchez, L. Hernandez-Martinez,
-C. Feregrino-Uribe, A. Penuelas-Angulo, D. Cruz-Aguilar, 2026).
-
-The companion code repository (firmware and server software,
-https://github.com/RazielCS/smg-secure-microgrid) is licensed separately
-under Apache-2.0, except for the vendored esp32_puflib component, which
-retains its own upstream MIT license; see that repository for details.
