@@ -19,6 +19,7 @@ Article/*.out
 Article/*.synctex.gz
 Article/*.fls
 Article/*.fdb_latexmk
+Article/*.spl
 
 # Editor/OS
 .DS_Store
